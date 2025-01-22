@@ -18,8 +18,8 @@ public class TheGreatPaladinsClaymoreItem extends AdvancedSweepMeleeWeaponItem {
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         super.postDamageEntity(stack, target, attacker);
 
-        if (this.getDistanceBetweenEntities(target, attacker) > 3) {
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 30, 0, false, true), attacker);
+        if (this.getDistanceBetweenEntities(target, attacker) > 3.25F) {
+            target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 50, 0, false, true), attacker);
             target.damage(target.getDamageSources().generic(), 1F);
         }
     }

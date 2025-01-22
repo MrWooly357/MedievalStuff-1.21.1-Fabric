@@ -13,7 +13,7 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/medieval-stuff",
-		"sources": ""
+		"sources": "https://github.com/MrWooly125/MedievalStuff-1.21.1-Fabric"
 	},
 	"license": "MIT",
 	"icon": "assets/medievalstuff/icon.png",
