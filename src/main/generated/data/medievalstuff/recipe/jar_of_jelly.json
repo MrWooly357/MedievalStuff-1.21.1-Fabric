@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "J": {
+      "item": "medievalstuff:jar"
+    },
+    "P": {
+      "item": "medievalstuff:piece_of_jelly"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "PPP",
+    "JPP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "medievalstuff:jar_of_jelly"
+  }
+}

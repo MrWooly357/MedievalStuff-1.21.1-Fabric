@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "medievalstuff:block/stripped_lumishroom_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "medievalstuff:block/stripped_lumishroom_wood"
+    },
+    "axis=z": {
+      "model": "medievalstuff:block/stripped_lumishroom_wood",
+      "x": 90
+    }
+  }
+}

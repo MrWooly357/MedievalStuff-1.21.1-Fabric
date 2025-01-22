@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "medievalstuff:silver_nugget"
+    },
+    "N": {
+      "item": "medievalstuff:silver_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " N ",
+    " I ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "medievalstuff:silver_dagger"
+  }
+}

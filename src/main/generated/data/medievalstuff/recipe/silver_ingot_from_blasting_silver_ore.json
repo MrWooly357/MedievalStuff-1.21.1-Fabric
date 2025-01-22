@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "group": "medievalstuff",
+  "ingredient": {
+    "item": "medievalstuff:silver_ore"
+  },
+  "result": {
+    "id": "medievalstuff:silver_ingot"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "medievalstuff:block/gloomy_stone_bricks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#minecraft:incorrect_for_iron_tool"
+  ],
+  "remove": [
+    "#Medievalstuff:needs_silver_tool"
+  ]
+}

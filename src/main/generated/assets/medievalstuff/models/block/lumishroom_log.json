@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "medievalstuff:block/lumishroom_log_top",
+    "side": "medievalstuff:block/lumishroom_log"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:huge_fungus",
+  "config": {
+    "decor_state": {
+      "Name": "minecraft:shroomlight"
+    },
+    "hat_state": {
+      "Name": "medievalstuff:lumishroom_cap"
+    },
+    "planted": false,
+    "replaceable_blocks": {
+      "type": "minecraft:matching_blocks",
+      "blocks": "medievalstuff:lumishroom"
+    },
+    "stem_state": {
+      "Name": "medievalstuff:lumishroom_log",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "valid_base_block": {
+      "Name": "minecraft:grass_block",
+      "Properties": {
+        "snowy": "false"
+      }
+    }
+  }
+}

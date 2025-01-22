@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "J": {
+      "item": "medievalstuff:jar_of_jelly"
+    },
+    "P": {
+      "item": "medievalstuff:piece_of_jelly"
+    },
+    "S": {
+      "item": "medievalstuff:silver_dagger"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "JJP",
+    "SJJ"
+  ],
+  "result": {
+    "count": 1,
+    "id": "medievalstuff:weightless_dagger"
+  }
+}

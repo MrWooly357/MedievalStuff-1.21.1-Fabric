@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "medievalstuff:gloomy_stone"
+  },
+  "result": {
+    "count": 1,
+    "id": "medievalstuff:gloomy_stone_pressure_plate"
+  }
+}

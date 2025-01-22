@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "medievalstuff:block/gloomy_stone",
+    "side": "medievalstuff:block/gloomy_stone",
+    "top": "medievalstuff:block/gloomy_stone"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "medievalstuff:block/gloomy_stone_bricks",
+    "side": "medievalstuff:block/gloomy_stone_bricks",
+    "top": "medievalstuff:block/gloomy_stone_bricks"
+  }
+}

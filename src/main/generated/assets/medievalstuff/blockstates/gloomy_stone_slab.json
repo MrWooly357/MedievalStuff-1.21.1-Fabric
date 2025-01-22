@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "medievalstuff:block/gloomy_stone_slab"
+    },
+    "type=double": {
+      "model": "medievalstuff:block/gloomy_stone"
+    },
+    "type=top": {
+      "model": "medievalstuff:block/gloomy_stone_slab_top"
+    }
+  }
+}

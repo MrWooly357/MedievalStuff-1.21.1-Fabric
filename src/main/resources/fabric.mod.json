@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "medievalstuff",
+	"version": "${version}",
+	"name": "Medieval Stuff",
+	"description": "This is a small mod focused around metallurgy and some other cool things.",
+	"authors": [
+		"MrWooly357"
+	],
+	"Huge thanks to": [
+		"Kaupenjoe for some help with code",
+		"My friends for help with lots of ideas"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/medieval-stuff",
+		"sources": ""
+	},
+	"license": "MIT",
+	"icon": "assets/medievalstuff/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.mrwooly357.medievalstuff.MedievalStuff"
+		],
+		"fabric-datagen": [
+			"net.mrwooly357.medievalstuff.MedievalStuffDataGenerator"
+		],
+		"client": [
+			"net.mrwooly357.medievalstuff.MedievalStuffClient"
+		]
+	},
+	"mixins": [
+		"medievalstuff.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

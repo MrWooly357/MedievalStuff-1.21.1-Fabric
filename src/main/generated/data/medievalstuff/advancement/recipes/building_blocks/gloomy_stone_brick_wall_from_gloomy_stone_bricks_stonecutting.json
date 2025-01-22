@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gloomy_stone_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "medievalstuff:gloomy_stone_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:gloomy_stone_brick_wall_from_gloomy_stone_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gloomy_stone_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:gloomy_stone_brick_wall_from_gloomy_stone_bricks_stonecutting"
+    ]
+  }
+}
