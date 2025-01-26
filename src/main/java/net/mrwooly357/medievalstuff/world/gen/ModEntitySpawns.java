@@ -15,6 +15,6 @@ public class ModEntitySpawns {
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST),
                 SpawnGroup.CREATURE, ModEntities.JELLY, 100,  2, 6);
         SpawnRestriction.register(ModEntities.JELLY, SpawnLocationTypes.ON_GROUND,
-                Heightmap.Type.MOTION_BLOCKING, AnimalEntity::isValidNaturalSpawn);
+                Heightmap.Type.WORLD_SURFACE, AnimalEntity::isValidNaturalSpawn);
     }
 }

@@ -20,7 +20,7 @@ import net.mrwooly357.medievalstuff.entity.ModEntities;
 import org.jetbrains.annotations.Nullable;
 
 public class JellyEntity extends AnimalEntity {
-    public final AnimationState basicJellyAnimationState = new AnimationState();
+    public static final AnimationState basicJellyAnimationState = new AnimationState();
     private int basicJellyAnimationTimeout = 0;
 
 
@@ -43,7 +43,7 @@ public class JellyEntity extends AnimalEntity {
     private void setupAnimationStates() {
         if(this.basicJellyAnimationTimeout <= 0) {
             this.basicJellyAnimationTimeout = 20;
-            this.basicJellyAnimationState.start(this.age);
+            basicJellyAnimationState.start(this.age);
         } else {
             --this.basicJellyAnimationTimeout;
         }
@@ -66,10 +66,6 @@ public class JellyEntity extends AnimalEntity {
                 .add(EntityAttributes.GENERIC_SAFE_FALL_DISTANCE, 32);
     }
 
-    protected int getTicksUntilNextJump() {
-            return this.random.nextInt(30) + 10;
-        }
-
     @Override
     public boolean isBreedingItem(ItemStack stack) {
         return stack.isOf(Items.CRIMSON_FUNGUS);
@@ -87,10 +83,6 @@ public class JellyEntity extends AnimalEntity {
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.ENTITY_SLIME_SQUISH_SMALL;
-    }
-
-    protected SoundEvent getJumpSound() {
-         return SoundEvents.ENTITY_SLIME_JUMP_SMALL;
     }
 
     @Nullable

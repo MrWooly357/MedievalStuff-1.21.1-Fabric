@@ -6,11 +6,13 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.MedievalStuff;
+import net.mrwooly357.medievalstuff.entity.client.render.features.JellyTranslucencyFeatureRenderer;
 import net.mrwooly357.medievalstuff.entity.custom.JellyEntity;
 
-public class JellyRenderer extends MobEntityRenderer<JellyEntity, JellyModel> {
-    public JellyRenderer(EntityRendererFactory.Context context) {
-        super(context, new JellyModel(context.getPart(ModEntityModelLayers.JELLY)), 0.3f);
+public class JellyEntityRenderer extends MobEntityRenderer<JellyEntity, JellyEntityModel<JellyEntity>> {
+    public JellyEntityRenderer(EntityRendererFactory.Context context) {
+        super(context, new JellyEntityModel<>(context.getPart(ModEntityModelLayers.JELLY_NORMAL)), 0.3f);
+        this.addFeature(new JellyTranslucencyFeatureRenderer<>(this, context.getModelLoader()));
     }
 
     @Override

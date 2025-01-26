@@ -7,16 +7,19 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.entity.ModEntities;
-import net.mrwooly357.medievalstuff.entity.client.JellyModel;
-import net.mrwooly357.medievalstuff.entity.client.JellyRenderer;
+import net.mrwooly357.medievalstuff.entity.client.JellyEntityModel;
+import net.mrwooly357.medievalstuff.entity.client.JellyEntityRenderer;
 import net.mrwooly357.medievalstuff.entity.client.ModEntityModelLayers;
+import net.mrwooly357.medievalstuff.entity.client.render.ModEntityModelLoader;
 
 public class MedievalStuffClient implements ClientModInitializer {
+
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LUMISHROOM, RenderLayer.getCutout());
 
-        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.JELLY, JellyModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.JELLY, JellyRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.JELLY_NORMAL, JellyEntityModel::getNormalTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.JELLY_TRANSLUCENT, JellyEntityModel::getTranslucentTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.JELLY, JellyEntityRenderer::new);
     }
 }
