@@ -10,7 +10,8 @@ import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.components.ModDataComponentTypes;
 import net.mrwooly357.medievalstuff.effect.ModEffects;
 import net.mrwooly357.medievalstuff.entity.ModEntities;
-import net.mrwooly357.medievalstuff.entity.custom.JellyEntity;
+import net.mrwooly357.medievalstuff.entity.miniboss.the_corrupted_great_paladin.TheCorruptedGreatPaladinEntity;
+import net.mrwooly357.medievalstuff.entity.mob.jelly.JellyEntity;
 import net.mrwooly357.medievalstuff.item.ModItemGroups;
 import net.mrwooly357.medievalstuff.item.ModItems;
 import net.mrwooly357.medievalstuff.world.gen.ModEntitySpawns;
@@ -52,6 +53,7 @@ public class MedievalStuff implements ModInitializer {
 
 		//Entities
 		FabricDefaultAttributeRegistry.register(ModEntities.JELLY, JellyEntity.createJellyAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.THE_CORRUPTED_GREAT_PALADIN_ENTITY, TheCorruptedGreatPaladinEntity.createTheCorruptedGreatPaladinEntityAttributes());
 
 		ModEntities.registerModEntities();
 		ModEntitySpawns.addSpawns();

@@ -1,4 +1,4 @@
-package net.mrwooly357.medievalstuff.entity.client;
+package net.mrwooly357.medievalstuff.entity.mob.jelly.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -7,8 +7,7 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
-import net.mrwooly357.medievalstuff.entity.client.animation.JellyAnimations;
-import net.mrwooly357.medievalstuff.entity.custom.JellyEntity;
+import net.mrwooly357.medievalstuff.entity.mob.jelly.JellyEntity;
 
 @Environment(EnvType.CLIENT)
 public class JellyEntityModel<T extends Entity> extends SinglePartEntityModel<T> {
@@ -149,8 +148,10 @@ public class JellyEntityModel<T extends Entity> extends SinglePartEntityModel<T>
     public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHatYaw, float hatPitch) {
         this.getPart().traverse().forEach(ModelPart::resetTransform);
 
-        this.animateMovement(JellyAnimations.jelly_animation, limbSwing, limbSwingAmount, 2f, 2.5f);
-        this.updateAnimation(JellyEntity.basicJellyAnimationState, JellyAnimations.jelly_animation, ageInTicks, 1f);
+        if (entity instanceof JellyEntity jellyEntity) {
+            this.animateMovement(JellyAnimations.jelly_animation, limbSwing, limbSwingAmount, 2f, 2.5f);
+            this.updateAnimation(jellyEntity.basicJellyAnimationState, JellyAnimations.jelly_animation, ageInTicks, 1);
+        }
     }
 
     @Override

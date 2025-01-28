@@ -1,4 +1,4 @@
-package net.mrwooly357.medievalstuff.entity.custom;
+package net.mrwooly357.medievalstuff.entity.mob.jelly;
 
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
@@ -16,11 +16,13 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
+import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.entity.ModEntities;
+import net.mrwooly357.medievalstuff.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 public class JellyEntity extends AnimalEntity {
-    public static final AnimationState basicJellyAnimationState = new AnimationState();
+    public final AnimationState basicJellyAnimationState = new AnimationState();
     private int basicJellyAnimationTimeout = 0;
 
 
@@ -31,13 +33,13 @@ public class JellyEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new EscapeDangerGoal(this, 0.5));
-        this.goalSelector.add(2, new AnimalMateGoal(this, 0.3));
-        this.goalSelector.add(3, new TemptGoal(this, 0.2, stack -> stack.isOf(Items.CRIMSON_FUNGUS), false));
+        this.goalSelector.add(1, new EscapeDangerGoal(this, 0.4));
+        this.goalSelector.add(2, new AnimalMateGoal(this, 0.2));
+        this.goalSelector.add(3, new TemptGoal(this, 0.1, stack -> stack.isOf(ModBlocks.LUMISHROOM.asItem()), true));
         this.goalSelector.add(4, new FollowParentGoal(this, 0.2));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 5.0F));
-        this.goalSelector.add(7, new LookAroundGoal(this));
+        this.goalSelector.add(6, new WanderAroundFarGoal(this, 1));
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 4F));
+        this.goalSelector.add(8, new LookAroundGoal(this));
     }
 
     private void setupAnimationStates() {
@@ -61,14 +63,13 @@ public class JellyEntity extends AnimalEntity {
     public static DefaultAttributeContainer.Builder createJellyAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 4)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 0)
-                .add(EntityAttributes.GENERIC_SAFE_FALL_DISTANCE, 32);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 0);
     }
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.isOf(Items.CRIMSON_FUNGUS);
+        return stack.isOf(ModBlocks.LUMISHROOM.asItem());
     }
 
     @Nullable

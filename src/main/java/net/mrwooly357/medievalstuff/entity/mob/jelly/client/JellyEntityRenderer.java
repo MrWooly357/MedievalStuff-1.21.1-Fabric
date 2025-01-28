@@ -1,4 +1,4 @@
-package net.mrwooly357.medievalstuff.entity.client;
+package net.mrwooly357.medievalstuff.entity.mob.jelly.client;
 
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
@@ -6,12 +6,14 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.MedievalStuff;
-import net.mrwooly357.medievalstuff.entity.client.render.features.JellyTranslucencyFeatureRenderer;
-import net.mrwooly357.medievalstuff.entity.custom.JellyEntity;
+import net.mrwooly357.medievalstuff.entity.ModEntityModelLayers;
+import net.mrwooly357.medievalstuff.entity.mob.jelly.JellyEntity;
+import net.mrwooly357.medievalstuff.entity.mob.jelly.client.features.JellyTranslucencyFeatureRenderer;
 
 public class JellyEntityRenderer extends MobEntityRenderer<JellyEntity, JellyEntityModel<JellyEntity>> {
+
     public JellyEntityRenderer(EntityRendererFactory.Context context) {
-        super(context, new JellyEntityModel<>(context.getPart(ModEntityModelLayers.JELLY_NORMAL)), 0.3f);
+        super(context, new JellyEntityModel<>(context.getPart(ModEntityModelLayers.JELLY_NORMAL)), 0.3F);
         this.addFeature(new JellyTranslucencyFeatureRenderer<>(this, context.getModelLoader()));
     }
 
@@ -21,8 +23,7 @@ public class JellyEntityRenderer extends MobEntityRenderer<JellyEntity, JellyEnt
     }
 
     @Override
-    public void render(JellyEntity livingEntity, float f, float g, MatrixStack matrixStack,
-                       VertexConsumerProvider vertexConsumerProvider, int i) {
+    public void render(JellyEntity livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         if(livingEntity.isBaby()) {
             matrixStack.scale(0.5f, 0.5f, 0.5f);
         }

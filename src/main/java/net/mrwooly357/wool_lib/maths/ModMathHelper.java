@@ -1,6 +1,7 @@
 package net.mrwooly357.wool_lib.maths;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
 public class ModMathHelper {
@@ -53,6 +54,42 @@ public class ModMathHelper {
         }
 
         if (rawZDistance < 0 ) {
+            zDistance = opposite(rawZDistance);
+        } else {
+            zDistance = rawZDistance;
+        }
+
+        return MathHelper.sqrt((float) (xDistance * xDistance + yDistance * yDistance + zDistance * zDistance));
+    }
+
+    /**
+     * @param fromEntity is a point used as a minuend.
+     * @param toBlock is a point used as a subtrahend.
+     * @return gives you a value as a float which represents the distance between fromEntity and toBlock.
+     * Note: The value might be not accurate. But it's still very close, so I decided to use it.
+     */
+    public static double getDistanceBetweenEntityToBlock(LivingEntity fromEntity, BlockPos toBlock) {
+        double rawXDistance = fromEntity.getX() - toBlock.getX();
+        double rawYDistance = fromEntity.getY() - toBlock.getY();
+        double rawZDistance = fromEntity.getZ() - toBlock.getZ();
+
+        double xDistance;
+        double yDistance;
+        double zDistance;
+
+        if (rawXDistance < 0) {
+            xDistance = opposite(rawXDistance);
+        } else {
+            xDistance = rawXDistance;
+        }
+
+        if (rawYDistance < 0) {
+            yDistance = opposite(rawYDistance);
+        } else {
+            yDistance = rawYDistance;
+        }
+
+        if (rawZDistance < 0) {
             zDistance = opposite(rawZDistance);
         } else {
             zDistance = rawZDistance;

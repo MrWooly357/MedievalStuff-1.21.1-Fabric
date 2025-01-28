@@ -1,4 +1,4 @@
-package net.mrwooly357.medievalstuff.entity.client.animation;
+package net.mrwooly357.medievalstuff.entity.mob.jelly.client;
 
 import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.client.render.entity.animation.AnimationHelper;

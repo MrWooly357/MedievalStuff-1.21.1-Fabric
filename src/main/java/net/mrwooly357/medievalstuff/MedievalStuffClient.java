@@ -5,12 +5,14 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.entity.ModEntities;
-import net.mrwooly357.medievalstuff.entity.client.JellyEntityModel;
-import net.mrwooly357.medievalstuff.entity.client.JellyEntityRenderer;
-import net.mrwooly357.medievalstuff.entity.client.ModEntityModelLayers;
-import net.mrwooly357.medievalstuff.entity.client.render.ModEntityModelLoader;
+import net.mrwooly357.medievalstuff.entity.miniboss.the_corrupted_great_paladin.client.TheCorruptedGreatPaladinEntityModel;
+import net.mrwooly357.medievalstuff.entity.miniboss.the_corrupted_great_paladin.client.TheCorruptedGreatPaladinEntityRenderer;
+import net.mrwooly357.medievalstuff.entity.mob.jelly.client.JellyEntityModel;
+import net.mrwooly357.medievalstuff.entity.mob.jelly.client.JellyEntityRenderer;
+import net.mrwooly357.medievalstuff.entity.ModEntityModelLayers;
 
 public class MedievalStuffClient implements ClientModInitializer {
 
@@ -21,5 +23,16 @@ public class MedievalStuffClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.JELLY_NORMAL, JellyEntityModel::getNormalTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.JELLY_TRANSLUCENT, JellyEntityModel::getTranslucentTexturedModelData);
         EntityRendererRegistry.register(ModEntities.JELLY, JellyEntityRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.THE_CORRUPTED_GREAT_PALADIN, TheCorruptedGreatPaladinEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(
+                        ModEntities.THE_CORRUPTED_GREAT_PALADIN_ENTITY,
+                context -> new TheCorruptedGreatPaladinEntityRenderer(
+                        context,
+                        ModEntityModelLayers.THE_CORRUPTED_GREAT_PALADIN,
+                        ModEntityModelLayers.THE_CORRUPTED_GREAT_PALADIN_INNER_ARMOR,
+                        ModEntityModelLayers.THE_CORRUPTED_GREAT_PALADIN_OUTER_ARMOR
+                )
+        );
     }
 }
