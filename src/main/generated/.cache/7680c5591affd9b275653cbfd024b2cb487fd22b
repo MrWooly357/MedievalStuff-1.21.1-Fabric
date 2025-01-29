@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-28T19:20:30.1047788	Medieval Stuff/Model Definitions
+// 1.21.1	2025-01-29T10:42:30.3022388	Medieval Stuff/Model Definitions
 ba6d24fb0f1c8f44dc1144f67192602a90c60954 assets\medievalstuff\models\block\gloomy_stone_brick_slab_top.json
 50d2b2fe21e3b358348ec44e6657cc0e180f0ce2 assets\medievalstuff\models\item\silver_axe.json
 f432c1b29caa5743a304194ef8c9b7e22f57195f assets\medievalstuff\models\block\gloomy_stone.json
@@ -35,8 +35,8 @@ ddf95ebd77ba9aa02826fd2301289ea160d3ff93 assets\medievalstuff\models\item\the_gr
 a3b957a98a9a8f82079a67181385e08700f0c12f assets\medievalstuff\models\item\the_great_paladins_leggings.json
 d4c4740c031b717d783734a1cb2426c62254529d assets\medievalstuff\models\block\lumishroom_log.json
 546d50499357102b7012dd44e05726b656f64d26 assets\medievalstuff\models\block\gloomy_stone_brick_wall_post.json
-265dc349df76d222ab8648939d906b801c4aa6a6 assets\medievalstuff\models\item\gloomy_stone_button.json
 522ad63944ec1c07ba9665ef3bb09a2caad0060c assets\medievalstuff\models\item\weightless_dagger_tier_2.json
+265dc349df76d222ab8648939d906b801c4aa6a6 assets\medievalstuff\models\item\gloomy_stone_button.json
 f6d7b8e1751371b314271b847eac96eb6e48c8e9 assets\medievalstuff\models\item\sacred_alloy_ingot.json
 25e713b172a5930c3db8eb65558d881a3aa98c59 assets\medievalstuff\models\block\gloomy_stone_brick_wall_side.json
 2351667941f5c350ff8948985cbdb4e459585c32 assets\medievalstuff\blockstates\gloomy_stone.json

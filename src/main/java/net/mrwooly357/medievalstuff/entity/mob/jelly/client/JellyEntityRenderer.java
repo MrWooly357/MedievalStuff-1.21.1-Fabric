@@ -8,7 +8,6 @@ import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.MedievalStuff;
 import net.mrwooly357.medievalstuff.entity.ModEntityModelLayers;
 import net.mrwooly357.medievalstuff.entity.mob.jelly.JellyEntity;
-import net.mrwooly357.medievalstuff.entity.mob.jelly.client.features.JellyTranslucencyFeatureRenderer;
 
 public class JellyEntityRenderer extends MobEntityRenderer<JellyEntity, JellyEntityModel<JellyEntity>> {
 
