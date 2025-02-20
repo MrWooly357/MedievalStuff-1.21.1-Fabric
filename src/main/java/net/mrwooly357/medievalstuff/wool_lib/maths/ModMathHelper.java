@@ -1,4 +1,4 @@
-package net.mrwooly357.wool_lib.maths;
+package net.mrwooly357.medievalstuff.wool_lib.maths;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.BlockPos;

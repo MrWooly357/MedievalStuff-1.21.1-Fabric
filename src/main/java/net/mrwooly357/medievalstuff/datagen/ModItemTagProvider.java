@@ -2,9 +2,11 @@ package net.mrwooly357.medievalstuff.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
+import net.mrwooly357.medievalstuff.util.ModTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,5 +23,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.LUMISHROOM_PLANKS.asItem());
+
+        getOrCreateTagBuilder(ModTags.Items.HEATER_FUEL)
+                .add(Items.COAL)
+                .add(Items.CHARCOAL);
     }
 }

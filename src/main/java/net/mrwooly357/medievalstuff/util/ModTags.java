@@ -22,6 +22,8 @@ public class ModTags {
     }
 
     public static class Items {
+        public static final TagKey<Item> HEATER_FUEL = createTag("heater_fuel");
+
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(MedievalStuff.MOD_ID, name));

@@ -1,4 +1,4 @@
-package net.mrwooly357.wool_lib.events;
+package net.mrwooly357.medievalstuff.wool_lib.events;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.block.BlockState;
@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.mrwooly357.wool_lib.items.tools.HammerItem;
+import net.mrwooly357.medievalstuff.wool_lib.items.tools.HammerItem;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;

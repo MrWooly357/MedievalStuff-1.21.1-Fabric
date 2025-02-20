@@ -11,7 +11,7 @@ import net.mrwooly357.medievalstuff.entity.mob.jelly.JellyEntity;
 public class ModEntities {
     public static final EntityType<JellyEntity> JELLY = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(MedievalStuff.MOD_ID, "jelly"),
-            EntityType.Builder.create(JellyEntity::new, SpawnGroup.CREATURE).dimensions(0.8F, 1F).build());
+            EntityType.Builder.create(JellyEntity::new, SpawnGroup.CREATURE).dimensions(0.8F, 1.0F).build());
 
 
     public static void registerModEntities() {

@@ -1,4 +1,4 @@
-package net.mrwooly357.wool_lib.items.tools;
+package net.mrwooly357.medievalstuff.wool_lib.items.tools;
 
 import com.google.common.collect.BiMap;
 import net.minecraft.advancement.criterion.Criteria;

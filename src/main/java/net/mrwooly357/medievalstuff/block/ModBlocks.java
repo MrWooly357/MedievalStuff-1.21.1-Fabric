@@ -9,6 +9,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.mrwooly357.medievalstuff.MedievalStuff;
+import net.mrwooly357.medievalstuff.block.custom.CopperstoneHeaterBlock;
 import net.mrwooly357.medievalstuff.world.tree.ModSaplingGenerators;
 
 public class ModBlocks {
@@ -40,7 +41,7 @@ public class ModBlocks {
     public static final Block GLOOMY_STONE_SLAB = registerBlock("gloomy_stone_slab",
             new SlabBlock(AbstractBlock.Settings.create().strength(2f).requiresTool()));
     public static final Block GLOOMY_STONE_BUTTON = registerBlock("gloomy_stone_button",
-            new ButtonBlock(BlockSetType.STONE, 10, AbstractBlock.Settings.create().strength(0.5f).requiresTool()));
+            new ButtonBlock(BlockSetType.STONE, 20, AbstractBlock.Settings.create().strength(0.5f).requiresTool()));
     public static final Block GLOOMY_STONE_PRESSURE_PLATE = registerBlock("gloomy_stone_pressure_plate",
             new PressurePlateBlock(BlockSetType.STONE, AbstractBlock.Settings.create().strength(1f).requiresTool()));
 
@@ -58,6 +59,13 @@ public class ModBlocks {
             new WallBlock(AbstractBlock.Settings.create().strength(2f).requiresTool()));
 
 
+    public static final Block COPPERSTONE_BRICKS = registerBlock("copperstone_bricks",
+            new Block(AbstractBlock.Settings.create()
+                    .strength(2.25F)
+                    .sounds(BlockSoundGroup.STONE)
+                    .requiresTool()));
+
+
     public static final Block RAW_SILVER_BLOCK = registerBlock("raw_silver_block",
             new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE)
                     .strength(4.5f).requiresTool()));
@@ -65,6 +73,7 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)
                     .strength(4.5f).requiresTool()));
 
+    //Ores
     public static final Block SILVER_ORE = registerBlock("silver_ore",
             new ExperienceDroppingBlock(UniformIntProvider.create(2, 3),
                     AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE)
@@ -73,6 +82,13 @@ public class ModBlocks {
             new ExperienceDroppingBlock(UniformIntProvider.create(2, 3),
                     AbstractBlock.Settings.create().sounds(BlockSoundGroup.DEEPSLATE)
                     .strength(4f).requiresTool()));
+
+    //Advanced blocks
+    public static final Block COPPERSTONE_HEATER = registerBlock("copperstone_heater",
+            new CopperstoneHeaterBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(2F)
+                    .requiresTool()));
 
 
     private static Block registerBlock(String name, Block block) {

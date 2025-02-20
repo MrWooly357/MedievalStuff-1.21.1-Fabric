@@ -9,10 +9,10 @@ import net.mrwooly357.medievalstuff.MedievalStuff;
 import net.mrwooly357.medievalstuff.entity.ModEntities;
 import net.mrwooly357.medievalstuff.item.custom.*;
 import net.mrwooly357.medievalstuff.item.custom.JarOfJellyItem;
-import net.mrwooly357.wool_lib.items.tools.AdvancedMiningToolItem;
-import net.mrwooly357.wool_lib.items.tools.HammerItem;
-import net.mrwooly357.wool_lib.items.tools.TreechopperItem;
-import net.mrwooly357.wool_lib.items.weapons.AdvancedSweepMeleeWeaponItem;
+import net.mrwooly357.medievalstuff.wool_lib.items.tools.AdvancedMiningToolItem;
+import net.mrwooly357.medievalstuff.wool_lib.items.tools.HammerItem;
+import net.mrwooly357.medievalstuff.wool_lib.items.tools.TreechopperItem;
+import net.mrwooly357.medievalstuff.wool_lib.items.weapons.AdvancedSweepMeleeWeaponItem;
 
 public class ModItems {
     //Common items

@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-29T10:42:30.2992383	Medieval Stuff/Block Loot Tables
+// 1.21.1	2025-02-17T19:12:16.4035507	Medieval Stuff/Block Loot Tables
 a2fade78ccdd558ccd1c4fc8117ebfa0cb510a2f data\medievalstuff\loot_table\blocks\silver_block.json
 13546dbf76e325509aedfd6e3d4256290d021a2f data\medievalstuff\loot_table\blocks\stripped_lumishroom_log.json
 df9103f206a613914b02fc34b38401021836027d data\medievalstuff\loot_table\blocks\gloomy_stone_brick_wall.json
@@ -9,6 +9,7 @@ df9103f206a613914b02fc34b38401021836027d data\medievalstuff\loot_table\blocks\gl
 3d65c95e77cf25a7572833bcfab244d650affef2 data\medievalstuff\loot_table\blocks\gloomy_stone_button.json
 23041f8c86864b97ae0437dce13d0cf65e762911 data\medievalstuff\loot_table\blocks\lumishroom.json
 0673132eba05566c829f4eec514a27c6d04a15c1 data\medievalstuff\loot_table\blocks\gloomy_stone_pressure_plate.json
+dccaec1b8b07381fef11c9703ab7343baefa4217 data\medievalstuff\loot_table\blocks\copperstone_heater.json
 16eea13949a50c3a35f9d31bba51fbcd73c0c98b data\medievalstuff\loot_table\blocks\gloomy_stone_stairs.json
 7ed2d711fa251394f1c008bc36ffc9fa42e22ee8 data\medievalstuff\loot_table\blocks\deepslate_silver_ore.json
 33dbc0de87e362c5694c7218989604ad1253ce3d data\medievalstuff\loot_table\blocks\lumishroom_wood.json
