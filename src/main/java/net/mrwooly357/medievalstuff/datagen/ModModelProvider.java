@@ -2,10 +2,7 @@ package net.mrwooly357.medievalstuff.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Model;
-import net.minecraft.data.client.Models;
+import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.item.ModItems;
@@ -66,6 +63,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        //Regular Blocks
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LUMISHROOM_CAP);
         blockStateModelGenerator.registerLog(ModBlocks.LUMISHROOM_LOG).log(ModBlocks.LUMISHROOM_LOG).wood(ModBlocks.LUMISHROOM_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_LUMISHROOM_LOG).log(ModBlocks.STRIPPED_LUMISHROOM_LOG).wood(ModBlocks.STRIPPED_LUMISHROOM_WOOD);
@@ -86,7 +84,13 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_SILVER_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK);
+
+
+        //Advanced blocks
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SILVER_ORE);
+
+        //Blocks with entities
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotated(ModBlocks.BASIC_COPPERSTONE_HEATER, TexturedModel.ORIENTABLE_WITH_BOTTOM);
     }
 }

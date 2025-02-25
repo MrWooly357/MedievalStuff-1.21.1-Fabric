@@ -1,6 +1,9 @@
 package net.mrwooly357.medievalstuff.block.entity.custom;
 
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
@@ -9,14 +12,18 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
-import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
+import net.mrwooly357.medievalstuff.block.custom.AbstractBasicHeaterBlock;
+import net.mrwooly357.medievalstuff.util.ModTags;
 
-public class CopperstoneHeaterBlockEntity extends AbstractHeaterBlockEntity {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(0, ItemStack.EMPTY);
+public abstract class AbstractBasicHeaterBlockEntity extends BlockEntity implements Inventory, ExtendedScreenHandlerFactory<BlockPos> {
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(AbstractBasicHeaterBlock.inventorySize, ItemStack.EMPTY);
 
-    public CopperstoneHeaterBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.COPPERSTONE_HEATER_BE, pos, state);
+    public AbstractBasicHeaterBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state);
     }
+
+
+    //Inventory stuff
 
     @Override
     public int size() {
@@ -43,10 +50,7 @@ public class CopperstoneHeaterBlockEntity extends AbstractHeaterBlockEntity {
 
     @Override
     public ItemStack removeStack(int slot, int amount) {
-        markDirty();
-        ItemStack itemStack = inventory.get(slot);
-        itemStack.decrement(amount);
-        return inventory.set(slot, itemStack);
+        return Inventories.removeStack(inventory, slot);
     }
 
     @Override
@@ -57,13 +61,18 @@ public class CopperstoneHeaterBlockEntity extends AbstractHeaterBlockEntity {
 
     @Override
     public void setStack(int slot, ItemStack stack) {
-       markDirty();
-       inventory.set(slot, stack);
+        markDirty();
+        inventory.set(slot, stack);
     }
 
     @Override
     public void clear() {
         inventory.clear();
+    }
+
+    @Override
+    public boolean canPlayerUse(PlayerEntity player) {
+        return Inventory.canPlayerUse(this, player);
     }
 
     @Override

@@ -5,8 +5,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
-import net.mrwooly357.medievalstuff.wool_lib.items.weapons.AdvancedSweepMeleeWeaponItem;
-import net.mrwooly357.medievalstuff.wool_lib.maths.ModMathHelper;
+import net.mrwooly357.wool_lib.items.weapons.AdvancedSweepMeleeWeaponItem;
+import net.mrwooly357.wool_lib.maths.ModMathHelper;
 
 public class TheGreatPaladinsClaymoreItem extends AdvancedSweepMeleeWeaponItem {
     public TheGreatPaladinsClaymoreItem(ToolMaterial toolMaterial, Settings settings) {

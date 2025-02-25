@@ -8,16 +8,16 @@ import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
-import net.mrwooly357.medievalstuff.components.ModDataComponentTypes;
 import net.mrwooly357.medievalstuff.effect.ModEffects;
 import net.mrwooly357.medievalstuff.entity.ModEntities;
 import net.mrwooly357.medievalstuff.entity.mob.jelly.JellyEntity;
 import net.mrwooly357.medievalstuff.item.ModItemGroups;
 import net.mrwooly357.medievalstuff.item.ModItems;
+import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
 import net.mrwooly357.medievalstuff.world.gen.ModEntitySpawns;
 import net.mrwooly357.medievalstuff.world.gen.ModWorldGeneration;
-import net.mrwooly357.medievalstuff.wool_lib.events.HammerAdditionalBlocksBreakEvent;
-import net.mrwooly357.medievalstuff.wool_lib.events.TreechopperAdditionalBlocksBreakEvent;
+import net.mrwooly357.wool_lib.events.HammerAdditionalBlocksBreakEvent;
+import net.mrwooly357.wool_lib.events.TreechopperAdditionalBlocksBreakEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,8 +44,8 @@ public class MedievalStuff implements ModInitializer {
 		//Status effects
 		ModEffects.registerEffects();
 
-		//Data component types
-		ModDataComponentTypes.registerDataComponentTypes();
+		//Screen handlers
+		ModScreenHandlers.registerScreenHandlers();
 
 		//Events
 		PlayerBlockBreakEvents.BEFORE.register(new HammerAdditionalBlocksBreakEvent());

@@ -24,7 +24,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.mrwooly357.medievalstuff.MedievalStuff;
 import net.mrwooly357.medievalstuff.item.ModItems;
-import net.mrwooly357.medievalstuff.wool_lib.items.weapons.AdvancedSweepMeleeWeaponItem;
+import net.mrwooly357.wool_lib.items.weapons.AdvancedSweepMeleeWeaponItem;
 
 
 import java.util.List;

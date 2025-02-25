@@ -1,4 +1,4 @@
-package net.mrwooly357.medievalstuff.wool_lib.items.tools;
+package net.mrwooly357.wool_lib.items.tools;
 
 import net.minecraft.block.Block;
 import net.minecraft.component.type.AttributeModifierSlot;

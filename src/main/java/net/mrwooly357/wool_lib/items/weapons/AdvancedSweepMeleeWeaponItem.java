@@ -1,4 +1,4 @@
-package net.mrwooly357.medievalstuff.wool_lib.items.weapons;
+package net.mrwooly357.wool_lib.items.weapons;
 
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
