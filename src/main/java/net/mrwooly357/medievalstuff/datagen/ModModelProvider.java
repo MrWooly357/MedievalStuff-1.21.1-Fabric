@@ -91,6 +91,6 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SILVER_ORE);
 
         //Blocks with entities
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotated(ModBlocks.BASIC_COPPERSTONE_HEATER, TexturedModel.ORIENTABLE_WITH_BOTTOM);
+        blockStateModelGenerator.registerCooker(ModBlocks.COPPERSTONE_HEATER, TexturedModel.ORIENTABLE_WITH_BOTTOM);
     }
 }

@@ -9,10 +9,11 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.mrwooly357.medievalstuff.MedievalStuff;
-import net.mrwooly357.medievalstuff.block.custom.BasicCopperstoneHeaterBlock;
+import net.mrwooly357.medievalstuff.block.custom.CopperstoneHeaterBlock;
 import net.mrwooly357.medievalstuff.world.tree.ModSaplingGenerators;
 
 public class ModBlocks {
+
     public static final Block LUMISHROOM_LOG = registerBlock("lumishroom_log",
             new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM).luminance(state -> 3)));
     public static final Block LUMISHROOM_WOOD = registerBlock("lumishroom_wood",
@@ -84,11 +85,11 @@ public class ModBlocks {
                     .strength(4f).requiresTool()));
 
     //Advanced blocks
-    public static final Block BASIC_COPPERSTONE_HEATER = registerBlock("basic_copperstone_heater",
-            new BasicCopperstoneHeaterBlock(AbstractBlock.Settings.create()
+    public static final Block COPPERSTONE_HEATER = registerBlock("copperstone_heater",
+            new CopperstoneHeaterBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.STONE)
                     .strength(2F)
-                    .requiresTool(), 1));
+                    .requiresTool()));
 
 
     private static Block registerBlock(String name, Block block) {

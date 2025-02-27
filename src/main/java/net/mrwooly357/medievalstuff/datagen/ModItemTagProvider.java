@@ -24,8 +24,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.LUMISHROOM_PLANKS.asItem());
 
-        getOrCreateTagBuilder(ModTags.Items.BASIC_LEVEL_1_HEATER_FUEL)
+        getOrCreateTagBuilder(ModTags.Items.HEATER_FUEL)
                 .add(Items.COAL)
                 .add(Items.CHARCOAL);
+
+        getOrCreateTagBuilder(ModTags.Items.HEATER_ARSONISTS)
+                .add(Items.FIRE_CHARGE)
+                .add(Items.FLINT_AND_STEEL);
     }
 }

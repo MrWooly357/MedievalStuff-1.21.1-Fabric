@@ -31,7 +31,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         ModBlocks.SILVER_ORE,
                         ModBlocks.DEEPSLATE_SILVER_ORE,
 
-                        ModBlocks.BASIC_COPPERSTONE_HEATER);
+                        ModBlocks.COPPERSTONE_HEATER);
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE);
 
@@ -43,7 +43,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RAW_SILVER_BLOCK,
                         ModBlocks.SILVER_BLOCK,
                         ModBlocks.SILVER_ORE,
-                        ModBlocks.BASIC_COPPERSTONE_HEATER);
+                        ModBlocks.COPPERSTONE_HEATER);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.DEEPSLATE_SILVER_ORE);

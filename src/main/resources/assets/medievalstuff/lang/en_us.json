@@ -84,6 +84,7 @@
   "block.medievalstuff.silver_ore": "Silver Ore",
   "block.medievalstuff.deepslate_silver_ore": "Deepslate Silver Ore",
 
+  "block.medievalstuff.copperstone_heater": "Copperstone Heater",
 
   "effect.medievalstuff.reach": "Reach",
 
@@ -91,6 +92,9 @@
   "itemgroup.medievalstuff_items": "Medieval Stuff: Items",
   "itemgroup.medievalstuff_equipment": "Medieval Stuff: Equipment",
   "itemgroup.medievalstuff_blocks": "Medieval Stuff: Blocks",
+
+
+  "gui.medievalstuff.copperstone_heater": "Copperstone Heater",
 
 
   "death.attack.weightlessDaggerTier2AbilityHit": "%1$s died while using one of Weightless Dagger's abilities",

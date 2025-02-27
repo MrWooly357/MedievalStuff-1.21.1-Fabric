@@ -1,22 +1,34 @@
 package net.mrwooly357.medievalstuff.screen.custom;
 
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.util.math.BlockPos;
+import net.mrwooly357.medievalstuff.block.entity.custom.AbstractHeaterLevel1BlockEntity;
+import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
+import net.mrwooly357.medievalstuff.util.ModTags;
 
-public abstract class AbstractBasicHeaterScreenHandler extends ScreenHandler {
+public class CopperstoneHeaterScreenHandler extends AbstractHeaterScreenHandler {
     private final Inventory inventory;
 
-    protected AbstractBasicHeaterScreenHandler(@Nullable ScreenHandlerType<?> type, int syncId, Inventory inventory) {
-        super(type, syncId);
-        this.inventory = inventory;
+    public CopperstoneHeaterScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
+        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos));
     }
 
+    public CopperstoneHeaterScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity) {
+        super(ModScreenHandlers.COPPERSTONE_HEATER_SCREEN_HANDLER, syncId);
+        checkSize((Inventory) blockEntity, 1);
+        this.inventory = (Inventory) blockEntity;
+
+        this.addSlot(new Slot(inventory, 0, 80, 35));
+
+        addPlayerInventory(playerInventory);
+        addPlayerHotbar(playerInventory);
+    }
 
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
@@ -45,19 +57,5 @@ public abstract class AbstractBasicHeaterScreenHandler extends ScreenHandler {
     @Override
     public boolean canUse(PlayerEntity player) {
         return this.inventory.canPlayerUse(player);
-    }
-
-    protected void addPlayerInventory(PlayerInventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
-            }
-        }
-    }
-
-    protected void addPlayerHotbar(PlayerInventory playerInventory) {
-        for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
-        }
     }
 }

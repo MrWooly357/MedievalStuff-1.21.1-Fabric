@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "medievalstuff:basic_copperstone_heater"
+          "name": "medievalstuff:copperstone_heater"
         }
       ],
       "rolls": 1.0
