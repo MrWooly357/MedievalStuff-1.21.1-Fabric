@@ -51,14 +51,13 @@ public abstract class AbstractHeaterBlock extends BlockWithEntity implements Blo
 
                         for (int slot = 0; slot < blockEntity.size(); slot++) {
 
-                            if (blockEntity.getStack(slot).isIn(ModTags.Items.HEATER_FUEL)) {
+                            if (!blockEntity.getStack(slot).isEmpty()) {
 
                                 world.setBlockState(pos, state.with(LIT, true));
                                 if (stack.isOf(Items.FLINT_AND_STEEL)) {
 
                                     stack.damage(1, player, EquipmentSlot.MAINHAND);
                                 } else {
-
                                     stack.decrementUnlessCreative(1, player);
                                 }
 

@@ -5,11 +5,9 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.MedievalStuff;
-import net.mrwooly357.medievalstuff.block.custom.CopperstoneHeaterBlock;
 
 public class CopperstoneHeaterScreen extends HandledScreen<CopperstoneHeaterScreenHandler> {
     public static final Identifier GUI_TEXTURE =
@@ -34,8 +32,6 @@ public class CopperstoneHeaterScreen extends HandledScreen<CopperstoneHeaterScre
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         context.drawTexture(GUI_TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
-
-
     }
 
     @Override

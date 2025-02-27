@@ -5,10 +5,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
-import net.mrwooly357.medievalstuff.block.entity.custom.AbstractHeaterLevel1BlockEntity;
 import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
 import net.mrwooly357.medievalstuff.util.ModTags;
 
@@ -24,7 +22,12 @@ public class CopperstoneHeaterScreenHandler extends AbstractHeaterScreenHandler 
         checkSize((Inventory) blockEntity, 1);
         this.inventory = (Inventory) blockEntity;
 
-        this.addSlot(new Slot(inventory, 0, 80, 35));
+       this.addSlot(new Slot(inventory, 0, 80, 35) {
+           @Override
+           public boolean canInsert(ItemStack stack) {
+               return stack.isIn(ModTags.Items.HEATER_FUEL);
+           }
+       });
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
