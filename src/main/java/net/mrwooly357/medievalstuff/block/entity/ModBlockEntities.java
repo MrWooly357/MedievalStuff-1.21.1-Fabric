@@ -6,7 +6,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.MedievalStuff;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
-import net.mrwooly357.medievalstuff.block.entity.custom.CopperstoneHeaterBlockEntity;
+import net.mrwooly357.medievalstuff.block.entity.custom.heaters.CopperstoneHeaterBlockEntity;
 
 public class ModBlockEntities {
 

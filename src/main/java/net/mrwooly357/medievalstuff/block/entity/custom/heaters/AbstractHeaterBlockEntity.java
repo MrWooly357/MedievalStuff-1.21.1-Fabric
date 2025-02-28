@@ -1,11 +1,11 @@
-package net.mrwooly357.medievalstuff.block.entity.custom;
+package net.mrwooly357.medievalstuff.block.entity.custom.heaters;
 
 import com.google.common.collect.Maps;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.minecraft.SharedConstants;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -16,21 +16,43 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.mrwooly357.medievalstuff.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
-public abstract class AbstractHeaterBlockEntity extends BlockEntity implements Inventory, ExtendedScreenHandlerFactory<BlockPos> {
+public abstract class AbstractHeaterBlockEntity extends LockableContainerBlockEntity implements Inventory, ExtendedScreenHandlerFactory<BlockPos> {
     int burnTime;
     @Nullable
     private static volatile Map<Item, Integer> fuelTimes;
+    protected final PropertyDelegate propertyDelegate = new PropertyDelegate() {
+        @Override
+        public int get(int index) {
+            if (index == 0) {
+                return burnTime;
+            } else {
+                return 0;
+            }
+        }
+
+        @Override
+        public void set(int index, int value) {
+            if (index == 0) {
+                burnTime = value;
+            } else {
+                burnTime = 0;
+            }
+        }
+
+        @Override
+        public int size() {
+            return 1;
+        }
+    };
 
     public AbstractHeaterBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -134,5 +156,10 @@ public abstract class AbstractHeaterBlockEntity extends BlockEntity implements I
             Item item = fuel.getItem();
             return createFuelTimeMap().getOrDefault(item, 0);
         }
+    }
+
+    @Override
+    protected Text getContainerName() {
+        return getDisplayName();
     }
 }

@@ -1,10 +1,8 @@
-package net.mrwooly357.medievalstuff.block.custom;
+package net.mrwooly357.medievalstuff.block.custom.heaters;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -27,8 +25,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-import net.mrwooly357.medievalstuff.block.entity.custom.AbstractHeaterBlockEntity;
-import net.mrwooly357.medievalstuff.block.entity.custom.AbstractHeaterLevel1BlockEntity;
+import net.mrwooly357.medievalstuff.block.entity.custom.heaters.AbstractHeaterBlockEntity;
+import net.mrwooly357.medievalstuff.block.entity.custom.heaters.AbstractHeaterLevel1BlockEntity;
 import net.mrwooly357.medievalstuff.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 

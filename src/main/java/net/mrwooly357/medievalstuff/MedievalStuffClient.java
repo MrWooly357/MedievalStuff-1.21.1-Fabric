@@ -12,7 +12,7 @@ import net.mrwooly357.medievalstuff.entity.mob.jelly.client.JellyEntityModel;
 import net.mrwooly357.medievalstuff.entity.mob.jelly.client.JellyEntityRenderer;
 import net.mrwooly357.medievalstuff.entity.ModEntityModelLayers;
 import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
-import net.mrwooly357.medievalstuff.screen.custom.CopperstoneHeaterScreen;
+import net.mrwooly357.medievalstuff.screen.custom.heaters.CopperstoneHeaterScreen;
 
 public class MedievalStuffClient implements ClientModInitializer {
 

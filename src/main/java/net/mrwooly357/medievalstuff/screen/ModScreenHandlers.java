@@ -7,7 +7,7 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.mrwooly357.medievalstuff.MedievalStuff;
-import net.mrwooly357.medievalstuff.screen.custom.CopperstoneHeaterScreenHandler;
+import net.mrwooly357.medievalstuff.screen.custom.heaters.CopperstoneHeaterScreenHandler;
 
 public class ModScreenHandlers {
 

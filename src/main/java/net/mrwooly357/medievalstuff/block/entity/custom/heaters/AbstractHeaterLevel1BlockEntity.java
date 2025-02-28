@@ -1,4 +1,4 @@
-package net.mrwooly357.medievalstuff.block.entity.custom;
+package net.mrwooly357.medievalstuff.block.entity.custom.heaters;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -10,10 +10,10 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.mrwooly357.medievalstuff.block.custom.AbstractHeaterBlock;
+import net.mrwooly357.medievalstuff.block.custom.heaters.AbstractHeaterBlock;
 
 public abstract class AbstractHeaterLevel1BlockEntity extends AbstractHeaterBlockEntity {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
+    private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
     public AbstractHeaterLevel1BlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -95,5 +95,15 @@ public abstract class AbstractHeaterLevel1BlockEntity extends AbstractHeaterBloc
         if (shouldMarkDirty) {
             markDirty(world, blockPos, blockState);
         }
+    }
+
+    @Override
+    protected DefaultedList<ItemStack> getHeldStacks() {
+        return this.inventory;
+    }
+
+    @Override
+    protected void setHeldStacks(DefaultedList<ItemStack> inventory) {
+        this.inventory = inventory;
     }
 }

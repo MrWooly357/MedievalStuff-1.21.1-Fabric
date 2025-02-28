@@ -1,4 +1,4 @@
-package net.mrwooly357.medievalstuff.block.custom;
+package net.mrwooly357.medievalstuff.block.custom.heaters;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.BlockState;
@@ -6,19 +6,17 @@ import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.CampfireBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
-import net.mrwooly357.medievalstuff.block.entity.custom.AbstractHeaterLevel1BlockEntity;
-import net.mrwooly357.medievalstuff.block.entity.custom.CopperstoneHeaterBlockEntity;
+import net.mrwooly357.medievalstuff.block.entity.custom.heaters.AbstractHeaterLevel1BlockEntity;
+import net.mrwooly357.medievalstuff.block.entity.custom.heaters.CopperstoneHeaterBlockEntity;
 import net.mrwooly357.medievalstuff.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 

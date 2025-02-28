@@ -9,7 +9,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.mrwooly357.medievalstuff.MedievalStuff;
-import net.mrwooly357.medievalstuff.block.custom.CopperstoneHeaterBlock;
+import net.mrwooly357.medievalstuff.block.custom.heaters.CopperstoneHeaterBlock;
 import net.mrwooly357.medievalstuff.world.tree.ModSaplingGenerators;
 
 public class ModBlocks {
