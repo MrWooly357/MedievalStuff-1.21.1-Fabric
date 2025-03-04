@@ -7,21 +7,15 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
-import net.mrwooly357.medievalstuff.block.entity.custom.heaters.AbstractHeaterLevel1BlockEntity;
 import net.mrwooly357.medievalstuff.block.entity.custom.heaters.CopperstoneHeaterBlockEntity;
-import net.mrwooly357.medievalstuff.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 public class CopperstoneHeaterBlock extends AbstractHeaterBlock {
-    private static final MapCodec<CopperstoneHeaterBlock> CODEC = createCodec(CopperstoneHeaterBlock::new);
+    private final MapCodec<CopperstoneHeaterBlock> CODEC = CopperstoneHeaterBlock.createCodec(CopperstoneHeaterBlock::new);
 
     public CopperstoneHeaterBlock(Settings settings) {
         super(settings);
@@ -29,16 +23,17 @@ public class CopperstoneHeaterBlock extends AbstractHeaterBlock {
 
 
     @Override
-    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        ItemStack stackInHand = player.getStackInHand(Hand.MAIN_HAND);
-        if (!stackInHand.isIn(ModTags.Items.HEATER_ARSONISTS) || !stackInHand.isIn(ItemTags.SHOVELS)) {
-            if (world.getBlockEntity(pos) instanceof CopperstoneHeaterBlockEntity copperstoneHeaterBlockEntity) {
-                if (!world.isClient) {
-                    player.openHandledScreen(copperstoneHeaterBlockEntity);
-                }
-            }
+    protected void openScreen(World world, BlockPos blockPos, PlayerEntity player) {
+        BlockEntity blockEntity = world.getBlockEntity(blockPos);
+
+        if (blockEntity instanceof CopperstoneHeaterBlockEntity copperstoneHeaterBlockEntity) {
+            player.openHandledScreen((NamedScreenHandlerFactory) copperstoneHeaterBlockEntity);
         }
-        return ActionResult.SUCCESS;
+    }
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -47,13 +42,7 @@ public class CopperstoneHeaterBlock extends AbstractHeaterBlock {
     }
 
     @Override
-    protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return CODEC;
-    }
-
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient ? null : validateTicker(type, ModBlockEntities.COPPERSTONE_HEATER_BE, AbstractHeaterLevel1BlockEntity::tick);
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return world.isClient ? null : validateTicker(type, ModBlockEntities.COPPERSTONE_HEATER_BE, CopperstoneHeaterBlockEntity::tick);
     }
 }

@@ -22,12 +22,12 @@ public class HammerAdditionalBlocksBreakEvent implements PlayerBlockBreakEvents.
     @Override
     public boolean beforeBlockBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity) {
         ItemStack mainHandItem = player.getMainHandStack();
-        if (mainHandItem.getItem() instanceof HammerItem sacredAlloyHammer && player instanceof ServerPlayerEntity serverPlayer) {
+        if (mainHandItem.getItem() instanceof HammerItem hammerItem && player instanceof ServerPlayerEntity serverPlayer) {
             if (HARVESTED_BLOCKS.contains(pos)) {
                 return true;
             }
             for (BlockPos position : HammerItem.getBlocksToBeDestroyed(HammerItem.getRange(), pos, serverPlayer)) {
-                if (pos == position || !sacredAlloyHammer.isCorrectForDrops(mainHandItem, world.getBlockState(position))) {
+                if (pos == position || !hammerItem.isCorrectForDrops(mainHandItem, world.getBlockState(position))) {
                     continue;
                 }
                 HARVESTED_BLOCKS.add(position);
