@@ -1,10 +1,10 @@
-package net.mrwooly357.wool_lib.maths;
+package net.mrwooly357.medievalstuff.util;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
-public class ModMathHelper {
+public class Maths {
     /** This class is used for some simple mathematical calculations which can be sometimes found in my projects.
      */
 

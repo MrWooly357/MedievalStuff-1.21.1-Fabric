@@ -16,7 +16,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(ModBlocks.GLOOMY_STONE,
+                .add(
+                        ModBlocks.GLOOMY_STONE,
                         ModBlocks.GLOOMY_STONE_STAIRS,
                         ModBlocks.GLOOMY_STONE_SLAB,
                         ModBlocks.GLOOMY_STONE_PRESSURE_PLATE,
@@ -29,9 +30,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         ModBlocks.RAW_SILVER_BLOCK,
                         ModBlocks.SILVER_BLOCK,
                         ModBlocks.SILVER_ORE,
-                        ModBlocks.DEEPSLATE_SILVER_ORE,
-
-                        ModBlocks.COPPERSTONE_HEATER);
+                        ModBlocks.DEEPSLATE_SILVER_ORE
+                );
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE);
 
@@ -40,20 +40,30 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.HOE_MINEABLE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
-                .add(ModBlocks.RAW_SILVER_BLOCK,
+                .add(
+                        ModBlocks.RAW_SILVER_BLOCK,
                         ModBlocks.SILVER_BLOCK,
-                        ModBlocks.SILVER_ORE,
-                        ModBlocks.COPPERSTONE_HEATER);
+                        ModBlocks.SILVER_ORE
+                        );
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.DEEPSLATE_SILVER_ORE);
+                .add(
+                        ModBlocks.DEEPSLATE_SILVER_ORE
+                );
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL);
 
-        getOrCreateTagBuilder(BlockTags.WALLS).add(ModBlocks.GLOOMY_STONE_BRICK_WALL);
+        getOrCreateTagBuilder(BlockTags.WALLS)
+                .add(
+                        ModBlocks.GLOOMY_STONE_BRICK_WALL
+                );
 
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
-                .add(ModBlocks.LUMISHROOM_LOG, ModBlocks.LUMISHROOM_WOOD,
-                        ModBlocks.STRIPPED_LUMISHROOM_LOG, ModBlocks.STRIPPED_LUMISHROOM_WOOD);
+                .add(
+                        ModBlocks.LUMISHROOM_LOG,
+                        ModBlocks.STRIPPED_LUMISHROOM_LOG,
+                        ModBlocks.LUMISHROOM_WOOD,
+                        ModBlocks.STRIPPED_LUMISHROOM_WOOD
+                );
     }
 }

@@ -13,7 +13,7 @@ import net.mrwooly357.medievalstuff.entity.ModEntities;
 public class ModEntitySpawns {
     public static void addSpawns() {
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST),
-                SpawnGroup.CREATURE, ModEntities.JELLY, 100,  2, 6);
+                SpawnGroup.CREATURE, ModEntities.JELLY, 100,  2, 5);
         SpawnRestriction.register(ModEntities.JELLY, SpawnLocationTypes.ON_GROUND,
                 Heightmap.Type.WORLD_SURFACE, AnimalEntity::isValidNaturalSpawn);
     }

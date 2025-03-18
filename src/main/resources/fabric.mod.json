@@ -3,13 +3,9 @@
 	"id": "medievalstuff",
 	"version": "${version}",
 	"name": "Medieval Stuff",
-	"description": "This is a small mod focused around metallurgy and some other cool things.",
+	"description": "This is a small mod focused around some cool things.",
 	"authors": [
 		"MrWooly357"
-	],
-	"Huge thanks to": [
-		"Kaupenjoe for some help with code",
-		"My friends for help with lots of ideas"
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/medieval-stuff",

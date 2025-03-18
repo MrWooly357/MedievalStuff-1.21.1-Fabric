@@ -19,7 +19,7 @@ public class ModPlacedFeatures {
 
     public static final RegistryKey<PlacedFeature> GLOOMY_STONE_VEIN_PLACED_KEY = registerKey("gloomy_stone_vein_placed");
     public static final RegistryKey<PlacedFeature> SMALL_SILVER_ORE_PLACED_KEY = registerKey("small_silver_ore_placed");
-    public static final RegistryKey<PlacedFeature> SILVER_ORE_PLACED_KEY = registerKey("silver_ore_placed");
+    public static final RegistryKey<PlacedFeature> MEDIUM_SILVER_ORE_PLACED_KEY = registerKey("medium_silver_ore_placed");
     public static final RegistryKey<PlacedFeature> BIG_SILVER_ORE_PLACED_KEY = registerKey("big_silver_ore_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
@@ -36,14 +36,14 @@ public class ModPlacedFeatures {
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-15), YOffset.fixed(150))));
 
         register(context, SMALL_SILVER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SMALL_SILVER_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(14,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-60), YOffset.fixed(275))));
-        register(context, SILVER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SILVER_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(11,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-70), YOffset.fixed(225))));
+                ModOrePlacement.modifiersWithCount(15,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(200))));
+        register(context, MEDIUM_SILVER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SILVER_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(10,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(-15), YOffset.fixed(175))));
         register(context, BIG_SILVER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.BIG_SILVER_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(8,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(175))));
+                ModOrePlacement.modifiersWithCount(5,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(-30), YOffset.fixed(150))));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

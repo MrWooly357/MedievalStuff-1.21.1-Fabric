@@ -6,7 +6,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.mrwooly357.wool_lib.items.weapons.AdvancedSweepMeleeWeaponItem;
-import net.mrwooly357.wool_lib.maths.ModMathHelper;
+import net.mrwooly357.medievalstuff.util.Maths;
 
 public class TheGreatPaladinsClaymoreItem extends AdvancedSweepMeleeWeaponItem {
     public TheGreatPaladinsClaymoreItem(ToolMaterial toolMaterial, Settings settings) {
@@ -18,7 +18,7 @@ public class TheGreatPaladinsClaymoreItem extends AdvancedSweepMeleeWeaponItem {
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         super.postDamageEntity(stack, target, attacker);
 
-        if (ModMathHelper.getDistanceBetweenEntities(target, attacker) > 3.25F) {
+        if (Maths.getDistanceBetweenEntities(target, attacker) > 3.25F) {
             target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 50, 0, false, true), attacker);
             target.damage(target.getDamageSources().generic(), 1F);
         }

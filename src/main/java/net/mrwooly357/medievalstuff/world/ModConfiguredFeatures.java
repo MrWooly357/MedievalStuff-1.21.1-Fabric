@@ -57,9 +57,9 @@ public class ModConfiguredFeatures {
 
         register(context, GLOOMY_STONE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(overworldGloomyStoneVeins, 64));
 
-        register(context, SMALL_SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldSilverOres, 4));
-        register(context, SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldSilverOres, 7));
-        register(context, BIG_SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldSilverOres, 10));
+        register(context, SMALL_SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldSilverOres, 3));
+        register(context, SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldSilverOres, 5));
+        register(context, BIG_SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldSilverOres, 7));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

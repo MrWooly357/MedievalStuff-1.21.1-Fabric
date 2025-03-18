@@ -63,7 +63,6 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        //Regular Blocks
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LUMISHROOM_CAP);
         blockStateModelGenerator.registerLog(ModBlocks.LUMISHROOM_LOG).log(ModBlocks.LUMISHROOM_LOG).wood(ModBlocks.LUMISHROOM_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_LUMISHROOM_LOG).log(ModBlocks.STRIPPED_LUMISHROOM_LOG).wood(ModBlocks.STRIPPED_LUMISHROOM_WOOD);
@@ -86,11 +85,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK);
 
 
-        //Advanced blocks
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SILVER_ORE);
-
-        //Blocks with entities
-        blockStateModelGenerator.registerCooker(ModBlocks.COPPERSTONE_HEATER, TexturedModel.ORIENTABLE_WITH_BOTTOM);
     }
 }

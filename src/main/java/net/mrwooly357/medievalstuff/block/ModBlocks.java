@@ -77,19 +77,22 @@ public class ModBlocks {
     //Ores
     public static final Block SILVER_ORE = registerBlock("silver_ore",
             new ExperienceDroppingBlock(UniformIntProvider.create(2, 3),
-                    AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE)
-                    .strength(2.5f).requiresTool()));
+                    AbstractBlock.Settings.create()
+                            .sounds(BlockSoundGroup.STONE)
+                            .strength(2.5f)
+                            .requiresTool()));
     public static final Block DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore",
             new ExperienceDroppingBlock(UniformIntProvider.create(2, 3),
-                    AbstractBlock.Settings.create().sounds(BlockSoundGroup.DEEPSLATE)
-                    .strength(4f).requiresTool()));
+                    AbstractBlock.Settings.create()
+                            .sounds(BlockSoundGroup.DEEPSLATE)
+                            .strength(4f)
+                            .requiresTool()));
 
     //Advanced blocks
     public static final Block COPPERSTONE_HEATER = registerBlock("copperstone_heater",
             new CopperstoneHeaterBlock(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.STONE)
-                    .strength(2F)
-                    .requiresTool()));
+                    .strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.STONE)));
 
 
     private static Block registerBlock(String name, Block block) {

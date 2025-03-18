@@ -15,6 +15,7 @@ public class ModScreenHandlers {
             Registry.register(Registries.SCREEN_HANDLER, Identifier.of(MedievalStuff.MOD_ID, "copperstone_heater_screen_handler"),
                     new ExtendedScreenHandlerType<>(CopperstoneHeaterScreenHandler::new, BlockPos.PACKET_CODEC));
 
+
     public static void registerScreenHandlers() {
         MedievalStuff.LOGGER.info("Registering Mod Screen Handlers for " + MedievalStuff.MOD_ID);
     }
