@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.MedievalStuff;
 
 public class CopperstoneHeaterScreen extends HandledScreen<CopperstoneHeaterScreenHandler> {
-    private static final Identifier GUI_TEXTURE =
+    public static final Identifier GUI_TEXTURE =
             Identifier.of(MedievalStuff.MOD_ID, "textures/gui/heaters/copperstone_heater_gui.png");
 
     public CopperstoneHeaterScreen(CopperstoneHeaterScreenHandler handler, PlayerInventory inventory, Text title) {
@@ -29,6 +29,8 @@ public class CopperstoneHeaterScreen extends HandledScreen<CopperstoneHeaterScre
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, GUI_TEXTURE);
 
+        int x = (width - backgroundWidth) / 2;
+        int y = (height - backgroundHeight) / 2;
         context.drawTexture(GUI_TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
     }
 

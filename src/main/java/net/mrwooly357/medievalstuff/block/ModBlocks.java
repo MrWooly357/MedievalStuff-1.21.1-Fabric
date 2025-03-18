@@ -70,9 +70,12 @@ public class ModBlocks {
     public static final Block RAW_SILVER_BLOCK = registerBlock("raw_silver_block",
             new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE)
                     .strength(4.5f).requiresTool()));
+
     public static final Block SILVER_BLOCK = registerBlock("silver_block",
-            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)
-                    .strength(4.5f).requiresTool()));
+            new Block(AbstractBlock.Settings.create()
+                    .strength(4.5f)
+                    .sounds(BlockSoundGroup.METAL)
+                    .requiresTool()));
 
     //Ores
     public static final Block SILVER_ORE = registerBlock("silver_ore",
@@ -92,6 +95,7 @@ public class ModBlocks {
     public static final Block COPPERSTONE_HEATER = registerBlock("copperstone_heater",
             new CopperstoneHeaterBlock(AbstractBlock.Settings.create()
                     .strength(3.0F, 4.0F)
+                    .luminance(Blocks.createLightLevelFromLitBlockState(5))
                     .sounds(BlockSoundGroup.STONE)));
 
 
