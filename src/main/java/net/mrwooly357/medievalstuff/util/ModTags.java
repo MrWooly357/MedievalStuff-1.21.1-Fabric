@@ -22,7 +22,7 @@ public class ModTags {
     }
 
     public static class Items {
-        public static final TagKey<Item> HEATER_FUEL = createTag("heater_fuel");
+        public static final TagKey<Item> HEATER_FUEL_EXCEPTIONS = createTag("heater_fuel_exceptions");
         public static final TagKey<Item> HEATER_ARSONISTS = createTag("heater_arsonists");
 
 

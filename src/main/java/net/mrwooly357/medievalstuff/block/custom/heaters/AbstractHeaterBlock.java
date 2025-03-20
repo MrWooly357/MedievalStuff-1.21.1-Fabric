@@ -49,7 +49,7 @@ public abstract class AbstractHeaterBlock extends BlockWithEntity implements Blo
 
                     for (int slot = 0; slot < blockEntity.size(); slot++) {
 
-                        if (!blockEntity.getStack(slot).isEmpty()) {
+                        if (!blockEntity.getStack(slot).isEmpty() && !blockEntity.getStack(slot).isIn(ModTags.Items.HEATER_FUEL_EXCEPTIONS)) {
 
                             world.setBlockState(pos, state.with(LIT, true));
                             world.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0F + soundRandomizer, 1.0F + soundRandomizer);
@@ -132,11 +132,11 @@ public abstract class AbstractHeaterBlock extends BlockWithEntity implements Blo
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(LIT)) {
+            float soundRandomizer = MathHelper.nextFloat(Random.create(), -0.25F, 0.25F);
             double offset = random.nextDouble() * 0.6 - 0.3;
             double randomHelper1 = MathHelper.nextDouble(Random.create(), -0.04, 0.04);
             double randomHelper2 = random.nextDouble() * 0.2;
             double randomHelper3 = MathHelper.nextDouble(Random.create(), -0.2, 0.2);
-            double randomHelper4 = MathHelper.nextDouble(Random.create(), -0.2, 0.2);
 
             double xPos = pos.getX() + 0.5;
             double yPos = pos.getY();
@@ -144,7 +144,7 @@ public abstract class AbstractHeaterBlock extends BlockWithEntity implements Blo
 
 
             if (random.nextDouble() < 0.1) {
-                world.playSound(xPos, yPos, zPos, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+                world.playSound(xPos, yPos, zPos, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F + soundRandomizer, 1.0F + soundRandomizer, false);
             }
 
             Direction facingDirection = state.get(FACING);
@@ -162,10 +162,12 @@ public abstract class AbstractHeaterBlock extends BlockWithEntity implements Blo
             double smokeYPos = yPos + randomHelper3 + 1.2;
             double smokeZPos = zPos + randomHelper3;
 
-            double smokeParticleVelocity = MathHelper.nextDouble(Random.create(), -0.025, 0.025);
+            double smokeParticleXVelocity = MathHelper.nextDouble(Random.create(), -0.025, 0.025);
+            double smokeParticleYVelocity = MathHelper.nextDouble(Random.create(), -0.025, 0.025);
+            double smokeParticleZVelocity = MathHelper.nextDouble(Random.create(), -0.025, 0.025);
 
             world.addParticle(ParticleTypes.FLAME, flameXPos, flameYPos, flameZPos, 0.0, 0.0, 0.0);
-            world.addParticle(ParticleTypes.SMOKE,smokeXPos + offset, smokeYPos, smokeZPos + offset, smokeParticleVelocity, smokeParticleVelocity, smokeParticleVelocity);
+            world.addParticle(ParticleTypes.SMOKE,smokeXPos + offset, smokeYPos, smokeZPos + offset, smokeParticleXVelocity, smokeParticleYVelocity, smokeParticleZVelocity);
         }
 
         super.randomDisplayTick(state, world, pos, random);
