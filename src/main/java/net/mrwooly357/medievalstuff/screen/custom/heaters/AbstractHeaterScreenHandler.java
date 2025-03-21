@@ -1,15 +1,20 @@
 package net.mrwooly357.medievalstuff.screen.custom.heaters;
 
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
+import net.mrwooly357.medievalstuff.block.entity.custom.heaters.AbstractHeaterBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractHeaterScreenHandler extends ScreenHandler {
 
-    protected AbstractHeaterScreenHandler(@Nullable ScreenHandlerType<?> type, int syncId) {
+    protected AbstractHeaterScreenHandler(@Nullable ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory) {
         super(type, syncId);
+
+        addPlayerInventory(playerInventory);
+        addPlayerHotbar(playerInventory);
     }
 
 
@@ -25,5 +30,9 @@ public abstract class AbstractHeaterScreenHandler extends ScreenHandler {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
+    }
+
+    protected boolean isFuel(ItemStack itemStack) {
+        return AbstractHeaterBlockEntity.canUseAsFuel(itemStack);
     }
 }

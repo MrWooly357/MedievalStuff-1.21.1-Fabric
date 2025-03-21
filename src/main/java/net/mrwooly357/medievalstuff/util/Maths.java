@@ -1,12 +1,8 @@
 package net.mrwooly357.medievalstuff.util;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
 public class Maths {
-    /** This class is used for some simple mathematical calculations which can be sometimes found in my projects.
-     */
 
     /** Makes number opposite. For example:
      double a = 1;
@@ -26,17 +22,23 @@ public class Maths {
         return oppositeNumber;
     }
 
-    /**
-     * @param fromEntity is a point used as a minuend.
-     * @param toEntity is a point used as a subtrahend.
-     * @return gives you a value as a float which represents the distance between fromEntity and toEntity.
-     * Note: The value might be not accurate. But it's still very close, so I decided to use it.
-     */
-    public static double getDistanceBetweenEntities(LivingEntity fromEntity, LivingEntity toEntity) {
-        double rawXDistance = fromEntity.getX() - toEntity.getX();
-        double rawYDistance = fromEntity.getY() - toEntity.getY();
-        double rawZDistance = fromEntity.getZ() - toEntity.getZ();
 
+    /**
+     * Calculates distance between to points. "From" point is the place you start. "To" point is the place you finish.
+     * @param fromX is x coordinates of "from" point.
+     * @param fromY is y coordinates of "from" point.
+     * @param fromZ is z coordinates of "from" point.
+     * @param toX is x coordinates of "to" point.
+     * @param toY is y coordinates of "to" point.
+     * @param toZ is z coordinates of "to" point.
+     * @return the distance between "from" point and "to" point.
+     * <p> Note:
+     * <p> If you don't understand what this is, imagine a chicken and a cow on your farm, draw a line between them and measure its length.
+     */
+    public static double getDistanceBetween(double fromX, double fromY, double fromZ, double toX, double toY, double toZ) {
+        double rawXDistance = fromX - toX;
+        double rawYDistance = fromY - toY;
+        double rawZDistance = fromZ - toZ;
         double xDistance;
         double yDistance;
         double zDistance;
@@ -54,42 +56,6 @@ public class Maths {
         }
 
         if (rawZDistance < 0 ) {
-            zDistance = opposite(rawZDistance);
-        } else {
-            zDistance = rawZDistance;
-        }
-
-        return MathHelper.sqrt((float) (xDistance * xDistance + yDistance * yDistance + zDistance * zDistance));
-    }
-
-    /**
-     * @param fromEntity is a point used as a minuend.
-     * @param toBlock is a point used as a subtrahend.
-     * @return gives you a value as a float which represents the distance between fromEntity and toBlock.
-     * Note: The value might be not accurate. But it's still very close, so I decided to use it.
-     */
-    public static double getDistanceBetweenEntityToBlock(LivingEntity fromEntity, BlockPos toBlock) {
-        double rawXDistance = fromEntity.getX() - toBlock.getX();
-        double rawYDistance = fromEntity.getY() - toBlock.getY();
-        double rawZDistance = fromEntity.getZ() - toBlock.getZ();
-
-        double xDistance;
-        double yDistance;
-        double zDistance;
-
-        if (rawXDistance < 0) {
-            xDistance = opposite(rawXDistance);
-        } else {
-            xDistance = rawXDistance;
-        }
-
-        if (rawYDistance < 0) {
-            yDistance = opposite(rawYDistance);
-        } else {
-            yDistance = rawYDistance;
-        }
-
-        if (rawZDistance < 0) {
             zDistance = opposite(rawZDistance);
         } else {
             zDistance = rawZDistance;

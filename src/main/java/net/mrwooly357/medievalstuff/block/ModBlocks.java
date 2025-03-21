@@ -95,7 +95,7 @@ public class ModBlocks {
     public static final Block COPPERSTONE_HEATER = registerBlock("copperstone_heater",
             new CopperstoneHeaterBlock(AbstractBlock.Settings.create()
                     .strength(3.0F, 4.0F)
-                    .luminance(Blocks.createLightLevelFromLitBlockState(5))
+                    .luminance(Blocks.createLightLevelFromLitBlockState(6))
                     .sounds(BlockSoundGroup.STONE)));
 
 

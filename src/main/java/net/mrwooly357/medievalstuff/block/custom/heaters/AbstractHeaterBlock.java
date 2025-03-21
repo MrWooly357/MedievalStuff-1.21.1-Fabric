@@ -69,10 +69,24 @@ public abstract class AbstractHeaterBlock extends BlockWithEntity implements Blo
                 }
             }
         } else if (stack.isIn(ItemTags.SHOVELS)) {
+            int largeSmokeAmountRandomizer = MathHelper.nextInt(Random.create(), 1, 3);
+            double randomHelper = MathHelper.nextDouble(Random.create(), -0.15, 0.15);
+            double largeSmokeX = pos.getX() + 0.5 + randomHelper;
+            double largeSmokeY = pos.getY() + 1.1 + randomHelper;
+            double largeSmokeZ = pos.getZ() + 0.5 + randomHelper;
 
             world.setBlockState(pos, state.with(LIT, false));
             stack.damage(1, player, EquipmentSlot.MAINHAND);
-            world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, 1.0F + soundRandomizer, 1.0F+ soundRandomizer);
+
+            for (int largeSmokeAmount = 0; largeSmokeAmount < largeSmokeAmountRandomizer; largeSmokeAmount++) {
+                double largeSmokeXVelocity = MathHelper.nextDouble(Random.create(), -0.03, 0.03);
+                double largeSmokeYVelocity = MathHelper.nextDouble(Random.create(), -0.03, 0.03);
+                double largeSmokeZVelocity = MathHelper.nextDouble(Random.create(), -0.03, 0.03);
+
+                world.addParticle(ParticleTypes.LARGE_SMOKE, largeSmokeX, largeSmokeY, largeSmokeZ, largeSmokeXVelocity, largeSmokeYVelocity, largeSmokeZVelocity);
+            }
+
+            world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, 1.0F + soundRandomizer, 1.0F + soundRandomizer);
 
             if (world.getBlockEntity(pos) instanceof AbstractHeaterBlockEntity blockEntity) {
                 blockEntity.setBurnTime(0);
@@ -132,42 +146,44 @@ public abstract class AbstractHeaterBlock extends BlockWithEntity implements Blo
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(LIT)) {
-            float soundRandomizer = MathHelper.nextFloat(Random.create(), -0.25F, 0.25F);
+            float soundRandomizer = MathHelper.nextFloat(random, -0.25F, 0.25F);
             double offset = random.nextDouble() * 0.6 - 0.3;
-            double randomHelper1 = MathHelper.nextDouble(Random.create(), -0.04, 0.04);
+            double randomHelper1 = MathHelper.nextDouble(random, -0.015, 0.015);
             double randomHelper2 = random.nextDouble() * 0.2;
-            double randomHelper3 = MathHelper.nextDouble(Random.create(), -0.2, 0.2);
+            double randomHelper3 = MathHelper.nextDouble(random, -0.2, 0.2);
+            double randomHelper4 = MathHelper.nextDouble(random, -0.2, 0.2);
+            double randomHelper5 = MathHelper.nextDouble(random, -0.2, 0.2);
 
-            double xPos = pos.getX() + 0.5;
-            double yPos = pos.getY();
-            double zPos = pos.getZ() + 0.5;
+            double x = pos.getX() + 0.5;
+            double y = pos.getY();
+            double z = pos.getZ() + 0.5;
 
 
             if (random.nextDouble() < 0.1) {
-                world.playSound(xPos, yPos, zPos, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F + soundRandomizer, 1.0F + soundRandomizer, false);
+                world.playSound(x, y, z, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F + soundRandomizer, 1.0F + soundRandomizer, false);
             }
 
             Direction facingDirection = state.get(FACING);
             Direction.Axis axis = facingDirection.getAxis();
 
-            double flameXPosHelper = axis == Direction.Axis.X ? facingDirection.getOffsetX() * 0.6 : offset;
-            double flameYPosHelper = random.nextDouble() * 6.0 / 16.0;
-            double flameZPosHelper = axis == Direction.Axis.Z ? facingDirection.getOffsetZ() * 0.6 : offset;
+            double flameXHelper = axis == Direction.Axis.X ? facingDirection.getOffsetX() * 0.6 : offset;
+            double flameYHelper = random.nextDouble() * 6.0 / 16.0;
+            double flameZHelper = axis == Direction.Axis.Z ? facingDirection.getOffsetZ() * 0.6 : offset;
 
-            double flameXPos = xPos + flameXPosHelper + randomHelper1;
-            double flameYPos = yPos + flameYPosHelper + randomHelper2 + 0.6;
-            double flameZPos = zPos + flameZPosHelper + randomHelper1;
+            double flameX = x + flameXHelper + randomHelper1;
+            double flameY = y + flameYHelper + randomHelper2 + 0.6;
+            double flameZ = z + flameZHelper + randomHelper1;
 
-            double smokeXPos = xPos + randomHelper3;
-            double smokeYPos = yPos + randomHelper3 + 1.2;
-            double smokeZPos = zPos + randomHelper3;
+            double smokeX = x + randomHelper3;
+            double smokeY = y + randomHelper4 + 1.2;
+            double smokeZ = z + randomHelper5;
 
-            double smokeParticleXVelocity = MathHelper.nextDouble(Random.create(), -0.025, 0.025);
-            double smokeParticleYVelocity = MathHelper.nextDouble(Random.create(), -0.025, 0.025);
-            double smokeParticleZVelocity = MathHelper.nextDouble(Random.create(), -0.025, 0.025);
+            double smokeXVelocity = MathHelper.nextDouble(random, -0.025, 0.025);
+            double smokeYVelocity = MathHelper.nextDouble(random, -0.025, 0.025);
+            double smokeZVelocity = MathHelper.nextDouble(random, -0.025, 0.025);
 
-            world.addParticle(ParticleTypes.FLAME, flameXPos, flameYPos, flameZPos, 0.0, 0.0, 0.0);
-            world.addParticle(ParticleTypes.SMOKE,smokeXPos + offset, smokeYPos, smokeZPos + offset, smokeParticleXVelocity, smokeParticleYVelocity, smokeParticleZVelocity);
+            world.addParticle(ParticleTypes.FLAME, flameX, flameY, flameZ, 0.0, 0.0, 0.0);
+            world.addParticle(ParticleTypes.SMOKE, smokeX, smokeY, smokeZ, smokeXVelocity, smokeYVelocity, smokeZVelocity);
         }
 
         super.randomDisplayTick(state, world, pos, random);

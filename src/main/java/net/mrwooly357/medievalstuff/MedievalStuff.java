@@ -16,8 +16,8 @@ import net.mrwooly357.medievalstuff.item.ModItems;
 import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
 import net.mrwooly357.medievalstuff.world.gen.ModEntitySpawns;
 import net.mrwooly357.medievalstuff.world.gen.ModWorldGeneration;
-import net.mrwooly357.wool_lib.events.HammerAdditionalBlocksBreakEvent;
-import net.mrwooly357.wool_lib.events.TreechopperAdditionalBlocksBreakEvent;
+import net.mrwooly357.medievalstuff.events.HammerAdditionalBlocksBreakEvent;
+import net.mrwooly357.medievalstuff.events.TreechopperAdditionalBlocksBreakEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

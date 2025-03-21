@@ -11,7 +11,6 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
-import net.mrwooly357.wool_lib.items.weapons.AdvancedSweepMeleeWeaponItem;
 
 import java.util.List;
 
