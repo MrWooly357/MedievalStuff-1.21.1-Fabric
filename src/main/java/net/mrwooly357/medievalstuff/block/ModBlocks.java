@@ -62,7 +62,7 @@ public class ModBlocks {
 
     public static final Block COPPERSTONE_BRICKS = registerBlock("copperstone_bricks",
             new Block(AbstractBlock.Settings.create()
-                    .strength(2.25F)
+                    .strength(2.25F, 3.0F)
                     .sounds(BlockSoundGroup.STONE)
                     .requiresTool()));
 
