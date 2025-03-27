@@ -22,7 +22,7 @@ public class CopperstoneHeaterBlockEntity extends AbstractHeaterBlockEntity {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
     public CopperstoneHeaterBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.COPPERSTONE_HEATER_BE, pos, state);
+        super(ModBlockEntities.COPPERSTONE_HEATER_BE, pos, state, 1.0F);
     }
 
 
