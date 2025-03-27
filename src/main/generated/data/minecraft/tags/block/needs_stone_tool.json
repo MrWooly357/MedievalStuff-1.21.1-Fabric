@@ -2,6 +2,8 @@
   "values": [
     "medievalstuff:raw_silver_block",
     "medievalstuff:silver_block",
-    "medievalstuff:silver_ore"
+    "medievalstuff:silver_ore",
+    "medievalstuff:copperstone_bricks",
+    "medievalstuff:copperstone_heater"
   ]
 }
