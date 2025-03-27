@@ -1,5 +1,6 @@
-// 1.21.1	2025-03-22T08:03:13.3997992	Medieval Stuff/Tags for minecraft:item
+// 1.21.1	2025-03-27T21:28:10.1633772	Medieval Stuff/Tags for minecraft:item
 8564c2eff41a025b27ca5f8e20924a4116e37a52 data\minecraft\tags\item\logs_that_burn.json
 a989e52a30a9388a5e7f8e50e4b904ee082df21a data\medievalstuff\tags\item\heater_arsonists.json
 6693f008ead694cd6509929b168f4904e4a6080b data\minecraft\tags\item\planks.json
 efe9e0caf089100a228c46379f3aa70d7f602ddc data\medievalstuff\tags\item\heater_fuel_exceptions.json
+50e13739c5004ff1f5177fb29ecff7b5d3d45cd3 data\medievalstuff\tags\item\fuel_for_heaters_crafting_recipes.json
