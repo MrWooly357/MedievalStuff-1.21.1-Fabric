@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_copperstone_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "medievalstuff:copperstone_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "medievalstuff:copperstone_heater"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_copperstone_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "medievalstuff:copperstone_heater"
+    ]
+  }
+}
