@@ -24,6 +24,7 @@ public class ModTags {
     public static class Items {
         public static final TagKey<Item> HEATER_FUEL_EXCEPTIONS = createTag("heater_fuel_exceptions");
         public static final TagKey<Item> HEATER_ARSONISTS = createTag("heater_arsonists");
+        public static final TagKey<Item> HEATERS_CRAFTING_RECIPES_FUEL = createTag("fuel_for_heaters_crafting_recipes");
 
 
         private static TagKey<Item> createTag(String name) {
