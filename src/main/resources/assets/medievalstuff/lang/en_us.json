@@ -10,13 +10,6 @@
   "item.medievalstuff.jar_of_jelly": "Jar of Jelly",
   "tooltip.medievalstuff.jar_of_jelly.tooltip": "When eaten might give §dlevitation§r effect for around 7.5s",
 
-  "item.medievalstuff.sacred_ancient_manuscript": "Ancient Manuscript",
-  "tooltip.medievalstuff.sacred_ancient_manuscript_item_1.tooltip": "§6Sacred§r",
-  "tooltip.medievalstuff.sacred_ancient_manuscript_item_2.tooltip": "§8|§kOnly He could save us.§r§6 The Great Paladin§r §8§kwas our hope.§r",
-  "tooltip.medievalstuff.sacred_ancient_manuscript_item_3.tooltip": "§8|§kBut He left us. Now we need to find another protection.§r",
-  "tooltip.medievalstuff.sacred_ancient_manuscript_item_4.tooltip": "§8Press §r§6Ctrl§r§8 to see the description§r",
-
-
   "item.medievalstuff.silver_sword": "Silver Sword",
   "item.medievalstuff.silver_pickaxe": "Silver Pickaxe",
   "item.medievalstuff.silver_axe": "Silver Axe",
@@ -67,7 +60,6 @@
   "block.medievalstuff.lumishroom_planks": "Lumishroom Planks",
   "block.medievalstuff.lumishroom_cap": "Lumishroom Cap",
   "block.medievalstuff.gloomy_stone": "Gloomy Stone",
-
   "block.medievalstuff.gloomy_stone_stairs": "Gloomy Stone Stairs",
   "block.medievalstuff.gloomy_stone_slab": "Gloomy Stone Slab",
   "block.medievalstuff.gloomy_stone_button": "Gloomy Stone Button",
@@ -76,26 +68,21 @@
   "block.medievalstuff.gloomy_stone_brick_stairs": "Gloomy Stone Brick Stairs",
   "block.medievalstuff.gloomy_stone_brick_slab": "Gloomy Stone Brick Slab",
   "block.medievalstuff.gloomy_stone_brick_wall": "Gloomy Stone Brick Wall",
-
   "block.medievalstuff.lumishroom": "Lumishroom",
-
-  "block.medievalstuff.raw_silver_block": "Raw Silver Block",
-  "block.medievalstuff.silver_block": "Silver Block",
   "block.medievalstuff.silver_ore": "Silver Ore",
   "block.medievalstuff.deepslate_silver_ore": "Deepslate Silver Ore",
-
+  "block.medievalstuff.raw_silver_block": "Raw Silver Block",
+  "block.medievalstuff.silver_block": "Silver Block",
+  "block.medievalstuff.copperstone_bricks": "Copperstone Bricks",
   "block.medievalstuff.copperstone_heater": "Copperstone Heater",
 
   "effect.medievalstuff.reach": "Reach",
-
 
   "itemgroup.medievalstuff_items": "Medieval Stuff: Items",
   "itemgroup.medievalstuff_equipment": "Medieval Stuff: Equipment",
   "itemgroup.medievalstuff_blocks": "Medieval Stuff: Blocks",
 
-
   "gui.medievalstuff.copperstone_heater": "Copperstone Heater",
-
 
   "death.attack.weightlessDaggerTier2AbilityHit": "%1$s died while using one of Weightless Dagger's abilities",
   "death.attack.weightlessDaggerTier2AbilityHit.player": "%1$s died while using one of Weightless Dagger's abilities while trying to escape %2$s"
