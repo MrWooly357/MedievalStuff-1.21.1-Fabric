@@ -14,7 +14,7 @@ public class ModItemGroups {
     public static final ItemGroup MEDIEVALSTUFF_ITEMS = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(MedievalStuff.MOD_ID, "medievalstuff_items"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.medievalstuff_items"))
-                    .icon(() -> new ItemStack(ModItems.SILVER_DAGGER)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.SILVER_INGOT)).entries((displayContext, entries) -> {
                         //Common items
                         entries.add(ModItems.RAW_SILVER);
                         entries.add(ModItems.SILVER_INGOT);
@@ -66,7 +66,24 @@ public class ModItemGroups {
     public static final ItemGroup MEDIEVALSTUFF_BLOCKS = Registry.register(Registries.ITEM_GROUP, Identifier.of(MedievalStuff.MOD_ID, "medievalstuff_blocks"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.medievalstuff_blocks")).icon(() -> new ItemStack(ModBlocks.SILVER_ORE))
                     .entries((displayContext, entries) -> {
+                        //Building blocks
+                        entries.add(ModBlocks.RAW_SILVER_BLOCK);
+                        entries.add(ModBlocks.SILVER_BLOCK);
+                        entries.add(ModBlocks.GLOOMY_STONE_STAIRS);
+                        entries.add(ModBlocks.GLOOMY_STONE_SLAB);
+                        entries.add(ModBlocks.GLOOMY_STONE_PRESSURE_PLATE);
+                        entries.add(ModBlocks.GLOOMY_STONE_BUTTON);
+                        entries.add(ModBlocks.GLOOMY_STONE_BRICKS);
+                        entries.add(ModBlocks.GLOOMY_STONE_BRICK_STAIRS);
+                        entries.add(ModBlocks.GLOOMY_STONE_BRICK_SLAB);
+                        entries.add(ModBlocks.GLOOMY_STONE_BRICK_WALL);
+                        entries.add(ModBlocks.COPPERSTONE_BRICKS);
+
+
                         //Natural blocks
+                        entries.add(ModBlocks.SILVER_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_SILVER_ORE);
+
                         entries.add(ModBlocks.LUMISHROOM_LOG);
                         entries.add(ModBlocks.LUMISHROOM_WOOD);
                         entries.add(ModBlocks.STRIPPED_LUMISHROOM_LOG);
@@ -76,31 +93,14 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.GLOOMY_STONE);
 
-
-                        //Building blocks
-                        entries.add(ModBlocks.GLOOMY_STONE_STAIRS);
-                        entries.add(ModBlocks.GLOOMY_STONE_SLAB);
-                        entries.add(ModBlocks.GLOOMY_STONE_PRESSURE_PLATE);
-                        entries.add(ModBlocks.GLOOMY_STONE_BUTTON);
-
-                        entries.add(ModBlocks.GLOOMY_STONE_BRICKS);
-                        entries.add(ModBlocks.GLOOMY_STONE_BRICK_STAIRS);
-                        entries.add(ModBlocks.GLOOMY_STONE_BRICK_SLAB);
-                        entries.add(ModBlocks.GLOOMY_STONE_BRICK_WALL);
-
-
-                        //Saplings
                         entries.add(ModBlocks.LUMISHROOM);
 
 
-                        //Ores
-                        entries.add(ModBlocks.RAW_SILVER_BLOCK);
-                        entries.add(ModBlocks.SILVER_BLOCK);
-                        entries.add(ModBlocks.SILVER_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_SILVER_ORE);
+                        //Functional blocks
+                        entries.add(ModBlocks.COPPERSTONE_HEATER);
                     }).build());
 
     public static void registerItemGroups() {
-        MedievalStuff.LOGGER.info("Registering Item Groups for " + MedievalStuff.MOD_ID);
+        MedievalStuff.LOGGER.info("Registering Mod Item Groups for " + MedievalStuff.MOD_ID);
     }
 }
