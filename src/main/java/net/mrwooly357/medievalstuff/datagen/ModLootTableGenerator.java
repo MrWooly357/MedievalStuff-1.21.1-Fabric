@@ -26,6 +26,12 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
+        //Blocks with regular drops
+        addDrop(ModBlocks.SILVER_ORE, oreDrops(ModBlocks.SILVER_ORE, ModItems.RAW_SILVER));
+        addDrop(ModBlocks.DEEPSLATE_SILVER_ORE, multipleOreDrops(ModBlocks.DEEPSLATE_SILVER_ORE, ModItems.RAW_SILVER, 1, 2));
+        addDrop(ModBlocks.RAW_SILVER_BLOCK);
+        addDrop(ModBlocks.SILVER_BLOCK);
+
         addDrop(ModBlocks.LUMISHROOM_CAP);
         addDrop(ModBlocks.LUMISHROOM_LOG);
         addDrop(ModBlocks.LUMISHROOM_WOOD);
@@ -33,24 +39,20 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.STRIPPED_LUMISHROOM_WOOD);
         addDrop(ModBlocks.LUMISHROOM_PLANKS);
         addDrop(ModBlocks.LUMISHROOM);
-
         addDrop(ModBlocks.GLOOMY_STONE);
         addDrop(ModBlocks.GLOOMY_STONE_STAIRS);
         addDrop(ModBlocks.GLOOMY_STONE_SLAB, slabDrops(ModBlocks.GLOOMY_STONE_SLAB));
         addDrop(ModBlocks.GLOOMY_STONE_BUTTON);
         addDrop(ModBlocks.GLOOMY_STONE_PRESSURE_PLATE);
-
         addDrop(ModBlocks.GLOOMY_STONE_BRICKS);
         addDrop(ModBlocks.GLOOMY_STONE_BRICK_STAIRS);
         addDrop(ModBlocks.GLOOMY_STONE_BRICK_SLAB, slabDrops(ModBlocks.GLOOMY_STONE_BRICK_SLAB));
         addDrop(ModBlocks.GLOOMY_STONE_BRICK_WALL);
 
+        addDrop(ModBlocks.COPPERSTONE_BRICKS);
 
-        addDrop(ModBlocks.RAW_SILVER_BLOCK);
-        addDrop(ModBlocks.SILVER_BLOCK);
-
-        addDrop(ModBlocks.SILVER_ORE, oreDrops(ModBlocks.SILVER_ORE, ModItems.RAW_SILVER));
-        addDrop(ModBlocks.DEEPSLATE_SILVER_ORE, multipleOreDrops(ModBlocks.DEEPSLATE_SILVER_ORE, ModItems.RAW_SILVER, 1, 2));
+        //Functional blocks
+        addDrop(ModBlocks.COPPERSTONE_HEATER);
     }
 
     public LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops) {
