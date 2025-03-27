@@ -7,8 +7,7 @@ public class Maths {
     /** Makes number opposite. For example:
      double a = 1;
      double oppositeA = this.opposite(a);
-
-     And "oppositeA" will be equal to -1.
+     <p> And "oppositeA" will be equal to -1.
      */
     public static double opposite(double numberToOpposite) {
         double oppositeNumber;
