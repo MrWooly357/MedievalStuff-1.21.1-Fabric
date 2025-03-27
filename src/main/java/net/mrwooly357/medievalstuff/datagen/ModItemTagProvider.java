@@ -27,6 +27,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.LUMISHROOM_PLANKS.asItem());
 
+        getOrCreateTagBuilder(ModTags.Items.HEATERS_CRAFTING_RECIPES_FUEL)
+                .add(Items.COAL)
+                .add(Items.CHARCOAL);
+
         getOrCreateTagBuilder(ModTags.Items.HEATER_FUEL_EXCEPTIONS)
                 .add(Items.LAVA_BUCKET);
 
