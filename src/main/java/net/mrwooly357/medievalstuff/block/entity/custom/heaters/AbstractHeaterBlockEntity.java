@@ -17,11 +17,13 @@ import java.util.Map;
 
 public abstract class AbstractHeaterBlockEntity extends BlockEntity implements Inventory, ExtendedScreenHandlerFactory<BlockPos> {
     int burnTime;
+    float fuelEfficiency;
     @Nullable
     private static final Map<Item, Integer> fuelTimes = AbstractFurnaceBlockEntity.createFuelTimeMap();
 
-    public AbstractHeaterBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+    public AbstractHeaterBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, float fuelEfficiency) {
         super(type, pos, state);
+        this.fuelEfficiency = fuelEfficiency;
     }
 
 
@@ -58,16 +60,14 @@ public abstract class AbstractHeaterBlockEntity extends BlockEntity implements I
         return this.pos;
     }
 
-    protected int getFuelTime(ItemStack fuel) {
+    protected int getFuelBurnTime(ItemStack fuel) {
         if (fuel.isEmpty()) {
             return 0;
         } else {
             Item item = fuel.getItem();
-            return createFuelTimeMap().getOrDefault(item, 0) / 4;
-        }
-    }
+            int fuelBurnTime = createFuelTimeMap().getOrDefault(item, 0) / 4;
 
-    public static boolean canUseAsFuel(ItemStack stack) {
-        return createFuelTimeMap().containsKey(stack.getItem());
+            return (int) (fuelBurnTime * fuelEfficiency);
+        }
     }
 }
