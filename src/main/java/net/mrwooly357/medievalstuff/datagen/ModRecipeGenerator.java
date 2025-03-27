@@ -15,6 +15,7 @@ import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.MedievalStuff;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.item.ModItems;
+import net.mrwooly357.medievalstuff.util.ModTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -252,5 +253,25 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.STRIPPED_LUMISHROOM_LOG), conditionsFromItem(ModBlocks.STRIPPED_LUMISHROOM_LOG))
                 .offerTo(exporter, Identifier.of(MedievalStuff.MOD_ID, "lumishroom_planks_from_stripped_lumishroom_log"));
 
+        //Copperstone
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPERSTONE_BRICKS, 2)
+                .input('A', Items.COPPER_INGOT)
+                .input('B', Blocks.STONE_BRICKS)
+                .pattern("AB ")
+                .pattern("BA ")
+                .pattern("   ")
+                .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.COPPERSTONE_HEATER, 1)
+                .input('A', Items.COPPER_INGOT)
+                .input('B', ModBlocks.COPPERSTONE_BRICKS)
+                .input('C', Blocks.CAMPFIRE)
+                .input('D', ModTags.Items.HEATERS_CRAFTING_RECIPES_FUEL)
+                .pattern("AAA")
+                .pattern("BCB")
+                .pattern("BDB")
+                .criterion(hasItem(ModBlocks.COPPERSTONE_BRICKS), conditionsFromItem(ModBlocks.COPPERSTONE_BRICKS))
+                .offerTo(exporter);
     }
 }
