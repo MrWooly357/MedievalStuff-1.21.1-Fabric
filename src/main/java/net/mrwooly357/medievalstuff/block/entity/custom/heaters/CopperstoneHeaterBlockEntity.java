@@ -97,7 +97,7 @@ public class CopperstoneHeaterBlockEntity extends AbstractHeaterBlockEntity {
         }
 
         if (!blockEntity.isBurning() && world.getBlockState(blockPos).get(AbstractHeaterBlock.LIT)) {
-            blockEntity.burnTime = blockEntity.getFuelTime(itemStackInFirstSlot);
+            blockEntity.burnTime = blockEntity.getFuelBurnTime(itemStackInFirstSlot);
 
             if (blockEntity.isBurning()) {
                 shouldMarkDirty = true;
