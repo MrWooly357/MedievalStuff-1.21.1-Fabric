@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeGenerator extends FabricRecipeProvider {
+
     public ModRecipeGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
@@ -176,11 +177,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PIECE_OF_JELLY, 4)
                 .pattern("   ")
                 .pattern("SGW")
-                .pattern("LSG")
+                .pattern("WSG")
                 .input('S', Items.SUGAR)
                 .input('W', Items.WATER_BUCKET)
                 .input('G', Items.GLOWSTONE_DUST)
-                .input('L', ModBlocks.LUMISHROOM)
                 .criterion(hasItem(Items.GLOWSTONE_DUST), conditionsFromItem(Items.GLOWSTONE_DUST))
                 .offerTo(exporter);
 
@@ -194,66 +194,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter);
 
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_STAIRS, 4)
-                .pattern("G  ")
-                .pattern("GG ")
-                .pattern("GGG")
-                .input('G', ModBlocks.GLOOMY_STONE)
-                .criterion(hasItem(ModBlocks.GLOOMY_STONE), conditionsFromItem(ModBlocks.GLOOMY_STONE))
-                .offerTo(exporter);
-
-         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_SLAB, ModBlocks.GLOOMY_STONE);
-
-         offerPressurePlateRecipe(exporter, ModBlocks.GLOOMY_STONE_PRESSURE_PLATE, ModBlocks.GLOOMY_STONE);
-
-         ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModBlocks.GLOOMY_STONE_BUTTON, 1)
-                 .input(ModBlocks.GLOOMY_STONE)
-                 .criterion(hasItem(ModBlocks.GLOOMY_STONE), conditionsFromItem(ModBlocks.GLOOMY_STONE))
-                 .offerTo(exporter);
-
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_BRICKS, 4)
-                .pattern("   ")
-                .pattern("GG ")
-                .pattern("GG ")
-                .input('G', ModBlocks.GLOOMY_STONE)
-                .criterion(hasItem(ModBlocks.GLOOMY_STONE), conditionsFromItem(ModBlocks.GLOOMY_STONE))
-                .offerTo(exporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_BRICK_STAIRS, 4)
-                .pattern("G  ")
-                .pattern("GG ")
-                .pattern("GGG")
-                .input('G', ModBlocks.GLOOMY_STONE_BRICKS)
-                .criterion(hasItem(ModBlocks.GLOOMY_STONE_BRICKS), conditionsFromItem(ModBlocks.GLOOMY_STONE_BRICKS))
-                .offerTo(exporter);
-
-        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_BRICK_SLAB, ModBlocks.GLOOMY_STONE_BRICKS);
-
-        offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_BRICK_WALL, ModBlocks.GLOOMY_STONE_BRICKS);
-
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_STAIRS, ModBlocks.GLOOMY_STONE);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_SLAB, ModBlocks.GLOOMY_STONE);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_PRESSURE_PLATE, ModBlocks.GLOOMY_STONE);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_BUTTON, ModBlocks.GLOOMY_STONE);
-
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_BRICKS, ModBlocks.GLOOMY_STONE);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_BRICK_STAIRS, ModBlocks.GLOOMY_STONE_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_BRICK_SLAB, ModBlocks.GLOOMY_STONE_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOMY_STONE_BRICK_WALL, ModBlocks.GLOOMY_STONE_BRICKS);
-
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LUMISHROOM_PLANKS, 4)
-                .input(ModBlocks.LUMISHROOM_LOG)
-                .criterion(hasItem(ModBlocks.LUMISHROOM_LOG), conditionsFromItem(ModBlocks.LUMISHROOM_LOG))
-                .offerTo(exporter);
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LUMISHROOM_PLANKS, 4)
-                .input(ModBlocks.STRIPPED_LUMISHROOM_LOG)
-                .criterion(hasItem(ModBlocks.STRIPPED_LUMISHROOM_LOG), conditionsFromItem(ModBlocks.STRIPPED_LUMISHROOM_LOG))
-                .offerTo(exporter, Identifier.of(MedievalStuff.MOD_ID, "lumishroom_planks_from_stripped_lumishroom_log"));
-
-        //Copperstone
+        //Building blocks
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPERSTONE_BRICKS, 2)
                 .input('A', Items.COPPER_INGOT)
                 .input('B', Blocks.STONE_BRICKS)
@@ -263,15 +204,26 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
                 .offerTo(exporter);
 
+
+        //Functional blocks
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.COPPERSTONE_HEATER, 1)
                 .input('A', Items.COPPER_INGOT)
                 .input('B', ModBlocks.COPPERSTONE_BRICKS)
                 .input('C', Blocks.CAMPFIRE)
-                .input('D', ModTags.Items.HEATERS_CRAFTING_RECIPES_FUEL)
+                .input('D', ModTags.Items.HEATER_CRAFTING_RECIPE_FUEL)
                 .pattern("AAA")
                 .pattern("BCB")
                 .pattern("BDB")
                 .criterion(hasItem(ModBlocks.COPPERSTONE_BRICKS), conditionsFromItem(ModBlocks.COPPERSTONE_BRICKS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.COPPER_TANK, 1)
+                .input('A', Blocks.GLASS)
+                .input('B', Items.COPPER_INGOT)
+                .pattern("ABA")
+                .pattern("A A")
+                .pattern("ABA")
+                .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
                 .offerTo(exporter);
     }
 }

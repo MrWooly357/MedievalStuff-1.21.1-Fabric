@@ -1,6 +1,5 @@
 package net.mrwooly357.medievalstuff.world;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -8,7 +7,6 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.mrwooly357.medievalstuff.MedievalStuff;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
@@ -16,37 +14,13 @@ import net.mrwooly357.medievalstuff.block.ModBlocks;
 import java.util.List;
 
 public class ModConfiguredFeatures {
-    public static final RegistryKey<ConfiguredFeature<?, ?>> GLOOMY_STONE_VEIN_KEY = registerKey("gloomy_stone_vein_key");
     public static final RegistryKey<ConfiguredFeature<?, ?>> SMALL_SILVER_ORE_KEY = registerKey("small_silver_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_ORE_KEY = registerKey("silver_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MEDIUM_SILVER_ORE_KEY = registerKey("medium_silver_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_SILVER_ORE_KEY = registerKey("big_silver_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> LUMISHROOM_KEY = registerKey("lumishroom");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
-
-        BlockPredicate blockPredicate = BlockPredicate.matchingBlocks(
-          ModBlocks.LUMISHROOM
-        );
-
-        register(context, LUMISHROOM_KEY,
-                Feature.HUGE_FUNGUS,
-                new HugeFungusFeatureConfig(
-                Blocks.GRASS_BLOCK.getDefaultState(),
-                ModBlocks.LUMISHROOM_LOG.getDefaultState(),
-                ModBlocks.LUMISHROOM_CAP.getDefaultState(),
-                Blocks.SHROOMLIGHT.getDefaultState(),
-                blockPredicate,
-                        false
-                )
-        );
-
-
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
-
-
-        List<OreFeatureConfig.Target> overworldGloomyStoneVeins =
-                List.of(OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.GLOOMY_STONE.getDefaultState()));
 
 
         List<OreFeatureConfig.Target> overworldSilverOres =
@@ -54,11 +28,8 @@ public class ModConfiguredFeatures {
                         OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.DEEPSLATE_SILVER_ORE.getDefaultState()));
 
 
-
-        register(context, GLOOMY_STONE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(overworldGloomyStoneVeins, 64));
-
         register(context, SMALL_SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldSilverOres, 3));
-        register(context, SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldSilverOres, 5));
+        register(context, MEDIUM_SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldSilverOres, 5));
         register(context, BIG_SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldSilverOres, 7));
     }
 

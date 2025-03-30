@@ -1,19 +1,11 @@
 {
   "values": [
-    "medievalstuff:gloomy_stone",
-    "medievalstuff:gloomy_stone_stairs",
-    "medievalstuff:gloomy_stone_slab",
-    "medievalstuff:gloomy_stone_pressure_plate",
-    "medievalstuff:gloomy_stone_button",
-    "medievalstuff:gloomy_stone_bricks",
-    "medievalstuff:gloomy_stone_brick_stairs",
-    "medievalstuff:gloomy_stone_brick_slab",
-    "medievalstuff:gloomy_stone_brick_wall",
     "medievalstuff:copperstone_bricks",
     "medievalstuff:raw_silver_block",
     "medievalstuff:silver_block",
     "medievalstuff:silver_ore",
     "medievalstuff:deepslate_silver_ore",
-    "medievalstuff:copperstone_heater"
+    "medievalstuff:copperstone_heater",
+    "medievalstuff:copper_tank"
   ]
 }

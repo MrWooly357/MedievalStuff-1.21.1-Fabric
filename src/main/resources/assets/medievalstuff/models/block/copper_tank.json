@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "medievalstuff:block/copper_tank_bottom",
+    "north": "medievalstuff:block/copper_tank_side",
+    "east": "medievalstuff:block/copper_tank_side",
+    "south": "medievalstuff:block/copper_tank_side",
+    "west": "medievalstuff:block/copper_tank_side",
+    "up": "medievalstuff:block/copper_tank_bottom",
+    "particle": "medievalstuff:block/copper_tank_side"
+  }
+}

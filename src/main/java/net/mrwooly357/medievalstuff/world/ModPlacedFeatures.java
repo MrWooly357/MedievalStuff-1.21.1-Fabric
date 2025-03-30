@@ -15,9 +15,6 @@ import net.mrwooly357.medievalstuff.block.ModBlocks;
 import java.util.List;
 // CF -> PF
 public class ModPlacedFeatures {
-    public static final RegistryKey<PlacedFeature> LUMISHROOM_PLACED_KEY = registerKey("lumishroom_placed");
-
-    public static final RegistryKey<PlacedFeature> GLOOMY_STONE_VEIN_PLACED_KEY = registerKey("gloomy_stone_vein_placed");
     public static final RegistryKey<PlacedFeature> SMALL_SILVER_ORE_PLACED_KEY = registerKey("small_silver_ore_placed");
     public static final RegistryKey<PlacedFeature> MEDIUM_SILVER_ORE_PLACED_KEY = registerKey("medium_silver_ore_placed");
     public static final RegistryKey<PlacedFeature> BIG_SILVER_ORE_PLACED_KEY = registerKey("big_silver_ore_placed");
@@ -25,22 +22,14 @@ public class ModPlacedFeatures {
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
-        register(context, LUMISHROOM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.LUMISHROOM_KEY),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(1, 0.01f, 1), ModBlocks.LUMISHROOM
-                ));
-
-
-        register(context, GLOOMY_STONE_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.GLOOMY_STONE_VEIN_KEY),
-                ModOrePlacement.modifiersWithCount(1,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-15), YOffset.fixed(150))));
-
         register(context, SMALL_SILVER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SMALL_SILVER_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(15,
                         HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(200))));
-        register(context, MEDIUM_SILVER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SILVER_ORE_KEY),
+
+        register(context, MEDIUM_SILVER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MEDIUM_SILVER_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(10,
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-15), YOffset.fixed(175))));
+
         register(context, BIG_SILVER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.BIG_SILVER_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(5,
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-30), YOffset.fixed(150))));

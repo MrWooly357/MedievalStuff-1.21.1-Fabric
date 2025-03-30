@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
+import net.mrwooly357.medievalstuff.block.custom.tanks.CopperTankBlock;
 import net.mrwooly357.medievalstuff.item.ModItems;
 
 import java.util.Optional;
@@ -63,29 +64,10 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LUMISHROOM_CAP);
-        blockStateModelGenerator.registerLog(ModBlocks.LUMISHROOM_LOG).log(ModBlocks.LUMISHROOM_LOG).wood(ModBlocks.LUMISHROOM_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_LUMISHROOM_LOG).log(ModBlocks.STRIPPED_LUMISHROOM_LOG).wood(ModBlocks.STRIPPED_LUMISHROOM_WOOD);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LUMISHROOM_PLANKS);
-        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.LUMISHROOM, BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerItemModel(ModBlocks.LUMISHROOM);
-
-        BlockStateModelGenerator.BlockTexturePool gloomyStoneTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.GLOOMY_STONE);
-        gloomyStoneTexturePool.stairs(ModBlocks.GLOOMY_STONE_STAIRS);
-        gloomyStoneTexturePool.slab(ModBlocks.GLOOMY_STONE_SLAB);
-        gloomyStoneTexturePool.button(ModBlocks.GLOOMY_STONE_BUTTON);
-        gloomyStoneTexturePool.pressurePlate(ModBlocks.GLOOMY_STONE_PRESSURE_PLATE);
-
-        BlockStateModelGenerator.BlockTexturePool gloomyStoneBrickTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.GLOOMY_STONE_BRICKS);
-        gloomyStoneBrickTexturePool.stairs(ModBlocks.GLOOMY_STONE_BRICK_STAIRS);
-        gloomyStoneBrickTexturePool.slab(ModBlocks.GLOOMY_STONE_BRICK_SLAB);
-        gloomyStoneBrickTexturePool.wall(ModBlocks.GLOOMY_STONE_BRICK_WALL);
-
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_SILVER_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SILVER_ORE);
-
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COPPERSTONE_BRICKS);
     }
 }

@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.MedievalStuff;
+import net.mrwooly357.medievalstuff.effect.custom.ReachStatusEffect;
 
 public class ModEffects {
 

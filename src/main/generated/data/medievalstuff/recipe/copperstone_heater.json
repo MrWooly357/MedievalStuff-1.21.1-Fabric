@@ -12,7 +12,7 @@
       "item": "minecraft:campfire"
     },
     "D": {
-      "tag": "medievalstuff:fuel_for_heaters_crafting_recipes"
+      "tag": "medievalstuff:heater_crafting_recipe_fuel"
     }
   },
   "pattern": [

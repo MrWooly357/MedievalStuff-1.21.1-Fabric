@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "bottom_connected=false,top_connected=false,bottom_and_top_connected=false": {
+      "model": "medievalstuff:block/copper_tank"
+    },
+    "bottom_connected=true,top_connected=false,bottom_and_top_connected=false": {
+      "model": "medievalstuff:block/copper_tank_bottom_connected"
+    },
+    "bottom_connected=false,top_connected=true,bottom_and_top_connected=false": {
+      "model": "medievalstuff:block/copper_tank_top_connected"
+    },
+    "bottom_connected=true,top_connected=true,bottom_and_top_connected=true": {
+      "model": "medievalstuff:block/copper_tank_bottom_and_top_connected"
+    }
+  }
+}

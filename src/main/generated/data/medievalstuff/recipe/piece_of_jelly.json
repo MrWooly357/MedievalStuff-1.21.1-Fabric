@@ -5,9 +5,6 @@
     "G": {
       "item": "minecraft:glowstone_dust"
     },
-    "L": {
-      "item": "medievalstuff:lumishroom"
-    },
     "S": {
       "item": "minecraft:sugar"
     },
@@ -18,7 +15,7 @@
   "pattern": [
     "   ",
     "SGW",
-    "LSG"
+    "WSG"
   ],
   "result": {
     "count": 4,

@@ -62,17 +62,8 @@ public class MedievalStuff implements ModInitializer {
 	}
 
 	private static void registerStrippableBlocks() {
-		StrippableBlockRegistry.register(ModBlocks.LUMISHROOM_LOG, ModBlocks.STRIPPED_LUMISHROOM_LOG);
-		StrippableBlockRegistry.register(ModBlocks.LUMISHROOM_WOOD, ModBlocks.STRIPPED_LUMISHROOM_WOOD);
 	}
 
 	private static void registerFlammableBlocks() {
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.LUMISHROOM_LOG, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_LUMISHROOM_LOG, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.LUMISHROOM_WOOD, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_LUMISHROOM_WOOD, 5, 5);
-
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.LUMISHROOM_PLANKS, 10, 7);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.LUMISHROOM_CAP, 15, 10);
 	}
 }

@@ -1,5 +1,6 @@
 package net.mrwooly357.medievalstuff.entity.mob.jelly;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
@@ -19,6 +20,7 @@ import net.minecraft.world.World;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.entity.ModEntities;
 import net.mrwooly357.medievalstuff.item.ModItems;
+import net.mrwooly357.medievalstuff.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 public class JellyEntity extends AnimalEntity {
@@ -35,7 +37,7 @@ public class JellyEntity extends AnimalEntity {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new EscapeDangerGoal(this, 0.4));
         this.goalSelector.add(2, new AnimalMateGoal(this, 0.2));
-        this.goalSelector.add(3, new TemptGoal(this, 0.1, stack -> stack.isOf(ModBlocks.LUMISHROOM.asItem()), true));
+        this.goalSelector.add(3, new TemptGoal(this, 0.1, stack -> stack.isOf(Items.WARPED_FUNGUS), false));
         this.goalSelector.add(4, new FollowParentGoal(this, 0.2));
         this.goalSelector.add(6, new WanderAroundFarGoal(this, 1));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 4F));
@@ -69,7 +71,7 @@ public class JellyEntity extends AnimalEntity {
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.isOf(ModBlocks.LUMISHROOM.asItem());
+        return stack.isOf(Items.WARPED_FUNGUS);
     }
 
     @Nullable
