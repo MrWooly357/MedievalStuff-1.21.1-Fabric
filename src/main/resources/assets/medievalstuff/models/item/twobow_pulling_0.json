@@ -1,0 +1,6 @@
+{
+  "parent": "medievalstuff:item/twobow",
+  "textures": {
+    "layer0": "medievalstuff:item/twobow_pulling_0"
+  }
+}

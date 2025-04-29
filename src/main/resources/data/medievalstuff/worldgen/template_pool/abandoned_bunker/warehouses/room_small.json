@@ -1,0 +1,23 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "medievalstuff:abandoned_bunker/warehouses/room_small_1",
+        "processors": "medievalstuff:abandoned_bunker_degradation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "medievalstuff:abandoned_bunker/warehouses/room_small_2",
+        "processors": "medievalstuff:abandoned_bunker_degradation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

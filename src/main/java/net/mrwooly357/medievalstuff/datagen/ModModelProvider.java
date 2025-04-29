@@ -24,7 +24,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SILVER_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.SACRED_ALLOY_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.JAR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SACRED_ANCIENT_MANUSCRIPT, Models.GENERATED);
 
         //Food
         itemModelGenerator.register(ModItems.PIECE_OF_JELLY, Models.GENERATED);
@@ -51,11 +50,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SILVER_CHESTPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILVER_LEGGINGS, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILVER_BOOTS, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.THE_GREAT_PALADINS_HELMET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.THE_GREAT_PALADINS_CHESTPLATE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.THE_GREAT_PALADINS_LEGGINGS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.THE_GREAT_PALADINS_BOOTS, Models.GENERATED);
 
         //Spawn items
         itemModelGenerator.register(ModItems.JELLY_SPAWN_EGG,

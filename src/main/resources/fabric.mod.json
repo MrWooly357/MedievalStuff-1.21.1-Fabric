@@ -3,7 +3,7 @@
 	"id": "medievalstuff",
 	"version": "${version}",
 	"name": "Medieval Stuff",
-	"description": "This is a small mod focused around some cool things.",
+	"description": "This is a small mod focused around some cool things. Warning! Please do not use 'Fabulous!' graphics! It breaks some visual things(such as water in tanks not displaying properly)! ",
 	"authors": [
 		"MrWooly357"
 	],

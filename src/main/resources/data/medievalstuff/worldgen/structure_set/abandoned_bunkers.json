@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 102001007,
+    "separation": 10,
+    "spacing": 15
+  },
+  "structures": [
+    {
+      "structure": "medievalstuff:abandoned_bunker",
+      "weight": 1
+    }
+  ]
+}

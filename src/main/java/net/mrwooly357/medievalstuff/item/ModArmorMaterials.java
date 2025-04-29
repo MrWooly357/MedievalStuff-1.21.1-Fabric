@@ -27,17 +27,6 @@ public class ModArmorMaterials {
                     }), 16, SoundEvents.ITEM_ARMOR_EQUIP_IRON, () -> Ingredient.ofItems(ModItems.SILVER_INGOT),
                     List.of(new ArmorMaterial.Layer(Identifier.of(MedievalStuff.MOD_ID, "silver"))), 0, 0));
 
-    public static final RegistryEntry<ArmorMaterial> THE_GREAT_PALADIN_ARMOR_MATERIAL = registerArmorMaterial("the_great_paladin_armor_material",
-            () -> new ArmorMaterial(
-                    Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
-                        map.put(ArmorItem.Type.HELMET, 3);
-                        map.put(ArmorItem.Type.CHESTPLATE, 8);
-                        map.put(ArmorItem.Type.LEGGINGS, 6);
-                        map.put(ArmorItem.Type.BOOTS, 3);
-                        map.put(ArmorItem.Type.BODY, 11);
-                    }), 20, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, () -> Ingredient.ofItems(ModItems.SACRED_ALLOY_INGOT),
-                    List.of(new ArmorMaterial.Layer(Identifier.of(MedievalStuff.MOD_ID, "great_paladin"))), 2F, 0.1F));
-
 
     public static RegistryEntry<ArmorMaterial> registerArmorMaterial(String name, Supplier<ArmorMaterial> material) {
         return Registry.registerReference(Registries.ARMOR_MATERIAL, Identifier.of(MedievalStuff.MOD_ID, name), material.get());

@@ -1,0 +1,56 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#medievalstuff:has_structure/abandoned_bunker",
+  "dimension_padding": 10,
+  "liquid_settings": "ignore_waterlogging",
+  "max_distance_from_center": 100,
+  "pool_aliases": [],
+  "size": 20,
+  "spawn_overrides": {
+    "ambient": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "axolotls": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "creature": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "misc": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "underground_water_creature": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "water_ambient": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "water_creature": {
+      "bounding_box": "piece",
+      "spawns": []
+    }
+  },
+  "start_height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "absolute": 50
+    },
+    "min_inclusive": {
+      "absolute": 25
+    }
+  },
+  "start_pool": "medievalstuff:abandoned_bunker/entrance/room",
+  "step": "underground_structures",
+  "terrain_adaption": "encapsulate",
+  "use_expansion_hack": false
+}

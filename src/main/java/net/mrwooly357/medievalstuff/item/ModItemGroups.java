@@ -24,7 +24,6 @@ public class ModItemGroups {
                         entries.add(ModItems.SILVER_INGOT);
                         entries.add(ModItems.SILVER_NUGGET);
                         entries.add(ModItems.JAR);
-                        entries.add(ModItems.SACRED_ANCIENT_MANUSCRIPT);
 
                         //Spawn items
                         entries.add(ModItems.JELLY_SPAWN_EGG);
@@ -49,14 +48,26 @@ public class ModItemGroups {
                     .displayName(Text.translatable("itemgroup.medievalstuff_equipment"))
                     .icon(() -> new ItemStack(ModItems.WEIGHTLESS_DAGGER))
                     .entries((displayContext, entries) -> {
-                        //Advanced weapons
+                        //Common melee weapons
+                        entries.add(ModItems.SILVER_SWORD);
+                        entries.add(ModItems.SILVER_DAGGER);
+
+                        //Advanced melee weapons
                         entries.add(ModItems.WEIGHTLESS_DAGGER);
                         entries.add(ModItems.WEIGHTLESS_DAGGER_TIER_2);
                         entries.add(ModItems.THE_GREAT_PALADINS_CLAYMORE);
 
-                        //Common weapons
-                        entries.add(ModItems.SILVER_DAGGER);
-                        entries.add(ModItems.SILVER_SWORD);
+
+                        //Common ranged weapons
+                        entries.add(ModItems.SHORT_COPPER_BOW);
+
+                        //Advanced ranged weapons
+                        entries.add(ModItems.TWOBOW);
+
+
+                        //Common tools
+                        entries.add(ModItems.SACRED_ALLOY_HAMMER);
+                        entries.add(ModItems.SACRED_ALLOY_TREECHOPPER);
 
                         //Advanced tools
                         entries.add(ModItems.SILVER_AXE);
@@ -64,21 +75,14 @@ public class ModItemGroups {
                         entries.add(ModItems.SILVER_HOE);
                         entries.add(ModItems.SILVER_SHOVEL);
 
-                        //Common tools
-                        entries.add(ModItems.SACRED_ALLOY_HAMMER);
-                        entries.add(ModItems.SACRED_ALLOY_TREECHOPPER);
-
-                        //Advanced armor
-                        entries.add(ModItems.THE_GREAT_PALADINS_HELMET);
-                        entries.add(ModItems.THE_GREAT_PALADINS_CHESTPLATE);
-                        entries.add(ModItems.THE_GREAT_PALADINS_LEGGINGS);
-                        entries.add(ModItems.THE_GREAT_PALADINS_BOOTS);
 
                         //Common armor
                         entries.add(ModItems.SILVER_HELMET);
                         entries.add(ModItems.SILVER_CHESTPLATE);
                         entries.add(ModItems.SILVER_LEGGINGS);
                         entries.add(ModItems.SILVER_BOOTS);
+
+                        //Advanced armor
                     }).build());
 
     public static final ItemGroup MEDIEVALSTUFF_BLOCKS = Registry.register(Registries.ITEM_GROUP,

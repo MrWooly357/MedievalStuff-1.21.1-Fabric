@@ -110,7 +110,7 @@ public class WeightlessDaggerTier2Item extends AdvancedSweepMeleeWeaponItem {
 
         }
         user.getItemCooldownManager().set(this, 300);
-        return super.use(world, user, hand);
+        return TypedActionResult.consume(user.getStackInHand(hand));
     }
 
     @Override

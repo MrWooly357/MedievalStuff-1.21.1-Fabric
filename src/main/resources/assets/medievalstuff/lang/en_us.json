@@ -3,28 +3,45 @@
   "item.medievalstuff.silver_nugget": "Silver Nugget",
   "item.medievalstuff.silver_ingot": "Silver Ingot",
   "item.medievalstuff.jar": "Jar",
+
+
+
   "item.medievalstuff.piece_of_jelly": "Piece of Jelly",
   "item.medievalstuff.jar_of_jelly": "Jar of Jelly",
+
+
+
   "item.medievalstuff.silver_sword": "Silver Sword",
   "item.medievalstuff.silver_dagger": "Silver Dagger",
+
   "item.medievalstuff.weightless_dagger": "Weightless Dagger",
   "item.medievalstuff.weightless_dagger_tier_2": "Weightless Dagger",
+  "item.medievalstuff.the_great_paladins_claymore": "The Great Paladin's Claymore",
+
+
+  "item.medievalstuff.short_copper_bow": "Short Copper Bow",
+
+  "item.medievalstuff.twobow": "Twobow",
+
+
   "item.medievalstuff.silver_axe": "Silver Axe",
   "item.medievalstuff.silver_pickaxe": "Silver Pickaxe",
   "item.medievalstuff.silver_shovel": "Silver Shovel",
   "item.medievalstuff.silver_hoe": "Silver Hoe",
-  "item.medievalstuff.the_great_paladins_claymore": "The Great Paladin's Claymore",
+
   "item.medievalstuff.sacred_alloy_hammer": "Sacred Alloy Hammer",
   "item.medievalstuff.sacred_alloy_treechopper": "Sacred Alloy Treechopper",
+
+
   "item.medievalstuff.silver_helmet": "Silver Helmet",
   "item.medievalstuff.silver_chestplate": "Silver Chestplate",
   "item.medievalstuff.silver_leggings": "Silver Leggings",
   "item.medievalstuff.silver_boots": "Silver Boots",
-  "item.medievalstuff.the_great_paladins_helmet": "The Great Paladin's Helmet",
-  "item.medievalstuff.the_great_paladins_chestplate": "The Great Paladin's Chestplate",
-  "item.medievalstuff.the_great_paladins_leggings": "The Great Paladin's Leggings",
-  "item.medievalstuff.the_great_paladins_boots": "The Great Paladin's Boots",
+
+
+
   "item.medievalstuff.jelly_spawn_egg": "Jelly Spawn Egg",
+
 
   "block.medievalstuff.silver_ore": "Silver Ore",
   "block.medievalstuff.deepslate_silver_ore": "Deepslate Silver Ore",
@@ -34,16 +51,21 @@
   "block.medievalstuff.copperstone_heater": "Copperstone Heater",
   "block.medievalstuff.copper_tank": "Copper Tank",
 
+
   "effect.medievalstuff.reach": "Reach",
 
+
   "tooltip.medievalstuff.piece_of_jelly.tooltip": "When eaten might give §5levitation§r effect for 1.5s",
+
   "tooltip.medievalstuff.jar_of_jelly.tooltip": "When eaten might give §dlevitation§r effect for 7.5s",
-  "tooltip.medievalstuff.weightless_dagger_1.tooltip": "§3Tier 1§r",
+
+  "tooltip.medievalstuff.weightless_dagger_1.tooltip": "§3 Tier 1 §r",
   "tooltip.medievalstuff.weightless_dagger_2.tooltip": "Has a chance to give your enemies levitation for a bit",
   "tooltip.medievalstuff.weightless_dagger_3.tooltip": "§8You feel something while keeping dagger in hands.§r",
   "tooltip.medievalstuff.weightless_dagger_4.tooltip": "Press §6Ctrl§r to see the ability description",
   "tooltip.medievalstuff.weightless_dagger_5.tooltip": "Press §6Alt§r to see the description",
-  "tooltip.medievalstuff.weightless_dagger_tier_2_1.tooltip": "§3Tier 2§r",
+
+  "tooltip.medievalstuff.weightless_dagger_tier_2_1.tooltip": "§3 Tier 2 §r",
   "tooltip.medievalstuff.weightless_dagger_tier_2_2.tooltip": "Has a higher chance to give your enemies a bit better levitation than §3tier 1§r",
   "tooltip.medievalstuff.weightless_dagger_tier_2_3.tooltip": "§6Right-click§r to make yourself levitate",
   "tooltip.medievalstuff.weightless_dagger_tier_2_4.tooltip": "§8The feeling is stronger. You start to feel a bit uncomfortable. The dagger wants something...§r",
@@ -51,13 +73,39 @@
   "tooltip.medievalstuff.weightless_dagger_tier_2_6.tooltip": "Press §6Shift§r to see the second ability description",
   "tooltip.medievalstuff.weightless_dagger_tier_2_7.tooltip": "Press §6Alt§r to see the description",
 
+  "tooltip.medievalstuff.extended_ranged_weapon_item.shift": "§8Press§r §7Shift §8to see characteristics",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.charge_time": "§7Charge Time",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.shot_power": "§7Shot power",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.accuracy": "§7Accuracy",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.critical_chance": "§7Critical chance",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.durability": "§7Durability",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.keyboard_control": "§8Press§r §7Control §8to see classification",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.type": "§7Type",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.family": "§7Family",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.class": "§7Class",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.subclass": "§7Subclass",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.material": "§7Material",
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.type_name": "Ranged",
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.family_BOWS": "Bows",
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.class_ADVANCED_BOWS": "Advanced bows",
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.subclass_ADVANCED_BOWS_SHORT": "Short",
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.material_COPPER": "Copper",
+
+
   "gui.medievalstuff.copperstone_heater": "Copperstone Heater",
+
 
   "itemgroup.medievalstuff_items": "Medieval Stuff: Items",
   "itemgroup.medievalstuff_food_and_drinks": "Medieval Stuff: Food and Drinks",
   "itemgroup.medievalstuff_equipment": "Medieval Stuff: Equipment",
   "itemgroup.medievalstuff_blocks": "Medieval Stuff: Blocks",
   "itemgroup.medievalstuff_functional_blocks": "Medieval Stuff: Functional Blocks",
+
 
   "death.attack.weightlessDaggerTier2AbilityHit": "%1$s died while using one of Weightless Dagger's abilities",
   "death.attack.weightlessDaggerTier2AbilityHit.player": "%1$s died while using one of Weightless Dagger's abilities while trying to escape %2$s"

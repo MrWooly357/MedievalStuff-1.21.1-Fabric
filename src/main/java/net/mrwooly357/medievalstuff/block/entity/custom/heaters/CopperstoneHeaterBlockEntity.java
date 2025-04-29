@@ -13,12 +13,12 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.mrwooly357.medievalstuff.block.custom.heaters.AbstractHeaterBlock;
+import net.mrwooly357.medievalstuff.block.custom.heaters.HeaterBlock;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
 import net.mrwooly357.medievalstuff.screen.custom.heaters.CopperstoneHeaterScreenHandler;
 import org.jetbrains.annotations.Nullable;
 
-public class CopperstoneHeaterBlockEntity extends AbstractHeaterBlockEntity {
+public class CopperstoneHeaterBlockEntity extends HeaterBlockEntity {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
     public CopperstoneHeaterBlockEntity(BlockPos pos, BlockState state) {
@@ -96,7 +96,7 @@ public class CopperstoneHeaterBlockEntity extends AbstractHeaterBlockEntity {
             blockEntity.burnTime--;
         }
 
-        if (!blockEntity.isBurning() && world.getBlockState(blockPos).get(AbstractHeaterBlock.LIT)) {
+        if (!blockEntity.isBurning() && world.getBlockState(blockPos).get(HeaterBlock.LIT)) {
             blockEntity.burnTime = blockEntity.getFuelBurnTime(itemStackInFirstSlot);
 
             if (blockEntity.isBurning()) {
@@ -108,7 +108,7 @@ public class CopperstoneHeaterBlockEntity extends AbstractHeaterBlockEntity {
 
         if (isBurning != blockEntity.isBurning()) {
             shouldMarkDirty = true;
-            blockState = blockState.with(AbstractHeaterBlock.LIT, blockEntity.isBurning());
+            blockState = blockState.with(HeaterBlock.LIT, blockEntity.isBurning());
             world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
         }
 

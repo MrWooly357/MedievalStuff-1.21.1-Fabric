@@ -19,7 +19,7 @@ import net.mrwooly357.medievalstuff.block.entity.custom.heaters.CopperstoneHeate
 import net.mrwooly357.medievalstuff.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
-public class CopperstoneHeaterBlock extends AbstractHeaterBlock {
+public class CopperstoneHeaterBlock extends HeaterBlock {
     private static final MapCodec<CopperstoneHeaterBlock> CODEC = createCodec(CopperstoneHeaterBlock::new);
 
     public CopperstoneHeaterBlock(Settings settings) {

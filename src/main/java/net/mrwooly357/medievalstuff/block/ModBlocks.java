@@ -60,7 +60,8 @@ public class ModBlocks {
                     .requiresTool()
                     .luminance(state -> state.get(CopperTankBlock.LIGHT_LEVEL))
                     .sounds(BlockSoundGroup.COPPER)
-                    .nonOpaque()));
+                    .nonOpaque()
+                    .suffocates(Blocks::never)));
 
 
     private static Block registerBlock(String name, Block block) {

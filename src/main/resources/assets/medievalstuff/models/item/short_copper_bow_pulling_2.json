@@ -1,0 +1,6 @@
+{
+  "parent": "medievalstuff:item/short_copper_bow",
+  "textures": {
+    "layer0": "medievalstuff:item/short_copper_bow_pulling_2"
+  }
+}

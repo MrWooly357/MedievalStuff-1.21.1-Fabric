@@ -4,8 +4,6 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
 import net.mrwooly357.medievalstuff.effect.ModEffects;
@@ -18,12 +16,15 @@ import net.mrwooly357.medievalstuff.world.gen.ModEntitySpawns;
 import net.mrwooly357.medievalstuff.world.gen.ModWorldGeneration;
 import net.mrwooly357.medievalstuff.events.HammerAdditionalBlocksBreakEvent;
 import net.mrwooly357.medievalstuff.events.TreechopperAdditionalBlocksBreakEvent;
+import net.mrwooly357.medievalstuff.world.gen.structure.ModStructureKeys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MedievalStuff implements ModInitializer {
+
 	public static final String MOD_ID = "medievalstuff";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
 
 	@Override
 	public void onInitialize() {
@@ -50,6 +51,9 @@ public class MedievalStuff implements ModInitializer {
 		//Events
 		PlayerBlockBreakEvents.BEFORE.register(new HammerAdditionalBlocksBreakEvent());
 		PlayerBlockBreakEvents.BEFORE.register(new TreechopperAdditionalBlocksBreakEvent());
+
+		//Structures
+		ModStructureKeys.RegisterModStructureKeys();
 
 		//World generation
 		ModWorldGeneration.generateModWorldGeneration();

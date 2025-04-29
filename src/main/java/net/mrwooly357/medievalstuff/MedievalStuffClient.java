@@ -9,13 +9,14 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
-import net.mrwooly357.medievalstuff.block.entity.renderer.CopperTankBlockEntityRenderer;
+import net.mrwooly357.medievalstuff.block.entity.renderer.TankBlockEntityRenderer;
 import net.mrwooly357.medievalstuff.entity.ModEntities;
 import net.mrwooly357.medievalstuff.entity.mob.jelly.client.JellyEntityModel;
 import net.mrwooly357.medievalstuff.entity.mob.jelly.client.JellyEntityRenderer;
 import net.mrwooly357.medievalstuff.entity.ModEntityModelLayers;
 import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
 import net.mrwooly357.medievalstuff.screen.custom.heaters.CopperstoneHeaterScreen;
+import net.mrwooly357.medievalstuff.util.ModModelPredicates;
 
 public class MedievalStuffClient implements ClientModInitializer {
 
@@ -24,8 +25,8 @@ public class MedievalStuffClient implements ClientModInitializer {
         //Blocks
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.COPPER_TANK, RenderLayer.getTranslucent());
 
-        //Block entities renderers
-        BlockEntityRendererFactories.register(ModBlockEntities.COPPER_TANK_BE, CopperTankBlockEntityRenderer::new);
+        //Block entity renderers
+        BlockEntityRendererFactories.register(ModBlockEntities.COPPER_TANK_BE, TankBlockEntityRenderer::new);
 
         //Entities
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.JELLY_NORMAL, JellyEntityModel::getNormalTexturedModelData);
@@ -34,5 +35,8 @@ public class MedievalStuffClient implements ClientModInitializer {
 
         //Screen handlers
         HandledScreens.register(ModScreenHandlers.COPPERSTONE_HEATER_SCREEN_HANDLER, CopperstoneHeaterScreen::new);
+
+        //Additional
+        ModModelPredicates.registerModModelPredicates();
     }
 }
