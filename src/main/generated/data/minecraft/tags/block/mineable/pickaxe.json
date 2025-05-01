@@ -6,6 +6,7 @@
     "medievalstuff:silver_ore",
     "medievalstuff:deepslate_silver_ore",
     "medievalstuff:copperstone_heater",
-    "medievalstuff:copper_tank"
+    "medievalstuff:copper_tank",
+    "medievalstuff:copperstone_forge_controller"
   ]
 }

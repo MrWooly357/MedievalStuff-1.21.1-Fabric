@@ -11,6 +11,8 @@ import net.mrwooly357.medievalstuff.entity.ModEntities;
 import net.mrwooly357.medievalstuff.entity.mob.jelly.JellyEntity;
 import net.mrwooly357.medievalstuff.item.ModItemGroups;
 import net.mrwooly357.medievalstuff.item.ModItems;
+import net.mrwooly357.medievalstuff.compound.Compounds;
+import net.mrwooly357.medievalstuff.registry.ModRegistries;
 import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
 import net.mrwooly357.medievalstuff.world.gen.ModEntitySpawns;
 import net.mrwooly357.medievalstuff.world.gen.ModWorldGeneration;
@@ -36,7 +38,7 @@ public class MedievalStuff implements ModInitializer {
 		ModBlocks.registerModBlocks();
 
 		//Block entities
-		ModBlockEntities.registerBlockEntities();
+		ModBlockEntities.registerModBlockEntities();
 
 		//Additional stuff
 		registerStrippableBlocks();
@@ -63,7 +65,16 @@ public class MedievalStuff implements ModInitializer {
 
 		ModEntities.registerModEntities();
 		ModEntitySpawns.addSpawns();
-	}
+
+		//Compounds
+		Compounds.registerCompounds();
+
+
+		//Registries
+		ModRegistries.registerModRegistries();
+    }
+
+
 
 	private static void registerStrippableBlocks() {
 	}

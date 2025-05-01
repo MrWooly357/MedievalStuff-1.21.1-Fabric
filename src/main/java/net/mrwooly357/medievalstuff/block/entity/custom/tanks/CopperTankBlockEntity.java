@@ -9,36 +9,27 @@ import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
 
 public class CopperTankBlockEntity extends TankBlockEntity {
 
-    private final SingleVariantStorage<FluidVariant> customFluidStorage = new SingleVariantStorage<>() {
-        @Override
-        protected FluidVariant getBlankVariant() {
-            return FluidVariant.blank();
-        }
-
-        @Override
-        protected long getCapacity(FluidVariant variant) {
-            return FluidConstants.BUCKET + 40500;
-        }
-
-        @Override
-        protected void onFinalCommit() {
-            markDirty();
-            getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
-        }
-    };
-
     public CopperTankBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.COPPER_TANK_BE, pos, state);
 
-        setFluidStorage();
-    }
+        SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<>() {
+            @Override
+            protected FluidVariant getBlankVariant() {
+                return FluidVariant.blank();
+            }
 
-    public FluidVariant getFluid() {
-        return customFluidStorage.variant;
-    }
+            @Override
+            protected long getCapacity(FluidVariant variant) {
+                return FluidConstants.BUCKET + 40500;
+            }
 
-    @Override
-    public void setFluidStorage() {
-        this.fluidStorage = customFluidStorage;
+            @Override
+            protected void onFinalCommit() {
+                markDirty();
+                getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
+            }
+        };
+
+        setFluidStorage(fluidStorage);
     }
 }

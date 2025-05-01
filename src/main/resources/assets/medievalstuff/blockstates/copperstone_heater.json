@@ -1,33 +1,63 @@
 {
   "variants": {
-    "facing=east,lit=false": {
-      "model": "medievalstuff:block/copperstone_heater",
-      "y": 90
-    },
-    "facing=east,lit=true": {
-      "model": "medievalstuff:block/copperstone_heater_on",
-      "y": 90
-    },
-    "facing=north,lit=false": {
+    "facing=north,open=false,lit=false": {
       "model": "medievalstuff:block/copperstone_heater"
     },
-    "facing=north,lit=true": {
-      "model": "medievalstuff:block/copperstone_heater_on"
+    "facing=east,open=false,lit=false": {
+      "model": "medievalstuff:block/copperstone_heater",
+      "y": 90
     },
-    "facing=south,lit=false": {
+    "facing=south,open=false,lit=false": {
       "model": "medievalstuff:block/copperstone_heater",
       "y": 180
     },
-    "facing=south,lit=true": {
-      "model": "medievalstuff:block/copperstone_heater_on",
-      "y": 180
-    },
-    "facing=west,lit=false": {
+    "facing=west,open=false,lit=false": {
       "model": "medievalstuff:block/copperstone_heater",
       "y": 270
     },
-    "facing=west,lit=true": {
+    "facing=north,open=true,lit=false": {
+      "model": "medievalstuff:block/copperstone_heater_open"
+    },
+    "facing=east,open=true,lit=false": {
+      "model": "medievalstuff:block/copperstone_heater_open",
+      "y": 90
+    },
+    "facing=south,open=true,lit=false": {
+      "model": "medievalstuff:block/copperstone_heater_open",
+      "y": 180
+    },
+    "facing=west,open=true,lit=false": {
+      "model": "medievalstuff:block/copperstone_heater_open",
+      "y": 270
+    },
+    "facing=north,open=false,lit=true": {
+      "model": "medievalstuff:block/copperstone_heater_on"
+    },
+    "facing=east,open=false,lit=true": {
       "model": "medievalstuff:block/copperstone_heater_on",
+      "y": 90
+    },
+    "facing=south,open=false,lit=true": {
+      "model": "medievalstuff:block/copperstone_heater_on",
+      "y": 180
+    },
+    "facing=west,open=false,lit=true": {
+      "model": "medievalstuff:block/copperstone_heater_on",
+      "y": 270
+    },
+    "facing=north,open=true,lit=true": {
+      "model": "medievalstuff:block/copperstone_heater_open_on"
+    },
+    "facing=east,open=true,lit=true": {
+      "model": "medievalstuff:block/copperstone_heater_open_on",
+      "y": 90
+    },
+    "facing=south,open=true,lit=true": {
+      "model": "medievalstuff:block/copperstone_heater_open_on",
+      "y": 180
+    },
+    "facing=west,open=true,lit=true": {
+      "model": "medievalstuff:block/copperstone_heater_open_on",
       "y": 270
     }
   }

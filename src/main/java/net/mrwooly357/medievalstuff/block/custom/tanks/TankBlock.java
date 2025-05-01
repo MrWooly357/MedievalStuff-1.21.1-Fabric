@@ -22,6 +22,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -33,11 +34,13 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
-import net.mrwooly357.medievalstuff.block.entity.custom.tanks.CopperTankBlockEntity;
 import net.mrwooly357.medievalstuff.block.entity.custom.tanks.TankBlockEntity;
 import net.mrwooly357.medievalstuff.util.ItemStackUtils;
 import net.mrwooly357.medievalstuff.util.ModTags;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static net.mrwooly357.medievalstuff.util.ModMaps.TankBlocks.*;
 
@@ -46,7 +49,7 @@ public abstract class TankBlock extends BlockWithEntity {
     public static final BooleanProperty BOTTOM_CONNECTED = BooleanProperty.of("bottom_connected");
     public static final BooleanProperty BOTTOM_BLOCKED = BooleanProperty.of("bottom_blocked");
     public static final BooleanProperty TOP_CONNECTED = BooleanProperty.of("top_connected");
-    public static final  BooleanProperty TOP_BLOCKED = BooleanProperty.of("top_blocked");
+    public static final BooleanProperty TOP_BLOCKED = BooleanProperty.of("top_blocked");
     public static final IntProperty LIGHT_LEVEL = IntProperty.of("light_level", 0, 15);
 
     protected TankBlock(Settings settings) {
@@ -59,15 +62,19 @@ public abstract class TankBlock extends BlockWithEntity {
 
         Item itemInStack = stack.getItem();
         long fluidAmount;
-        ItemStack exchangeStack;
+        ItemStack exchangeStack = ItemStack.EMPTY;
         SoundEvent sound;
         boolean bl = false;
 
         if (createItemFluidMap().containsKey(itemInStack)) {
             Fluid fluid = createItemFluidMap().get(itemInStack);
             fluidAmount = createItemFluidAmountMap().get(itemInStack);
-            exchangeStack = new ItemStack(createExchangeItemMap().get(itemInStack), 1);
             sound = createExtractSoundMap().get(itemInStack);
+
+            if (!player.isInCreativeMode()) {
+                exchangeStack = new ItemStack(createExchangeItemMap().get(itemInStack), 1);
+            }
+
             bl = tryInsert(world, pos, fluid, fluidAmount, sound, stack, exchangeStack, player);
 
         } else if (createExchangeItemMap().containsValue(itemInStack)) {
@@ -321,7 +328,8 @@ public abstract class TankBlock extends BlockWithEntity {
                 BlockState blockState;
                 boolean var10000;
 
-                label82: {
+                label82:
+                {
                     blockState = world.getBlockState(pos);
                     block = blockState.getBlock();
                     bl = blockState.canBucketPlace(fluid);
@@ -394,159 +402,65 @@ public abstract class TankBlock extends BlockWithEntity {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient ? null : validateTicker(type, ModBlockEntities.COPPER_TANK_BE, TankBlockEntity::tick);
+        return validateTicker(type, ModBlockEntities.COPPER_TANK_BE, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 
-    public static boolean tryInsert(World world, BlockPos pos, Fluid fluid, long amount, SoundEvent sound) {
+    public boolean tryInsert(World world, BlockPos pos, Fluid fluid, long amount, SoundEvent sound) {
         return tryInsert(world, pos, fluid, amount, sound, null, null, null);
     }
 
-    public static boolean tryInsert(World world, BlockPos pos, Fluid fluid, long amount, SoundEvent sound, @Nullable ItemStack useStack, @Nullable ItemStack exchangeStack, @Nullable PlayerEntity player) {
-        BlockState state = world.getBlockState(pos);
-        PlayerInventory inventory = player.getInventory();
+    public boolean tryInsert(World world, BlockPos pos, Fluid fluid, long amount, SoundEvent sound, @Nullable ItemStack useStack, @Nullable ItemStack exchangeStack, @Nullable PlayerEntity player) {
         boolean bl = false;
+        FluidVariant insertVariant = FluidVariant.of(fluid);
 
-        if (state.get(BOTTOM_CONNECTED) || state.get(TOP_CONNECTED)) {
-            boolean shouldContinue = true;
+        if (canInsert(amount, world, pos)) {
+            FluidVariant variantInMultiblockConstruction = getFluidVariant(world, pos);
 
-            for (int a = pos.getY(); a > world.getBottomY(); a--) {
-                BlockPos posToCheck = new BlockPos(pos.getX(), a, pos.getZ());
-                BlockState stateToCheck = world.getBlockState(posToCheck);
+            if (variantInMultiblockConstruction == insertVariant || variantInMultiblockConstruction == FluidVariant.of(Fluids.EMPTY)) {
+                List<BlockPos> multiblockConstruction = createMultiblockConstruction(world, pos);
 
-                if (stateToCheck.getBlock() instanceof TankBlock) {
+                for (BlockPos blockPos : multiblockConstruction) {
+                    BlockEntity entity = world.getBlockEntity(blockPos);
 
-                    if (stateToCheck.get(TOP_CONNECTED) || stateToCheck.get(BOTTOM_CONNECTED)) {
+                    if (entity instanceof TankBlockEntity tankBlockEntity) {
+                        SingleVariantStorage<FluidVariant> fluidStorage = tankBlockEntity.getFluidStorage();
+                        long possibleTransferAmount = fluidStorage.getCapacity() - fluidStorage.getAmount();
 
-                        if (!stateToCheck.get(BOTTOM_CONNECTED)) {
-                            long overallAvailableSpace = 0;
-                            Fluid overallFluid = Fluids.EMPTY;
-                            BlockEntity entity = world.getBlockEntity(posToCheck);
+                        if (possibleTransferAmount > 0) {
+                            long transferAmount = Math.min(amount, possibleTransferAmount);
 
-                            if (entity instanceof TankBlockEntity) {
+                            try (Transaction transaction = Transaction.openOuter()) {
+                                BlockState state = world.getBlockState(blockPos);
+                                fluidStorage.insert(FluidVariant.of(fluid), transferAmount, transaction);
+                                transaction.commit();
 
-                                for (int b = posToCheck.getY(); b < world.getTopY(); b++) {
-                                    BlockPos posToCheck1 = new BlockPos(posToCheck.getX(), b, posToCheck.getZ());
-                                    BlockState stateToCheck1 = world.getBlockState(posToCheck1);
+                                amount -= transferAmount;
+                                int lightLevel = calculateLightLevel(tankBlockEntity, fluid);
+                                System.out.println(lightLevel);
+                                System.out.println(transferAmount);
 
-                                    if (stateToCheck1.getBlock() instanceof TankBlock) {
+                                world.setBlockState(blockPos, state.with(LIGHT_LEVEL, lightLevel));
+                            }
 
-                                        if (stateToCheck1.get(BOTTOM_CONNECTED) || stateToCheck1.get(TOP_CONNECTED)) {
-                                            BlockEntity blockEntity1 = world.getBlockEntity(posToCheck1);
+                            if (amount == 0) {
+                                PlayerInventory inventory = player.getInventory();
+                                float useSoundVolume = MathHelper.nextFloat(Random.create(), 0.9F, 1.1F);
+                                float useSoundPitch = MathHelper.nextFloat(Random.create(), 0.9F, 1.1F);
 
-                                            if (blockEntity1 instanceof TankBlockEntity tankBlockEntity1) {
-                                                SingleVariantStorage<FluidVariant> fluidStorage = tankBlockEntity1.getFluidStorage();
-                                                overallAvailableSpace += fluidStorage.getCapacity() - fluidStorage.getAmount();
+                                if (useStack != null && exchangeStack != null) {
 
-                                                if (fluidStorage.variant != FluidVariant.of(Fluids.EMPTY)) {
-                                                    overallFluid = fluidStorage.variant.getFluid();
-
-                                                }
-
-                                                if (!stateToCheck1.get(TOP_CONNECTED)) {
-
-                                                    if (amount <= overallAvailableSpace && fluid == overallFluid || amount <= overallAvailableSpace && overallFluid == Fluids.EMPTY) {
-
-                                                        for (int c = posToCheck.getY(); c < posToCheck1.getY() + 1; c++) {
-                                                            BlockPos posToCheck2 = new BlockPos(posToCheck.getX(), c, posToCheck.getZ());
-                                                            BlockState state1 = world.getBlockState(posToCheck2);
-                                                            BlockEntity blockEntity2 = world.getBlockEntity(posToCheck2);
-
-                                                            if (blockEntity2 instanceof TankBlockEntity tankBlockEntity2) {
-                                                                SingleVariantStorage<FluidVariant> fluidStorage1 = tankBlockEntity2.getFluidStorage();
-                                                                long possibleTransferAmount = fluidStorage1.getCapacity() - fluidStorage1.getAmount();
-                                                                long transferAmount = Math.min(amount, possibleTransferAmount);
-
-                                                                try (Transaction transaction = Transaction.openOuter()) {
-                                                                    fluidStorage1.insert(FluidVariant.of(fluid), transferAmount, transaction);
-                                                                    transaction.commit();
-
-                                                                    amount -= transferAmount;
-                                                                    int lightLevel = calculateLightLevel(tankBlockEntity2, fluidStorage1.variant.getFluid());
-
-                                                                    world.setBlockState(posToCheck2, state1.with(LIGHT_LEVEL, lightLevel));
-                                                                }
-                                                            }
-
-                                                            if (amount == 0) {
-                                                                float useSoundVolume = MathHelper.nextFloat(Random.create(), 0.8F, 1.2F);
-                                                                float useSoundPitch = MathHelper.nextFloat(Random.create(), 0.8F, 1.2F);
-
-                                                                if (useStack != null && exchangeStack != null) {
-
-                                                                    if (!ItemStackUtils.insertFluidStorageStack(useStack, exchangeStack, inventory, inventory.selectedSlot)) {
-                                                                        player.dropItem(exchangeStack, false);
-                                                                    }
-                                                                }
-
-                                                                shouldContinue = false;
-                                                                bl = true;
-
-                                                                world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), sound, SoundCategory.PLAYERS, useSoundVolume, useSoundPitch);
-
-                                                                break;
-                                                            }
-                                                        }
-                                                    } else {
-                                                        shouldContinue = false;
-
-                                                        break;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    } else {
-                                        shouldContinue = false;
-
-                                        break;
-                                    }
-
-                                    if (!shouldContinue) {
-                                        break;
+                                    if (!ItemStackUtils.insertFluidStorageStack(useStack, exchangeStack, inventory, inventory.selectedSlot)) {
+                                        player.dropItem(exchangeStack, false);
                                     }
                                 }
+
+                                bl = true;
+
+                                world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), sound, SoundCategory.PLAYERS, useSoundVolume, useSoundPitch);
+
+                                break;
                             }
                         }
-                    } else {
-                        break;
-                    }
-                } else {
-                    break;
-                }
-
-                if (!shouldContinue) {
-                    break;
-                }
-            }
-        } else {
-            CopperTankBlockEntity entity = (CopperTankBlockEntity) world.getBlockEntity(pos);
-            SingleVariantStorage<FluidVariant> fluidStorage = entity.getFluidStorage();
-            long freeSpaceRequirement = fluidStorage.getCapacity() - fluidStorage.getAmount();
-
-            if (amount <= freeSpaceRequirement) {
-
-                if (fluid == fluidStorage.variant.getFluid() || fluidStorage.isResourceBlank()) {
-
-                    try (Transaction transaction = Transaction.openOuter()) {
-                        float useSoundVolume = MathHelper.nextFloat(Random.create(), 0.8F, 1.2F);
-                        float useSoundPitch = MathHelper.nextFloat(Random.create(), 0.8F, 1.2F);
-
-
-                        fluidStorage.insert(FluidVariant.of(fluid), amount, transaction);
-                        transaction.commit();
-
-                        int lightLevel = calculateLightLevel(entity, fluidStorage.variant.getFluid());
-
-                        world.setBlockState(pos, state.with(LIGHT_LEVEL, lightLevel));
-                        world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), sound, SoundCategory.PLAYERS, useSoundVolume, useSoundPitch);
-
-                        if (useStack != null && exchangeStack != null) {
-
-                            if (!ItemStackUtils.insertFluidStorageStack(useStack, exchangeStack, inventory, inventory.selectedSlot)) {
-                                player.dropItem(exchangeStack, false);
-                            }
-                        }
-
-                        bl = true;
                     }
                 }
             }
@@ -555,150 +469,60 @@ public abstract class TankBlock extends BlockWithEntity {
         return bl;
     }
 
-    public static boolean tryExtract(World world, BlockPos pos, long amount, SoundEvent sound) {
+    public boolean tryExtract(World world, BlockPos pos, long amount, SoundEvent sound) {
         return tryExtract(world, pos, amount, sound, null, null, null);
     }
 
-    public static boolean tryExtract(World world, BlockPos pos, long amount, SoundEvent sound, ItemStack useStack, ItemStack exchangeStack, PlayerEntity player) {
-        BlockState state = world.getBlockState(pos);
-        PlayerInventory inventory = player.getInventory();
+    public boolean tryExtract(World world, BlockPos pos, long amount, SoundEvent sound, @Nullable ItemStack useStack, @Nullable ItemStack exchangeStack, @Nullable PlayerEntity player) {
         boolean bl = false;
 
-        if (state.get(BOTTOM_CONNECTED) || state.get(TOP_CONNECTED)) {
-            boolean shouldContinue = true;
+        if (canExtract(amount, world, pos)) {
+            FluidVariant variantInMultiblockConstruction = getFluidVariant(world, pos);
 
-            for (int a = pos.getY(); a < world.getTopY(); a++) {
-                BlockPos posToCheck = new BlockPos(pos.getX(), a, pos.getZ());
-                BlockState stateToCheck = world.getBlockState(posToCheck);
+            List<BlockPos> multiblockConstruction = createMultiblockConstruction(world, pos);
 
-                if (stateToCheck.getBlock() instanceof TankBlock) {
+            for (int a = multiblockConstruction.size() - 1; a > -1; a--) {
+                BlockPos blockPos = multiblockConstruction.get(a);
+                BlockEntity entity = world.getBlockEntity(blockPos);
 
-                    if (stateToCheck.get(BOTTOM_CONNECTED) || stateToCheck.get(TOP_CONNECTED)) {
+                if (entity instanceof TankBlockEntity tankBlockEntity) {
+                    SingleVariantStorage<FluidVariant> fluidStorage = tankBlockEntity.getFluidStorage();
+                    long possibleTransferAmount = fluidStorage.getAmount();
 
-                        if (!stateToCheck.get(TOP_CONNECTED)) {
-                            long overallAvailableFluid = 0;
+                    if (possibleTransferAmount > 0) {
+                        long transferAmount = Math.min(amount, possibleTransferAmount);
 
-                            BlockEntity entity = world.getBlockEntity(posToCheck);
+                        try (Transaction transaction = Transaction.openOuter()) {
+                            BlockState state = world.getBlockState(blockPos);
+                            fluidStorage.extract(variantInMultiblockConstruction, transferAmount, transaction);
+                            transaction.commit();
 
-                            if (entity instanceof TankBlockEntity) {
+                            amount -= transferAmount;
+                            int lightLevel = calculateLightLevel(tankBlockEntity, variantInMultiblockConstruction.getFluid());
+                            System.out.println(lightLevel);
 
-                                for (int b = posToCheck.getY(); b > world.getBottomY(); b--) {
-                                    BlockPos posToCheck1 = new BlockPos(posToCheck.getX(), b, posToCheck.getZ());
-                                    BlockState stateToCheck1 = world.getBlockState(posToCheck1);
+                            world.setBlockState(blockPos, state.with(LIGHT_LEVEL, lightLevel));
+                        }
 
-                                    if (stateToCheck1.getBlock() instanceof TankBlock) {
+                        if (amount == 0) {
+                            PlayerInventory inventory = player.getInventory();
+                            float useSoundVolume = MathHelper.nextFloat(Random.create(), 0.9F, 1.1F);
+                            float useSoundPitch = MathHelper.nextFloat(Random.create(), 0.9F, 1.1F);
 
-                                        if (stateToCheck1.get(TOP_CONNECTED) || stateToCheck1.get(BOTTOM_CONNECTED)) {
-                                            BlockEntity blockEntity1 = world.getBlockEntity(posToCheck1);
+                            if (useStack != null && exchangeStack != null) {
 
-                                            if (blockEntity1 instanceof TankBlockEntity tankBlockEntity) {
-                                                SingleVariantStorage<FluidVariant> fluidStorage = tankBlockEntity.getFluidStorage();
-                                                overallAvailableFluid += fluidStorage.getAmount();
-                                                FluidVariant variant = fluidStorage.variant;
-
-                                                if (!stateToCheck1.get(BOTTOM_CONNECTED)) {
-
-                                                    if (amount <= overallAvailableFluid) {
-
-                                                        for (int c = posToCheck.getY(); c > posToCheck1.getY() - 1; c--) {
-                                                            BlockPos posToCheck2 = new BlockPos(posToCheck.getX(), c, posToCheck.getZ());
-                                                            BlockState state1 = world.getBlockState(posToCheck2);
-                                                            BlockEntity blockEntity2 = world.getBlockEntity(posToCheck2);
-
-                                                            if (blockEntity2 instanceof TankBlockEntity tankBlockEntity1) {
-                                                                SingleVariantStorage<FluidVariant> fluidStorage1 = tankBlockEntity1.getFluidStorage();
-                                                                long possibleTransferAmount = fluidStorage1.getAmount();
-                                                                long transferAmount = Math.min(possibleTransferAmount, amount);
-
-                                                                try (Transaction transaction = Transaction.openOuter()) {
-                                                                    fluidStorage1.extract(variant, transferAmount, transaction);
-                                                                    transaction.commit();
-
-                                                                    amount -= transferAmount;
-                                                                    int lightLevel = calculateLightLevel(tankBlockEntity1, fluidStorage1.variant.getFluid());
-
-                                                                    world.setBlockState(posToCheck2, state1.with(LIGHT_LEVEL, lightLevel));
-
-                                                                }
-                                                            }
-
-                                                            if (amount == 0) {
-                                                                float useSoundVolume = MathHelper.nextFloat(Random.create(), 0.8F, 1.2F);
-                                                                float useSoundPitch = MathHelper.nextFloat(Random.create(), 0.8F, 1.2F);
-
-                                                                if (useStack != null && exchangeStack != null) {
-
-                                                                    if (!ItemStackUtils.insertFluidStorageStack(useStack, exchangeStack, inventory, inventory.selectedSlot)) {
-                                                                        player.dropItem(exchangeStack, false);
-                                                                    }
-                                                                }
-
-                                                                shouldContinue = false;
-                                                                bl = true;
-
-                                                                world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), sound, SoundCategory.PLAYERS, useSoundVolume, useSoundPitch);
-
-                                                                break;
-                                                            }
-                                                        }
-                                                    } else {
-                                                        shouldContinue = false;
-
-                                                        break;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    } else {
-                                        shouldContinue = false;
-
-                                        break;
-                                    }
-
-                                    if (!shouldContinue) {
-                                        break;
-                                    }
+                                if (!ItemStackUtils.insertFluidStorageStack(useStack, exchangeStack, inventory, inventory.selectedSlot)) {
+                                    player.dropItem(exchangeStack, false);
                                 }
                             }
-                        }
-                    } else {
-                        break;
-                    }
-                } else {
-                    break;
-                }
 
-                if (!shouldContinue) {
-                    break;
-                }
-            }
-        } else {
-            CopperTankBlockEntity entity = (CopperTankBlockEntity) world.getBlockEntity(pos);
-            SingleVariantStorage<FluidVariant> fluidStorage = entity.getFluidStorage();
-            FluidVariant variant = fluidStorage.variant;
+                            bl = true;
 
-            if (amount <= fluidStorage.getAmount()) {
+                            world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), sound, SoundCategory.PLAYERS, useSoundVolume, useSoundPitch);
 
-                try (Transaction transaction = Transaction.openOuter()) {
-                    float useSoundVolume = MathHelper.nextFloat(Random.create(), 0.8F, 1.2F);
-                    float useSoundPitch = MathHelper.nextFloat(Random.create(), 0.8F, 1.2F);
-
-                    fluidStorage.extract(variant, amount, transaction);
-                    transaction.commit();
-
-                    int lightLevel = calculateLightLevel(entity, variant.getFluid());
-
-                    world.setBlockState(pos, state.with(LIGHT_LEVEL, lightLevel));
-                    world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), sound, SoundCategory.PLAYERS, useSoundVolume, useSoundPitch);
-
-                    if (useStack != null && exchangeStack != null) {
-
-                        if (!ItemStackUtils.insertFluidStorageStack(useStack, exchangeStack, inventory, inventory.selectedSlot)) {
-                            player.dropItem(exchangeStack, false);
+                            break;
                         }
                     }
-
-                    bl = true;
                 }
             }
         }
@@ -706,7 +530,7 @@ public abstract class TankBlock extends BlockWithEntity {
         return bl;
     }
 
-    public static boolean shouldConnectWhenBetween(World world, BlockPos pos) {
+    public boolean shouldConnectWhenBetween(World world,BlockPos pos) {
         BlockPos posBelow = new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ());
         BlockPos posAbove = new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ());
         BlockState stateBelow = world.getBlockState(posBelow);
@@ -754,6 +578,13 @@ public abstract class TankBlock extends BlockWithEntity {
                         }
                     }
                 }
+            } else {
+                BlockEntity entity = world.getBlockEntity(posBelow);
+
+                if (entity instanceof TankBlockEntity tankBlockEntity) {
+                    SingleVariantStorage<FluidVariant> fluidStorage = tankBlockEntity.getFluidStorage();
+                    variantBelow = fluidStorage.variant;
+                }
             }
         }
 
@@ -796,9 +627,151 @@ public abstract class TankBlock extends BlockWithEntity {
                         }
                     }
                 }
+            } else {
+                BlockEntity entity = world.getBlockEntity(posAbove);
+
+                if (entity instanceof TankBlockEntity tankBlockEntity) {
+                    SingleVariantStorage<FluidVariant> fluidStorage = tankBlockEntity.getFluidStorage();
+                    variantAbove = fluidStorage.variant;
+                }
             }
         }
 
         return variantBelow == variantAbove || variantBelow == empty || variantAbove == empty;
+    }
+
+    @Override
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        System.out.println(canInsert(81000, world, pos));
+        System.out.println(canExtract(81000, world, pos));
+
+        return super.onUse(state, world, pos, player, hit);
+    }
+
+    public FluidVariant getFluidVariant(World world, BlockPos pos) {
+        List<BlockPos> multiblockConstruction = createMultiblockConstruction(world, pos);
+        FluidVariant variant = FluidVariant.of(Fluids.EMPTY);
+
+        for (BlockPos blockPos : multiblockConstruction) {
+            BlockEntity entity = world.getBlockEntity(blockPos);
+
+            if (entity instanceof TankBlockEntity tankBlockEntity) {
+                SingleVariantStorage<FluidVariant> fluidStorage = tankBlockEntity.getFluidStorage();
+                FluidVariant variantInStorage = fluidStorage.variant;
+
+                if (variantInStorage != FluidVariant.of(Fluids.EMPTY)) {
+                    variant = variantInStorage;
+
+                    break;
+                }
+            }
+        }
+
+        return variant;
+    }
+
+    public boolean canInsert(long amount, World world, BlockPos pos) {
+        List<BlockPos> multiblockConstruction = createMultiblockConstruction(world, pos);
+        boolean bl = false;
+
+        for (BlockPos blockPos : multiblockConstruction) {
+            BlockEntity entity = world.getBlockEntity(blockPos);
+            long overallFreeSpace = 0;
+
+            if (entity instanceof TankBlockEntity tankBlockEntity) {
+                SingleVariantStorage<FluidVariant> fluidStorage = tankBlockEntity.getFluidStorage();
+                overallFreeSpace += fluidStorage.getCapacity() - fluidStorage.getAmount();
+
+                if (overallFreeSpace >= amount) {
+                    bl = true;
+
+                    break;
+                }
+            }
+        }
+
+        return bl;
+    }
+
+    public boolean canExtract(long amount, World world, BlockPos pos) {
+        List<BlockPos> multiblockConstruction = createMultiblockConstruction(world, pos);
+        boolean bl = false;
+
+        for (int a = multiblockConstruction.size() - 1; a > -1; a--) {
+            BlockEntity entity = world.getBlockEntity(multiblockConstruction.get(a));
+            long overallAvailableFluid = 0;
+
+            if (entity instanceof TankBlockEntity tankBlockEntity) {
+                SingleVariantStorage<FluidVariant> fluidStorage = tankBlockEntity.getFluidStorage();
+                overallAvailableFluid += fluidStorage.getAmount();
+
+                if (overallAvailableFluid >= amount) {
+                    bl = true;
+
+                    break;
+                }
+            }
+        }
+
+        return bl;
+    }
+
+    protected List<BlockPos> createMultiblockConstruction(World world, BlockPos startPos) {
+        List<BlockPos> multiblockConstruction = new ArrayList<>();
+        BlockState state = world.getBlockState(startPos);
+
+        if (state.get(BOTTOM_CONNECTED) || state.get(TOP_CONNECTED)) {
+            boolean shouldContinue = true;
+
+            for (int a = startPos.getY(); a > world.getBottomY(); a--) {
+                BlockPos posToCheck = new BlockPos(startPos.getX(), a, startPos.getZ());
+                BlockState stateToCheck = world.getBlockState(posToCheck);
+
+                if (stateToCheck.getBlock() instanceof TankBlock) {
+
+                    if (stateToCheck.get(TOP_CONNECTED) || stateToCheck.get(BOTTOM_CONNECTED)) {
+
+                        if (!stateToCheck.get(BOTTOM_CONNECTED)) {
+
+                            for (int b = posToCheck.getY(); b < world.getTopY(); b++) {
+                                BlockPos posToCheck1 = new BlockPos(posToCheck.getX(), b, posToCheck.getZ());
+                                BlockState stateToCheck1 = world.getBlockState(posToCheck1);
+
+                                if (stateToCheck1.getBlock() instanceof TankBlock) {
+
+                                    if (stateToCheck1.get(BOTTOM_CONNECTED) || stateToCheck1.get(TOP_CONNECTED)) {
+                                        multiblockConstruction.add(posToCheck1);
+
+                                        if (!stateToCheck1.get(TOP_CONNECTED)) {
+                                            shouldContinue = false;
+                                        }
+                                    }
+                                } else {
+                                    shouldContinue = false;
+
+                                    break;
+                                }
+
+                                if (!shouldContinue) {
+                                    break;
+                                }
+                            }
+                        }
+                    } else {
+                        break;
+                    }
+                } else {
+                    break;
+                }
+
+                if (!shouldContinue) {
+                    break;
+                }
+            }
+        } else {
+            multiblockConstruction.add(startPos);
+        }
+
+        return multiblockConstruction;
     }
 }

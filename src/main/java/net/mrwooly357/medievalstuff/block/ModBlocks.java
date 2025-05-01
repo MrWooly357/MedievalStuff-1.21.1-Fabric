@@ -9,10 +9,11 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.mrwooly357.medievalstuff.MedievalStuff;
+import net.mrwooly357.medievalstuff.block.custom.forge_controllers.CopperstoneForgeControllerBlock;
 import net.mrwooly357.medievalstuff.block.custom.heaters.CopperstoneHeaterBlock;
 import net.mrwooly357.medievalstuff.block.custom.tanks.CopperTankBlock;
 
-public class ModBlocks {
+public class ModBlocks extends Blocks {
 
     public static final Block COPPERSTONE_BRICKS = registerBlock("copperstone_bricks",
             new Block(AbstractBlock.Settings.create()
@@ -51,8 +52,9 @@ public class ModBlocks {
             new CopperstoneHeaterBlock(AbstractBlock.Settings.create()
                     .strength(3.0F, 4.0F)
                     .requiresTool()
-                    .luminance(Blocks.createLightLevelFromLitBlockState(6))
-                    .sounds(BlockSoundGroup.STONE)));
+                    .luminance(createLightLevelFromLitBlockState(6))
+                    .sounds(BlockSoundGroup.STONE)
+            ));
 
     public static final Block COPPER_TANK = registerBlock("copper_tank",
             new CopperTankBlock(AbstractBlock.Settings.create()
@@ -61,17 +63,26 @@ public class ModBlocks {
                     .luminance(state -> state.get(CopperTankBlock.LIGHT_LEVEL))
                     .sounds(BlockSoundGroup.COPPER)
                     .nonOpaque()
-                    .suffocates(Blocks::never)));
+                    .suffocates(Blocks::never)
+            ));
+
+    public static final Block COPPERSTONE_FORGE_CONTROLLER = registerBlock("copperstone_forge_controller",
+            new CopperstoneForgeControllerBlock(AbstractBlock.Settings.create()
+                    .strength(3.5F, 4.5F)
+                    .requiresTool()
+                    .luminance(createLightLevelFromLitBlockState(6))
+                    .sounds(BlockSoundGroup.STONE)
+            ));
 
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
+
         return Registry.register(Registries.BLOCK, Identifier.of(MedievalStuff.MOD_ID, name), block);
     }
 
     private static void registerBlockItem(String name, Block block) {
-        Registry.register(Registries.ITEM, Identifier.of(MedievalStuff.MOD_ID, name),
-                new BlockItem(block, new Item.Settings()));
+        Registry.register(Registries.ITEM, Identifier.of(MedievalStuff.MOD_ID, name), new BlockItem(block, new Item.Settings()));
     }
 
     public static void registerModBlocks() {

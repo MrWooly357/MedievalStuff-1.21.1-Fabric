@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "medievalstuff:block/copperstone_heater_bottom",
+    "front": "medievalstuff:block/copperstone_heater_front_open_on",
+    "side": "medievalstuff:block/copperstone_heater_side_on",
+    "top": "medievalstuff:block/copperstone_heater_top_on"
+  }
+}

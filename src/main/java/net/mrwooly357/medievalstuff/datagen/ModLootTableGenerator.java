@@ -25,6 +25,7 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         super(dataOutput, registryLookup);
     }
 
+
     @Override
     public void generate() {
         addDrop(ModBlocks.SILVER_ORE, oreDrops(ModBlocks.SILVER_ORE, ModItems.RAW_SILVER));
@@ -34,6 +35,7 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.COPPERSTONE_BRICKS);
         addDrop(ModBlocks.COPPERSTONE_HEATER);
         addDrop(ModBlocks.COPPER_TANK);
+        addDrop(ModBlocks.COPPERSTONE_FORGE_CONTROLLER);
     }
 
     public LootTable.Builder multipleDrops(Block drop, Item item, float minDrops, float maxDrops) {

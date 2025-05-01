@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,open=false,lit=false": {
+      "model": "medievalstuff:block/copperstone_forge_controller"
+    },
+    "facing=east,open=false,lit=false": {
+      "model": "medievalstuff:block/copperstone_forge_controller",
+      "y": 90
+    },
+    "facing=south,open=false,lit=false": {
+      "model": "medievalstuff:block/copperstone_forge_controller",
+      "y": 180
+    },
+    "facing=west,open=false,lit=false": {
+      "model": "medievalstuff:block/copperstone_forge_controller",
+      "y": 270
+    },
+    "facing=north,open=true,lit=false": {
+      "model": "medievalstuff:block/copperstone_forge_controller_open"
+    },
+    "facing=east,open=true,lit=false": {
+      "model": "medievalstuff:block/copperstone_forge_controller_open",
+      "y": 90
+    },
+    "facing=south,open=true,lit=false": {
+      "model": "medievalstuff:block/copperstone_forge_controller_open",
+      "y": 180
+    },
+    "facing=west,open=true,lit=false": {
+      "model": "medievalstuff:block/copperstone_forge_controller_open",
+      "y": 270
+    },
+    "facing=north,open=false,lit=true": {
+      "model": "medievalstuff:block/copperstone_forge_controller_on"
+    },
+    "facing=east,open=false,lit=true": {
+      "model": "medievalstuff:block/copperstone_forge_controller_on",
+      "y": 90
+    },
+    "facing=south,open=false,lit=true": {
+      "model": "medievalstuff:block/copperstone_forge_controller_on",
+      "y": 180
+    },
+    "facing=west,open=false,lit=true": {
+      "model": "medievalstuff:block/copperstone_forge_controller_on",
+      "y": 270
+    },
+    "facing=north,open=true,lit=true": {
+      "model": "medievalstuff:block/copperstone_forge_controller_open_on"
+    },
+    "facing=east,open=true,lit=true": {
+      "model": "medievalstuff:block/copperstone_forge_controller_open_on",
+      "y": 90
+    },
+    "facing=south,open=true,lit=true": {
+      "model": "medievalstuff:block/copperstone_forge_controller_open_on",
+      "y": 180
+    },
+    "facing=west,open=true,lit=true": {
+      "model": "medievalstuff:block/copperstone_forge_controller_open_on",
+      "y": 270
+    }
+  }
+}

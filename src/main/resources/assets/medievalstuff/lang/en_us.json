@@ -48,8 +48,10 @@
   "block.medievalstuff.raw_silver_block": "Raw Silver Block",
   "block.medievalstuff.silver_block": "Silver Block",
   "block.medievalstuff.copperstone_bricks": "Copperstone Bricks",
+
   "block.medievalstuff.copperstone_heater": "Copperstone Heater",
   "block.medievalstuff.copper_tank": "Copper Tank",
+  "block.medievalstuff.copperstone_forge_controller": "Copperstone Forge Controller",
 
 
   "effect.medievalstuff.reach": "Reach",
@@ -98,6 +100,7 @@
 
 
   "gui.medievalstuff.copperstone_heater": "Copperstone Heater",
+  "gui.medievalstuff.copperstone_forge_controller": "Copperstone Forge Controller",
 
 
   "itemgroup.medievalstuff_items": "Medieval Stuff: Items",

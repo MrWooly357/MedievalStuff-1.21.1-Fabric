@@ -1,8 +1,9 @@
-// 1.21.1	2025-04-14T18:58:03.2012366	Medieval Stuff/Block Loot Tables
+// 1.21.1	2025-05-01T20:23:30.869474	Medieval Stuff/Block Loot Tables
 a2fade78ccdd558ccd1c4fc8117ebfa0cb510a2f data\medievalstuff\loot_table\blocks\silver_block.json
 b344af6d7d54d91491020f6221836ec29b9ee24d data\medievalstuff\loot_table\blocks\copperstone_bricks.json
 dccaec1b8b07381fef11c9703ab7343baefa4217 data\medievalstuff\loot_table\blocks\copperstone_heater.json
 7ed2d711fa251394f1c008bc36ffc9fa42e22ee8 data\medievalstuff\loot_table\blocks\deepslate_silver_ore.json
+fd224a67f541204f2609b4887b30e8a55a55fae9 data\medievalstuff\loot_table\blocks\copperstone_forge_controller.json
 d5a6f2788d0595289a1086bd376bf95c5880dabd data\medievalstuff\loot_table\blocks\copper_tank.json
 10c97d07effa143d52a81c48536fdce9ea567079 data\medievalstuff\loot_table\blocks\raw_silver_block.json
 fefd852474fe67c7efe149fdc56d496d26b563f2 data\medievalstuff\loot_table\blocks\silver_ore.json

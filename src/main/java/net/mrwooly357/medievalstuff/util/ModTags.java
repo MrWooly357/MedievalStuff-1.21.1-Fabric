@@ -1,18 +1,16 @@
 package net.mrwooly357.medievalstuff.util;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.damage.DamageType;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.biome.Biome;
 import net.mrwooly357.medievalstuff.MedievalStuff;
 
 public class ModTags {
 
     public static class Items {
+        public static final TagKey<Item> BYPASSES_DEFAULT_INTERACTION = createItemTag("bypasses_default_interaction");
         public static final TagKey<Item> CUSTOM_BOWS = createItemTag("custom_bows");
         public static final TagKey<Item> HEATER_FUEL_EXCEPTIONS = createItemTag("heater_fuel_exceptions");
         public static final TagKey<Item> HEATER_ARSONISTS = createItemTag("heater_arsonists");

@@ -107,10 +107,11 @@ public class ModItemGroups {
                     .displayName(Text.translatable("itemgroup.medievalstuff_functional_blocks"))
                     .icon(() -> new ItemStack(ModBlocks.COPPERSTONE_HEATER))
                     .entries((displayContext, entries) -> {
-                        //Copper
                         entries.add(ModBlocks.COPPERSTONE_HEATER);
                         entries.add(ModBlocks.COPPER_TANK);
+                        entries.add(ModBlocks.COPPERSTONE_FORGE_CONTROLLER);
                     }).build());
+
 
     public static void registerItemGroups() {
         MedievalStuff.LOGGER.info("Registering Mod Item Groups for " + MedievalStuff.MOD_ID);

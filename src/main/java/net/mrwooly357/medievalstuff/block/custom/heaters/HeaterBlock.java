@@ -29,8 +29,10 @@ import net.mrwooly357.medievalstuff.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class HeaterBlock extends BlockWithEntity implements BlockEntityProvider {
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+
+    public static final BooleanProperty OPEN = Properties.OPEN;
     public static final BooleanProperty LIT = Properties.LIT;
+    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
     protected HeaterBlock(AbstractBlock.Settings settings) {
         super(settings);
@@ -38,9 +40,54 @@ public abstract class HeaterBlock extends BlockWithEntity implements BlockEntity
 
 
     @Override
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        Hand hand = player.getActiveHand();
+        ItemStack stackInHand = player.getStackInHand(hand);
+
+        if (!stackInHand.isIn(ModTags.Items.BYPASSES_DEFAULT_INTERACTION)) {
+
+            if (world.getBlockEntity(pos) instanceof HeaterBlockEntity heaterBlockEntity) {
+
+                if (player.isSneaking()) {
+                    float soundVolume = MathHelper.nextFloat(Random.create(), 0.9F, 1.1F);
+                    float soundPitch = MathHelper.nextFloat(Random.create(), 0.9F, 1.1F);
+
+                    world.setBlockState(pos, state.cycle(OPEN));
+
+                    if (state.get(OPEN)) {
+                        world.playSound(null, pos, SoundEvents.BLOCK_COPPER_TRAPDOOR_OPEN, SoundCategory.BLOCKS, soundVolume, soundPitch);
+                    } else {
+                        world.playSound(null, pos, SoundEvents.BLOCK_COPPER_TRAPDOOR_CLOSE, SoundCategory.BLOCKS, soundVolume, soundPitch);
+                    }
+
+                    return ActionResult.SUCCESS;
+                } else if (state.get(OPEN)) {
+
+                    if (!world.isClient) {
+                        player.openHandledScreen(heaterBlockEntity);
+                    }
+
+                    return ActionResult.SUCCESS;
+                } else if (!state.get(OPEN)) {
+
+                    if (stackInHand.isIn(ModTags.Items.HEATER_ARSONISTS) && !heaterBlockEntity.isEmpty() && !state.get(LIT)) {
+                        return ActionResult.SUCCESS;
+                    } else if (stackInHand.isIn(ItemTags.SHOVELS) && state.get(LIT)) {
+                        return ActionResult.SUCCESS;
+                    } else {
+                        return ActionResult.FAIL;
+                    }
+                }
+            }
+        }
+
+        return ActionResult.PASS;
+    }
+
+    @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        float soundVolumeRandomizer = MathHelper.nextFloat(Random.create(), -0.2F, 0.2F);
-        float soundPitchRandomizer = MathHelper.nextFloat(Random.create(), -0.2F, 0.2F);
+        float soundVolume = MathHelper.nextFloat(Random.create(), 0.9F, 1.1F);
+        float soundPitch = MathHelper.nextFloat(Random.create(), 0.9F, 1.1F);
 
         if (!state.get(LIT)) {
 
@@ -51,9 +98,8 @@ public abstract class HeaterBlock extends BlockWithEntity implements BlockEntity
                     for (int slot = 0; slot < blockEntity.size(); slot++) {
 
                         if (!blockEntity.getStack(slot).isEmpty() && !blockEntity.getStack(slot).isIn(ModTags.Items.HEATER_FUEL_EXCEPTIONS)) {
-
                             world.setBlockState(pos, state.with(LIT, true));
-                            world.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0F + soundVolumeRandomizer, 1.0F + soundPitchRandomizer);
+                            world.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, soundVolume, soundPitch);
 
                             if (stack.isOf(Items.FLINT_AND_STEEL)) {
                                 stack.damage(1, player, EquipmentSlot.MAINHAND);
@@ -61,8 +107,6 @@ public abstract class HeaterBlock extends BlockWithEntity implements BlockEntity
                             } else {
                                 stack.decrementUnlessCreative(1, player);
                             }
-
-
 
                             return ItemActionResult.SUCCESS;
                         }
@@ -80,19 +124,18 @@ public abstract class HeaterBlock extends BlockWithEntity implements BlockEntity
             stack.damage(1, player, EquipmentSlot.MAINHAND);
 
             for (int largeSmokeAmount = 0; largeSmokeAmount < largeSmokeAmountRandomizer; largeSmokeAmount++) {
-                double largeSmokeXVelocity = MathHelper.nextDouble(Random.create(), -0.03, 0.03);
-                double largeSmokeYVelocity = MathHelper.nextDouble(Random.create(), -0.03, 0.03);
-                double largeSmokeZVelocity = MathHelper.nextDouble(Random.create(), -0.03, 0.03);
+                double largeSmokeVelocity = MathHelper.nextDouble(Random.create(), -0.03, 0.03);
 
-                world.addParticle(ParticleTypes.LARGE_SMOKE, largeSmokeX, largeSmokeY, largeSmokeZ, largeSmokeXVelocity, largeSmokeYVelocity, largeSmokeZVelocity);
+                world.addParticle(ParticleTypes.LARGE_SMOKE, largeSmokeX, largeSmokeY, largeSmokeZ, largeSmokeVelocity, largeSmokeVelocity, largeSmokeVelocity);
             }
 
-            world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, 1.0F + soundVolumeRandomizer, 1.0F + soundPitchRandomizer);
+            world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, soundVolume - 0.4F, soundPitch * 2);
 
             if (world.getBlockEntity(pos) instanceof HeaterBlockEntity blockEntity) {
                 blockEntity.setBurnTime(0);
+
+                return ItemActionResult.SUCCESS;
             }
-            return ItemActionResult.SUCCESS;
         }
 
         return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
@@ -103,11 +146,11 @@ public abstract class HeaterBlock extends BlockWithEntity implements BlockEntity
         return BlockRenderType.MODEL;
     }
 
-
     @Override
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
+
             if (blockEntity instanceof HeaterBlockEntity) {
                 ItemScatterer.spawn(world, pos, ((HeaterBlockEntity) blockEntity));
                 world.updateComparators(pos, this);
@@ -119,7 +162,7 @@ public abstract class HeaterBlock extends BlockWithEntity implements BlockEntity
 
     @Override
     public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite()).with(LIT, false);
+        return this.getDefaultState().with(OPEN, false).with(LIT, false).with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
@@ -134,7 +177,7 @@ public abstract class HeaterBlock extends BlockWithEntity implements BlockEntity
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, LIT);
+        builder.add(OPEN, LIT, FACING);
     }
 
     @Override
@@ -147,13 +190,12 @@ public abstract class HeaterBlock extends BlockWithEntity implements BlockEntity
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(LIT)) {
-            float soundRandomizer = MathHelper.nextFloat(random, -0.25F, 0.25F);
+            float soundVolume = MathHelper.nextFloat(Random.create(), 0.9F, 1.1F);
+            float soundPitch = MathHelper.nextFloat(Random.create(), 0.9F, 1.1F);
             double offset = random.nextDouble() * 0.6 - 0.3;
             double randomHelper1 = MathHelper.nextDouble(random, -0.015, 0.015);
             double randomHelper2 = random.nextDouble() * 0.2;
             double randomHelper3 = MathHelper.nextDouble(random, -0.2, 0.2);
-            double randomHelper4 = MathHelper.nextDouble(random, -0.2, 0.2);
-            double randomHelper5 = MathHelper.nextDouble(random, -0.2, 0.2);
 
             double x = pos.getX() + 0.5;
             double y = pos.getY();
@@ -161,7 +203,7 @@ public abstract class HeaterBlock extends BlockWithEntity implements BlockEntity
 
 
             if (random.nextDouble() < 0.1) {
-                world.playSound(x, y, z, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F + soundRandomizer, 1.0F + soundRandomizer, false);
+                world.playSound(x, y, z, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, soundVolume, soundPitch, false);
             }
 
             Direction facingDirection = state.get(FACING);
@@ -176,8 +218,8 @@ public abstract class HeaterBlock extends BlockWithEntity implements BlockEntity
             double flameZ = z + flameZHelper + randomHelper1;
 
             double smokeX = x + randomHelper3;
-            double smokeY = y + randomHelper4 + 1.2;
-            double smokeZ = z + randomHelper5;
+            double smokeY = y + randomHelper3 + 1.2;
+            double smokeZ = z + randomHelper3;
 
             double smokeXVelocity = MathHelper.nextDouble(random, -0.025, 0.025);
             double smokeYVelocity = MathHelper.nextDouble(random, -0.025, 0.025);

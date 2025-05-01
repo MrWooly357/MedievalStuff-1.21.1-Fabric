@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "medievalstuff:block/copperstone_forge_controller_bottom",
+    "front": "medievalstuff:block/copperstone_forge_controller_front_open",
+    "side": "medievalstuff:block/copperstone_forge_controller_side",
+    "top": "medievalstuff:block/copperstone_forge_controller_top"
+  }
+}

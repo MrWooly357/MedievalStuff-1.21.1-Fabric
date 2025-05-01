@@ -57,9 +57,12 @@ public abstract class TankBlockEntity extends BlockEntity {
         return fluidStorage;
     }
 
-    public abstract void setFluidStorage();
+    public void setFluidStorage(SingleVariantStorage<FluidVariant> fluidStorage) {
+        this.fluidStorage = fluidStorage;
+    }
 
-    public static void tick(World world, BlockPos pos, BlockState state, TankBlockEntity entity) {
+    public void tick(World world, BlockPos pos, BlockState state) {
+        TankBlockEntity entity = (TankBlockEntity) world.getBlockEntity(pos);
 
         if (entity.currentTick < 20) {
             entity.currentTick++;
