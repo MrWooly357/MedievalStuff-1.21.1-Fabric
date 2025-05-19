@@ -17,7 +17,6 @@ public class ModEntities {
                     .dimensions(0.8F, 1.0F)
                     .build()
     );
-
     public static final EntityType<ThrownCopperKhopeshEntity> THROWN_COPPER_KHOPESH = Registry.register(
             Registries.ENTITY_TYPE,
             Identifier.of(MedievalStuff.MOD_ID, "thrown_copper_khopesh"),
