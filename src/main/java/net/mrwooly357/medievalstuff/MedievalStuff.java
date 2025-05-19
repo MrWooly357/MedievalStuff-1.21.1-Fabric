@@ -17,7 +17,7 @@ import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponFamil
 import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponMaterials;
 import net.mrwooly357.medievalstuff.registry.ModRegistries;
 import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
-import net.mrwooly357.medievalstuff.util.measurement_unit.MeasurementUnitTypes;
+//import net.mrwooly357.medievalstuff.util.measurement_unit.MeasurementUnitTypes;
 import net.mrwooly357.medievalstuff.world.gen.ModEntitySpawns;
 import net.mrwooly357.medievalstuff.world.gen.ModWorldGeneration;
 import net.mrwooly357.medievalstuff.events.HammerAdditionalBlocksBreakEvent;
@@ -74,7 +74,7 @@ public class MedievalStuff implements ModInitializer {
 		ModEntitySpawns.addSpawns();
 
 		Compounds.registerCompounds();
-		MeasurementUnitTypes.registerMeasurementUnitTypes();
+		//MeasurementUnitTypes.registerMeasurementUnitTypes();
 		ModRegistries.registerModRegistries();
     }
 
