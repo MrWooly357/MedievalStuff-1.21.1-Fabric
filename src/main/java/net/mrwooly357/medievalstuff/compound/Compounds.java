@@ -24,10 +24,6 @@ public class Compounds {
         return Registry.register(ModRegistries.COMPOUND, Identifier.of(MedievalStuff.MOD_ID, name), compound);
     }
 
-    public static Compound registerAndGetDefault(Registry<Compound> registry) {
-        return EMPTY;
-    }
-
     public static void registerCompounds() {
         MedievalStuff.LOGGER.info("Registering compounds for " + MedievalStuff.MOD_ID);
     }

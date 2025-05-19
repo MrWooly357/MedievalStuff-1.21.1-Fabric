@@ -6,14 +6,18 @@ import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
-import net.mrwooly357.medievalstuff.effect.ModEffects;
+import net.mrwooly357.medievalstuff.entity.effect.ModStatusEffects;
 import net.mrwooly357.medievalstuff.entity.ModEntities;
-import net.mrwooly357.medievalstuff.entity.mob.jelly.JellyEntity;
+import net.mrwooly357.medievalstuff.entity.mob.passive.jelly.JellyEntity;
 import net.mrwooly357.medievalstuff.item.ModItemGroups;
 import net.mrwooly357.medievalstuff.item.ModItems;
 import net.mrwooly357.medievalstuff.compound.Compounds;
+import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponClasses;
+import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponFamilies;
+import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponMaterials;
 import net.mrwooly357.medievalstuff.registry.ModRegistries;
 import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
+import net.mrwooly357.medievalstuff.util.measurement_unit.MeasurementUnitTypes;
 import net.mrwooly357.medievalstuff.world.gen.ModEntitySpawns;
 import net.mrwooly357.medievalstuff.world.gen.ModWorldGeneration;
 import net.mrwooly357.medievalstuff.events.HammerAdditionalBlocksBreakEvent;
@@ -30,9 +34,12 @@ public class MedievalStuff implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		//Items and item groups
+		//Items, item groups and related things
 		ModItems.registerModItems();
 		ModItemGroups.registerItemGroups();
+		HybridWeaponMaterials.registerHybridWeaponMaterials();
+		HybridWeaponFamilies.registerHybridWeaponFamilies();
+		HybridWeaponClasses.registerHybridWeaponClasses();
 
 		//Blocks
 		ModBlocks.registerModBlocks();
@@ -45,7 +52,7 @@ public class MedievalStuff implements ModInitializer {
 		registerFlammableBlocks();
 
 		//Status effects
-		ModEffects.registerEffects();
+		ModStatusEffects.registerEffects();
 
 		//Screen handlers
 		ModScreenHandlers.registerScreenHandlers();
@@ -66,15 +73,10 @@ public class MedievalStuff implements ModInitializer {
 		ModEntities.registerModEntities();
 		ModEntitySpawns.addSpawns();
 
-		//Compounds
 		Compounds.registerCompounds();
-
-
-		//Registries
+		MeasurementUnitTypes.registerMeasurementUnitTypes();
 		ModRegistries.registerModRegistries();
     }
-
-
 
 	private static void registerStrippableBlocks() {
 	}

@@ -1,0 +1,55 @@
+{
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.attack_damage": "§7Attack damage",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.attack_speed": "§7Attack speed",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.attack_critical_chance": "§7Attack critical chance",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.additional_attack_knockback": "§7Additional attack knockback",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.additional_attack_range": "§7Additional attack range",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.charge_time": "§7Charge time",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.throw_power": "§7Throw power",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.throw_accuracy": "§7Throw accuracy",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.throw_critical_chance": "§7Throw critical chance",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.projectile_gravity": "§7Projectile gravity",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.durability": "§7Durability",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.keyboard_control": "§8Press§r §7Control §8to see characteristics",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.material": "§7Material",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.class": "§7Class",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.family": "§7Family",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.type": "§7Type",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.keyboard_alt": "§8Press§r §7Alt §8to see classification",
+
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.material_copper": "§3Copper",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.material_IRON": "§3Iron",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.material_GOLD": "§3Gold",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.material_NETHERITE": "§3Netherite",
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.material_ANCIENT_GOLD": "§3Ancient gold",
+
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.class_khopeshes": "§3Khopeshes",
+
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.family_sword_like": "§3Sword-like",
+
+  "tooltip.medievalstuff.extended_hybrid_weapon_item.type_hybrid": "§3Hybrid",
+
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.shift": "§8Press§r §7Shift §8to see characteristics",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.charge_time": "§7Charge Time",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.shot_power": "§7Shot power",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.accuracy": "§7Accuracy",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.critical_chance": "§7Critical chance",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.durability": "§7Durability",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.keyboard_control": "§8Press§r §7Control §8to see classification",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.type": "§7Type",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.family": "§7Family",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.class": "§7Class",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.subclass": "§7Subclass",
+  "tooltip.medievalstuff.extended_ranged_weapon_item.material": "§7Material",
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.type_name": "Ranged",
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.family_BOWS": "Bows",
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.class_ADVANCED_BOWS": "Advanced bows",
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.subclass_ADVANCED_BOWS_SHORT": "Short",
+
+  "tooltip.medievalstuff.extended_ranged_weapon_item.material_COPPER": "Copper"
+}

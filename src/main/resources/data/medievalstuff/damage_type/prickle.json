@@ -1,0 +1,6 @@
+{
+  "effects": "poking",
+  "exhaustion": 0.2,
+  "message_id": "prickle",
+  "scaling": "always"
+}

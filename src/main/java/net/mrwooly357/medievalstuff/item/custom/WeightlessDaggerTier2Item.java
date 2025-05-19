@@ -23,6 +23,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.mrwooly357.medievalstuff.MedievalStuff;
+import net.mrwooly357.medievalstuff.entity.damage.ModDamageTypes;
 import net.mrwooly357.medievalstuff.item.ModItems;
 
 
@@ -103,13 +104,13 @@ public class WeightlessDaggerTier2Item extends AdvancedSweepMeleeWeaponItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(!world.isClient) {
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 150, 0, true , true));
-            user.getStackInHand(Hand.MAIN_HAND).damage(1, ((ServerWorld) world), ((ServerPlayerEntity) user),
-                    item -> user.sendEquipmentBreakStatus(ModItems.WEIGHTLESS_DAGGER, EquipmentSlot.MAINHAND));
-            user.damage(user.getDamageSources().create(RegistryKey.of(RegistryKeys.DAMAGE_TYPE,
-                    Identifier.of(MedievalStuff.MOD_ID, "player_weightless_dagger_tier_2_ability_damage_source"))), 2.5F);
+            user.getStackInHand(hand).damage(1, user, getEquipmentSlot(hand));
+            user.damage(user.getDamageSources().create(ModDamageTypes.PRICKLE), 2.5F);
 
         }
+
         user.getItemCooldownManager().set(this, 300);
+
         return TypedActionResult.consume(user.getStackInHand(hand));
     }
 
@@ -132,5 +133,12 @@ public class WeightlessDaggerTier2Item extends AdvancedSweepMeleeWeaponItem {
                 tooltip.add(Text.translatable("tooltip.medievalstuff.weightless_dagger_tier_2_7.tooltip"));
             }
         super.appendTooltip(stack, context, tooltip, type);
+    }
+
+    private EquipmentSlot getEquipmentSlot(Hand hand) {
+        return switch (hand) {
+            case MAIN_HAND -> EquipmentSlot.MAINHAND;
+            case OFF_HAND -> EquipmentSlot.OFFHAND;
+        };
     }
 }

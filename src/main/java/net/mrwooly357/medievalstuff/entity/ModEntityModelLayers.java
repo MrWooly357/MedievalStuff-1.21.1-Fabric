@@ -11,4 +11,8 @@ public class ModEntityModelLayers {
             new EntityModelLayer(Identifier.of(MedievalStuff.MOD_ID, "jelly"), "main");
     public static final EntityModelLayer JELLY_TRANSLUCENT =
             new EntityModelLayer(Identifier.of(MedievalStuff.MOD_ID, "jelly"), "outer");
+
+    public static final EntityModelLayer THROWN_COPPER_KHOPESH = new EntityModelLayer(
+            Identifier.of(MedievalStuff.MOD_ID, "thrown_copper_khopesh"), "main"
+    );
 }

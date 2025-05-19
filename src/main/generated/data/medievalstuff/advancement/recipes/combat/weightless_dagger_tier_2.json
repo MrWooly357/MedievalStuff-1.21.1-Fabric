@@ -7,11 +7,11 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_weightless_dagger": {
+    "has_weightless_dagger_tier_1": {
       "conditions": {
         "items": [
           {
-            "items": "medievalstuff:weightless_dagger"
+            "items": "medievalstuff:weightless_dagger_tier_1"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_weightless_dagger"
+      "has_weightless_dagger_tier_1"
     ]
   ],
   "rewards": {

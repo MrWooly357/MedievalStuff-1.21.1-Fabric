@@ -11,9 +11,11 @@ import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
 import net.mrwooly357.medievalstuff.block.entity.renderer.TankBlockEntityRenderer;
 import net.mrwooly357.medievalstuff.entity.ModEntities;
-import net.mrwooly357.medievalstuff.entity.mob.jelly.client.JellyEntityModel;
-import net.mrwooly357.medievalstuff.entity.mob.jelly.client.JellyEntityRenderer;
+import net.mrwooly357.medievalstuff.entity.mob.passive.jelly.JellyEntityModel;
+import net.mrwooly357.medievalstuff.entity.mob.passive.jelly.JellyEntityRenderer;
 import net.mrwooly357.medievalstuff.entity.ModEntityModelLayers;
+import net.mrwooly357.medievalstuff.entity.projectile.khopesh.ThrownCopperKhopeshEntityModel;
+import net.mrwooly357.medievalstuff.entity.projectile.khopesh.ThrownCopperKhopeshEntityRenderer;
 import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
 import net.mrwooly357.medievalstuff.screen.custom.heaters.CopperstoneHeaterScreen;
 import net.mrwooly357.medievalstuff.util.ModModelPredicates;
@@ -32,6 +34,9 @@ public class MedievalStuffClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.JELLY_NORMAL, JellyEntityModel::getNormalTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.JELLY_TRANSLUCENT, JellyEntityModel::getTranslucentTexturedModelData);
         EntityRendererRegistry.register(ModEntities.JELLY, JellyEntityRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.THROWN_COPPER_KHOPESH, ThrownCopperKhopeshEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.THROWN_COPPER_KHOPESH, ThrownCopperKhopeshEntityRenderer::new);
 
         //Screen handlers
         HandledScreens.register(ModScreenHandlers.COPPERSTONE_HEATER_SCREEN_HANDLER, CopperstoneHeaterScreen::new);

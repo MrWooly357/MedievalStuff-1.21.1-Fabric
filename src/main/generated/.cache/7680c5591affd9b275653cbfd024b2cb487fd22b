@@ -1,4 +1,4 @@
-// 1.21.1	2025-05-01T20:23:30.8724742	Medieval Stuff/Model Definitions
+// 1.21.1	2025-05-11T00:02:58.0464674	Medieval Stuff/Model Definitions
 4f26b41cabfd1ad756eb85dcceae617ffc08070d assets\medievalstuff\models\item\piece_of_jelly.json
 db1b026aaac5be6bb70216e1923c5f54a5f71561 assets\medievalstuff\models\item\silver_hoe.json
 50d2b2fe21e3b358348ec44e6657cc0e180f0ce2 assets\medievalstuff\models\item\silver_axe.json
@@ -7,6 +7,8 @@ db1b026aaac5be6bb70216e1923c5f54a5f71561 assets\medievalstuff\models\item\silver
 e3cc4608a81e33cb2349a4d397a1519fd6d67582 assets\medievalstuff\models\block\raw_silver_block.json
 018148ca3598956d5ee6b16de56ee7dadc895244 assets\medievalstuff\models\item\silver_block.json
 410d92eb17ffe9c4e41b5e52cc492ffa6fb6c3f6 assets\medievalstuff\models\item\silver_boots.json
+a96dc20121752686146022cf12ff9d59c4b676bf assets\medievalstuff\models\item\copper_khopesh.json
+42d6542f200be38be09d85e5f760873198951b77 assets\medievalstuff\models\item\weightless_dagger_tier_1.json
 fb1ed105796b398ff2445c4b91004ec6e6fd8cbc assets\medievalstuff\blockstates\silver_block.json
 549afd62c29d9fca05131c612775b6b6ac5406ec assets\medievalstuff\blockstates\copperstone_bricks.json
 e2230a51f8772785f4fae610d2134ba9a024d83f assets\medievalstuff\models\item\silver_pickaxe.json
@@ -14,7 +16,6 @@ feba9787fe9657febd4a220c619cad33ca92c157 assets\medievalstuff\models\item\silver
 295aa1c42feaaedb0c1f829362d84da818db2cc8 assets\medievalstuff\models\item\sacred_alloy_treechopper.json
 a26bcba4edff409530d5ff972c70cb2927df78d1 assets\medievalstuff\models\item\raw_silver.json
 66c867c04cfa9a43bf07ec9bc4c081e9011aa988 assets\medievalstuff\models\block\silver_block.json
-944732c875ded81edfd3197f463ee1fcedac2148 assets\medievalstuff\models\item\weightless_dagger.json
 621c5b7be1beb6da58204f866d50eb498fe27673 assets\medievalstuff\models\item\silver_ingot.json
 522ad63944ec1c07ba9665ef3bb09a2caad0060c assets\medievalstuff\models\item\weightless_dagger_tier_2.json
 f6d7b8e1751371b314271b847eac96eb6e48c8e9 assets\medievalstuff\models\item\sacred_alloy_ingot.json

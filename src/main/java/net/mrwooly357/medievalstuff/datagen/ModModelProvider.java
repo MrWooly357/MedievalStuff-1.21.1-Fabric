@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
-import net.mrwooly357.medievalstuff.block.custom.tanks.CopperTankBlock;
 import net.mrwooly357.medievalstuff.item.ModItems;
 
 import java.util.Optional;
@@ -36,9 +35,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SILVER_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.SILVER_HOE, Models.HANDHELD);
 
+        //Common weapons
+        itemModelGenerator.register(ModItems.COPPER_KHOPESH, Models.HANDHELD);
+
         //Advanced tools and weapons
         itemModelGenerator.register(ModItems.SILVER_DAGGER, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.WEIGHTLESS_DAGGER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WEIGHTLESS_DAGGER_TIER_1, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WEIGHTLESS_DAGGER_TIER_2, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.THE_GREAT_PALADINS_CLAYMORE, Models.HANDHELD);

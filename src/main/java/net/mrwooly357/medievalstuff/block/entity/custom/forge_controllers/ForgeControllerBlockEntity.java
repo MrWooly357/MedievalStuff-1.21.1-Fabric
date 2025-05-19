@@ -23,10 +23,10 @@ public abstract class ForgeControllerBlockEntity extends BlockEntity implements 
     private DefaultedList<ItemStack> inventory;
     private PropertyDelegate propertyDelegate;
 
-    private int progress;
-    private int additiveAmount;
-    private int compoundAmount;
-    private int maxProgress;
+    protected int progress;
+    protected int additiveAmount;
+    protected int compoundAmount;
+    protected int maxProgress;
 
     private int DEFAULT_MAX_PROGRESS;
 

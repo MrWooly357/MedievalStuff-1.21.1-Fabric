@@ -14,27 +14,15 @@ import net.mrwooly357.medievalstuff.item.custom.AdvancedMiningToolItem;
 import net.mrwooly357.medievalstuff.item.custom.HammerItem;
 import net.mrwooly357.medievalstuff.item.custom.TreechopperItem;
 import net.mrwooly357.medievalstuff.item.custom.AdvancedSweepMeleeWeaponItem;
-import net.mrwooly357.medievalstuff.item.custom.weapons.ranged.ModRangedWeaponMaterials;
+import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.ExtendedHybridWeaponItem;
+import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponClasses;
+import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponMaterials;
+import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.sword_like.khopesh.CopperKhopeshItem;
+import net.mrwooly357.medievalstuff.item.custom.weapons.ranged.RangedWeaponMaterials;
 import net.mrwooly357.medievalstuff.item.custom.weapons.ranged.bows.TwobowItem;
 import net.mrwooly357.medievalstuff.item.custom.weapons.ranged.bows.advanced_bows.short_bows.ShortBowItem;
 
 public class ModItems {
-
-    public static class Common {
-
-    }
-
-    public static class FoodAndDrinks {
-
-    }
-
-    public static class Equipment {
-
-    }
-
-    public static class Spawning {
-
-    }
 
     //Common items
     public static final Item RAW_SILVER = registerItem("raw_silver", new Item(new Item.Settings()));
@@ -62,13 +50,20 @@ public class ModItems {
     );
     public static final Item SILVER_DAGGER = registerItem("silver_dagger", new AdvancedSweepMeleeWeaponItem(
             ModToolMaterials.SILVER, new Item.Settings()
-                    .attributeModifiers(AdvancedSweepMeleeWeaponItem.createAttributeModifiers(ModToolMaterials.SILVER, 1, -2F, -1, -1))
+            .attributeModifiers(AdvancedSweepMeleeWeaponItem.createAttributeModifiers(ModToolMaterials.SILVER, 1, -2F, -1, -1))
+            )
+    );
+    public static final Item COPPER_KHOPESH = registerItem("copper_khopesh", new CopperKhopeshItem(
+            new Item.Settings()
+                    .attributeModifiers(ExtendedHybridWeaponItem.createAttributeModifiers(HybridWeaponMaterials.COPPER, HybridWeaponClasses.KHOPESHES)),
+            HybridWeaponMaterials.COPPER,
+            2.0F
             )
     );
 
 
     //Advanced melee weapons
-    public static final Item WEIGHTLESS_DAGGER = registerItem("weightless_dagger", new WeightlessDaggerItem(
+    public static final Item WEIGHTLESS_DAGGER_TIER_1 = registerItem("weightless_dagger_tier_1", new WeightlessDaggerItem(
             ModToolMaterials.SILVER, new Item.Settings()
                     .attributeModifiers(AdvancedSweepMeleeWeaponItem.createAttributeModifiers(ModToolMaterials.SILVER, 1, -2F, -1, -1)),
             StatusEffects.LEVITATION
@@ -128,7 +123,7 @@ public class ModItems {
             new TwobowItem(new Item.Settings().maxDamage(512).maxCount(1).rarity(Rarity.UNCOMMON)));
 
     public static final Item SHORT_COPPER_BOW = registerItem("short_copper_bow", new ShortBowItem(
-            new Item.Settings(), ModRangedWeaponMaterials.COPPER
+            new Item.Settings(), RangedWeaponMaterials.COPPER
     ));
 
 

@@ -10,6 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.mrwooly357.medievalstuff.block.custom.tanks.TankBlock;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
@@ -51,8 +52,8 @@ public class CopperstoneForgeControllerBlockEntity extends ForgeControllerBlockE
     private static final int RESULT_FLUID_INPUT_SLOT = 4;
     private static final int RESULT_FLUID_OUTPUT_SLOT = 5;
 
-    private BlockPos ingredientFluidTank;
-    private BlockPos resultFluidTank;
+    private BlockPos ingredientFluidTankPos;
+    private BlockPos resultFluidTankPos;
 
     public CopperstoneForgeControllerBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.COPPERSTONE_FORGE_CONTROLLER_BE, pos, state);
@@ -78,6 +79,30 @@ public class CopperstoneForgeControllerBlockEntity extends ForgeControllerBlockE
         } else {
             resetProgress();
         }*/
+
+        /*BlockState stateToCheck = world.getBlockState(ingredientFluidTankPos);
+        BlockState stateToCheck1 = world.getBlockState(ingredientFluidTankPos);
+
+        if (stateToCheck.getBlock() instanceof TankBlock ingredientFluidTank) {
+
+            if (stateToCheck1.getBlock() instanceof TankBlock resultFluidTank) {
+
+                if (resultFluidTank.canInsert(1, world, resultFluidTankPos)) {
+
+                    if (progress < maxProgress) {
+                        increaseCraftingProgress();
+                        markDirty(world, pos, state);
+                    }
+
+                    if (hasCraftingFinished()) {
+                        //craftFluid();
+                        resetProgress();
+                    }
+                } else {
+                    resetProgress();
+                }
+            }
+        }*/
     }
 
     @Override
@@ -95,19 +120,19 @@ public class CopperstoneForgeControllerBlockEntity extends ForgeControllerBlockE
         return inventory;
     }
 
-    private BlockPos getIngredientFluidTank() {
-        return ingredientFluidTank;
+    private BlockPos getIngredientFluidTankPos() {
+        return ingredientFluidTankPos;
     }
 
-    private BlockPos getResultFluidTank() {
-        return resultFluidTank;
+    private BlockPos getResultFluidTankPos() {
+        return resultFluidTankPos;
     }
 
-    private void setIngredientFluidTank(BlockPos pos) {
-        ingredientFluidTank = pos;
+    private void setIngredientFluidTankPos(BlockPos pos) {
+        ingredientFluidTankPos = pos;
     }
 
-    private void setResultFluidTank(BlockPos pos) {
-        resultFluidTank = pos;
+    private void setResultFluidTankPos(BlockPos pos) {
+        resultFluidTankPos = pos;
     }
 }
