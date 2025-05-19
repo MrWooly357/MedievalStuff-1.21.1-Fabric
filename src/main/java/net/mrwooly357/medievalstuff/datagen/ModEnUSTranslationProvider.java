@@ -94,7 +94,6 @@ public class ModEnUSTranslationProvider extends FabricLanguageProvider {
         addTooltip("weightless_dagger_tier_1.tooltip", "§3Tier 1", translationBuilder);
         addTooltip("weightless_dagger_tier_1.description", "§8You feel something while keeping dagger in hands.", translationBuilder);
         addTooltip("weightless_dagger_tier_2.tooltip", "§3 Tier 2", translationBuilder);
-        addTooltip("weightless_dagger_tier_2.tooltip", "§3 Tier 2", translationBuilder);
         addTooltip("weightless_dagger_tier_2.additional_tooltip_1", "§3 Tier 2", translationBuilder);
         addTooltip("weightless_dagger_tier_2.description", "§8The feeling is stronger. You start to feel a bit uncomfortable. The dagger wants something...", translationBuilder);
 

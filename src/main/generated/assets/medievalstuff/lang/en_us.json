@@ -39,5 +39,14 @@
   "itemgroup.medievalstuff.medievalstuff_equipment": "Medieval Stuff: Equipment",
   "itemgroup.medievalstuff.medievalstuff_food_and_drinks": "Medieval Stuff: Food and Drinks",
   "itemgroup.medievalstuff.medievalstuff_items": "Medieval Stuff: Items",
-  "itemgroup.medievalstuff.spawn_items": "Medieval Stuff: Spawn Items"
+  "itemgroup.medievalstuff.spawn_items": "Medieval Stuff: Spawn Items",
+  "tooltip.medievalstuff.jar_of_jelly.description": "§7When eaten might give §5levitation§7 effect for",
+  "tooltip.medievalstuff.jelly.description": "§7When eaten might give §5levitation§7 effect for",
+  "tooltip.medievalstuff.keyboard_control": "§8Press§r §7Control §8to see the description",
+  "tooltip.medievalstuff.keyboard_shift": "§8Press§r §7Shift §8to see the characteristics",
+  "tooltip.medievalstuff.weightless_dagger_tier_1.description": "§8You feel something while keeping dagger in hands.",
+  "tooltip.medievalstuff.weightless_dagger_tier_1.tooltip": "§3Tier 1",
+  "tooltip.medievalstuff.weightless_dagger_tier_2.additional_tooltip_1": "§3 Tier 2",
+  "tooltip.medievalstuff.weightless_dagger_tier_2.description": "§8The feeling is stronger. You start to feel a bit uncomfortable. The dagger wants something...",
+  "tooltip.medievalstuff.weightless_dagger_tier_2.tooltip": "§3 Tier 2"
 }

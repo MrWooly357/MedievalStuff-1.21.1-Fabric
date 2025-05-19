@@ -7,12 +7,16 @@ import net.mrwooly357.medievalstuff.MedievalStuff;
 
 public class ModEntityModelLayers {
 
-    public static final EntityModelLayer JELLY_NORMAL =
-            new EntityModelLayer(Identifier.of(MedievalStuff.MOD_ID, "jelly"), "main");
-    public static final EntityModelLayer JELLY_TRANSLUCENT =
-            new EntityModelLayer(Identifier.of(MedievalStuff.MOD_ID, "jelly"), "outer");
-
+    public static final EntityModelLayer JELLY_NORMAL = new EntityModelLayer(
+            Identifier.of(MedievalStuff.MOD_ID, "jelly"),
+            "main"
+    );
+    public static final EntityModelLayer JELLY_TRANSLUCENT = new EntityModelLayer(
+            Identifier.of(MedievalStuff.MOD_ID, "jelly"),
+            "outer"
+    );
     public static final EntityModelLayer THROWN_COPPER_KHOPESH = new EntityModelLayer(
-            Identifier.of(MedievalStuff.MOD_ID, "thrown_copper_khopesh"), "main"
+            Identifier.of(MedievalStuff.MOD_ID, "thrown_copper_khopesh"),
+            "main"
     );
 }

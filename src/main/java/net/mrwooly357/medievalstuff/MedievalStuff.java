@@ -42,7 +42,7 @@ public class MedievalStuff implements ModInitializer {
 		HybridWeaponClasses.registerHybridWeaponClasses();
 
 		//Blocks
-		ModBlocks.registerModBlocks();
+		ModBlocks.init();
 
 		//Block entities
 		ModBlockEntities.registerModBlockEntities();
