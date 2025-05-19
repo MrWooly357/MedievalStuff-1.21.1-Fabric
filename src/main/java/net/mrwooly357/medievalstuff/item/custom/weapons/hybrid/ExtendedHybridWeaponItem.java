@@ -23,6 +23,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.mrwooly357.medievalstuff.MedievalStuff;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -237,7 +238,7 @@ public abstract class ExtendedHybridWeaponItem extends Item implements Projectil
             tooltip.add(Text.translatable("tooltip.medievalstuff.extended_hybrid_weapon_item.family")
                     .append(Text.literal(": ")
                             .formatted(Formatting.GRAY))
-                    .append(Text.translatable(hybridWeaponFamily.getTranslationKey())));
+                    .append(Text.translatable(hybridWeaponFamily.getTranslationKey(MedievalStuff.MOD_ID))));
 
             tooltip.add(Text.translatable("tooltip.medievalstuff.extended_hybrid_weapon_item.class")
                     .append(Text.literal(": ")

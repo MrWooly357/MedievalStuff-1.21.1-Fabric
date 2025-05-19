@@ -1,24 +1,20 @@
 package net.mrwooly357.medievalstuff.item.custom.weapons.hybrid;
 
-import net.mrwooly357.medievalstuff.util.InDevelopment;
-
 /**
  * A hybrid weapon class contains different stats which are used by an {@link net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.ExtendedHybridWeaponItem} item.
  * <p>
  * To view the hybrid weapon classes from Medieval Stuff, visit {@link net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponClasses}.
  */
-public class HybridWeaponClass implements AbstractHybridWeaponClass {
+public class HybridWeaponClass {
 
     float attackDamage;
     float attackSpeed;
-    @InDevelopment(since = "1.0.0-alpha-1.21.1-fabric", reason = "I'll just add it later")
     float attackCriticalChance;
     float additionalAttackKnockback;
     float additionalAttackRange;
     int chargeTime;
     float throwPower;
     float throwAccuracy;
-    @InDevelopment(since = "1.0.0-alpha-1.21.1-fabric", reason = "I'll just add it later")
     float throwCriticalChance;
     float projectileGravity;
     int durability;
@@ -41,7 +37,6 @@ public class HybridWeaponClass implements AbstractHybridWeaponClass {
         return this;
     }
 
-    @InDevelopment(since = "1.0.0-alpha-1.21.1-fabric", reason = "I'll just add it later")
     public HybridWeaponClass attackCriticalChance(float attackCriticalChance) {
         this.attackCriticalChance = attackCriticalChance;
 
@@ -78,7 +73,7 @@ public class HybridWeaponClass implements AbstractHybridWeaponClass {
         return this;
     }
 
-    @InDevelopment(since = "1.0.0-alpha-1.21.1-fabric", reason = "I'll just add it later")
+
     public HybridWeaponClass throwCriticalChance(float throwCriticalChance) {
         this.throwCriticalChance = throwCriticalChance;
 
@@ -115,62 +110,50 @@ public class HybridWeaponClass implements AbstractHybridWeaponClass {
         return this;
     }
 
-    @Override
     public float getAttackDamage() {
         return attackDamage;
     }
 
-    @Override
     public float getAttackSpeed() {
         return attackSpeed;
     }
 
-    @Override
     public float getAttackCriticalChance() {
         return attackCriticalChance;
     }
 
-    @Override
     public float getAdditionalAttackKnockback() {
         return additionalAttackKnockback;
     }
 
-    @Override
     public float getAdditionalAttackRange() {
         return additionalAttackRange;
     }
 
-    @Override
     public int getChargeTime() {
         return chargeTime;
     }
 
-    @Override
     public float getThrowPower() {
         return throwPower;
     }
 
-    @Override
     public float getThrowAccuracy() {
         return throwAccuracy;
     }
 
-    @Override
     public float getThrowCriticalChance() {
         return throwCriticalChance;
     }
 
-    @Override
     public float getProjectileGravity() {
         return projectileGravity;
     }
 
-    @Override
     public int getDurability() {
         return durability;
     }
 
-    @Override
     public HybridWeaponFamily getHybridWeaponfamily() {
         return hybridWeaponFamily;
     }

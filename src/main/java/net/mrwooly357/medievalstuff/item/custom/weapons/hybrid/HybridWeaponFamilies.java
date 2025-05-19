@@ -27,7 +27,7 @@ public class HybridWeaponFamilies {
 
     public static HybridWeaponFamily registerHybridWeaponFamily(String name, HybridWeaponFamily hybridWeaponFamily) {
         hybridWeaponFamily.name(name);
-        hybridWeaponFamily.translationModId(MedievalStuff.MOD_ID);
+        hybridWeaponFamily.getTranslationKey(MedievalStuff.MOD_ID);
 
         return Registry.register(ModRegistries.HYBRID_WEAPON_FAMILY, Identifier.of(MedievalStuff.MOD_ID, name), hybridWeaponFamily);
     }
