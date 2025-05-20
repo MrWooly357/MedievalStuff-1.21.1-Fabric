@@ -10,9 +10,7 @@ import net.mrwooly357.medievalstuff.util.ModTags;
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
-    SILVER(ModTags.Blocks.INCORRECT_FOR_SILVER_TOOL, 325, 6.5F, 2F, 16, () -> Ingredient.ofItems(ModItems.SILVER_INGOT)),
-
-    SACRED(ModTags.Blocks.INCORRECT_FOR_SACRED_TOOL, 1512, 8.5F, 3F, 15, () -> Ingredient.ofItems(ModItems.SACRED_ALLOY_INGOT));
+    SILVER(ModTags.Blocks.INCORRECT_FOR_SILVER_TOOL, 325, 6.5F, 2F, 16, () -> Ingredient.ofItems(ModItems.SILVER_INGOT));
 
 
     private final TagKey<Block> inverseTag;

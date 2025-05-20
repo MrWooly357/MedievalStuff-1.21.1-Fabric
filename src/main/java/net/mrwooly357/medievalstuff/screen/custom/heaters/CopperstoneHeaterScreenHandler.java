@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
 import net.mrwooly357.medievalstuff.block.entity.custom.heaters.HeaterBlockEntity;
-import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
+import net.mrwooly357.medievalstuff.screen.ModScreenHandlerTypes;
 import net.mrwooly357.medievalstuff.util.ModTags;
 
 public class CopperstoneHeaterScreenHandler extends HeaterScreenHandler {
@@ -19,7 +19,7 @@ public class CopperstoneHeaterScreenHandler extends HeaterScreenHandler {
     }
 
     public CopperstoneHeaterScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity) {
-        super(ModScreenHandlers.COPPERSTONE_HEATER_SCREEN_HANDLER, syncId, playerInventory);
+        super(ModScreenHandlerTypes.COPPERSTONE_HEATER_SCREEN_HANDLER, syncId, playerInventory);
         checkSize((Inventory) blockEntity, 1);
         this.inventory = (Inventory) blockEntity;
 

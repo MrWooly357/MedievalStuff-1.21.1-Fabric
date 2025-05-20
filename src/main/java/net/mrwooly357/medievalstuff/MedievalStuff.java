@@ -7,7 +7,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
 import net.mrwooly357.medievalstuff.entity.effect.ModStatusEffects;
-import net.mrwooly357.medievalstuff.entity.ModEntities;
+import net.mrwooly357.medievalstuff.entity.ModEntityTypes;
 import net.mrwooly357.medievalstuff.entity.mob.passive.jelly.JellyEntity;
 import net.mrwooly357.medievalstuff.item.ModItemGroups;
 import net.mrwooly357.medievalstuff.item.ModItems;
@@ -16,7 +16,7 @@ import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponClass
 import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponFamilies;
 import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponMaterials;
 import net.mrwooly357.medievalstuff.registry.ModRegistries;
-import net.mrwooly357.medievalstuff.screen.ModScreenHandlers;
+import net.mrwooly357.medievalstuff.screen.ModScreenHandlerTypes;
 //import net.mrwooly357.medievalstuff.util.measurement_unit.MeasurementUnitTypes;
 import net.mrwooly357.medievalstuff.world.gen.ModEntitySpawns;
 import net.mrwooly357.medievalstuff.world.gen.ModWorldGeneration;
@@ -35,7 +35,7 @@ public class MedievalStuff implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		//Items, item groups and related things
-		ModItems.registerModItems();
+		ModItems.init();
 		ModItemGroups.registerItemGroups();
 		HybridWeaponMaterials.registerHybridWeaponMaterials();
 		HybridWeaponFamilies.registerHybridWeaponFamilies();
@@ -55,7 +55,7 @@ public class MedievalStuff implements ModInitializer {
 		ModStatusEffects.registerEffects();
 
 		//Screen handlers
-		ModScreenHandlers.registerScreenHandlers();
+		ModScreenHandlerTypes.init();
 
 		//Events
 		PlayerBlockBreakEvents.BEFORE.register(new HammerAdditionalBlocksBreakEvent());
@@ -68,9 +68,9 @@ public class MedievalStuff implements ModInitializer {
 		ModWorldGeneration.generateModWorldGeneration();
 
 		//Entities
-		FabricDefaultAttributeRegistry.register(ModEntities.JELLY, JellyEntity.createJellyAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntityTypes.JELLY, JellyEntity.createJellyAttributes());
 
-		ModEntities.registerModEntities();
+		ModEntityTypes.init();
 		ModEntitySpawns.addSpawns();
 
 		Compounds.registerCompounds();

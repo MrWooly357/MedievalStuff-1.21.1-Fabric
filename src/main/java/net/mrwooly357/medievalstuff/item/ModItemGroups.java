@@ -45,8 +45,6 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModItems.WEIGHTLESS_DAGGER_TIER_1))
                     .entries((displayContext, entries) -> {
                         //Common tools
-                        entries.add(ModItems.SACRED_ALLOY_HAMMER);
-                        entries.add(ModItems.SACRED_ALLOY_TREECHOPPER);
 
                         //Advanced tools
                         entries.add(ModItems.SILVER_AXE);
@@ -63,7 +61,6 @@ public class ModItemGroups {
                         //Advanced melee weapons
                         entries.add(ModItems.WEIGHTLESS_DAGGER_TIER_1);
                         entries.add(ModItems.WEIGHTLESS_DAGGER_TIER_2);
-                        entries.add(ModItems.THE_GREAT_PALADINS_CLAYMORE);
 
 
                         //Common hybrid weapons

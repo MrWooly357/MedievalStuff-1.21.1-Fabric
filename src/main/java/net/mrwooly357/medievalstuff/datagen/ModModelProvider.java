@@ -21,7 +21,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAW_SILVER, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILVER_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILVER_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SACRED_ALLOY_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.JAR, Models.GENERATED);
 
         //Food
@@ -42,10 +41,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SILVER_DAGGER, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WEIGHTLESS_DAGGER_TIER_1, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WEIGHTLESS_DAGGER_TIER_2, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.THE_GREAT_PALADINS_CLAYMORE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.SACRED_ALLOY_HAMMER, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.SACRED_ALLOY_TREECHOPPER, Models.HANDHELD);
 
         //Armor
         itemModelGenerator.register(ModItems.SILVER_HELMET, Models.GENERATED);
