@@ -5,11 +5,13 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.biome.Biome;
 import net.mrwooly357.medievalstuff.MedievalStuff;
 
 public class ModTags {
 
     public static class Items {
+
         public static final TagKey<Item> BYPASSES_DEFAULT_INTERACTION = createItemTag("bypasses_default_interaction");
         public static final TagKey<Item> CUSTOM_BOWS = createItemTag("custom_bows");
         public static final TagKey<Item> HEATER_FUEL_EXCEPTIONS = createItemTag("heater_fuel_exceptions");
@@ -23,6 +25,7 @@ public class ModTags {
     }
 
     public static class Blocks {
+
         public static final TagKey<Block> NEEDS_SILVER_TOOL = createBlockTag("needs_silver_tool");
         public static final TagKey<Block> INCORRECT_FOR_SILVER_TOOL = createBlockTag("incorrect_for_silver_tool");
         public static final TagKey<Block> NEEDS_SACRED_TOOL = createBlockTag("needs_sacred_tool");
@@ -31,6 +34,16 @@ public class ModTags {
 
         private static TagKey<Block> createBlockTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(MedievalStuff.MOD_ID, name));
+        }
+    }
+
+    public static class Biomes {
+
+        public static final TagKey<Biome> FALLEN_KNIGHT_SPAWNABLE = of("fallen_knight_spawns");
+
+
+        private static TagKey<Biome> of(String name) {
+            return TagKey.of(RegistryKeys.BIOME, Identifier.of(MedievalStuff.MOD_ID, name));
         }
     }
 }
