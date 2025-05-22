@@ -1,7 +1,5 @@
 package net.mrwooly357.medievalstuff.entity.mob.passive.jelly;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -15,7 +13,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.mrwooly357.medievalstuff.entity.ModEntityModelLayers;
 
-@Environment(EnvType.CLIENT)
 public class JellyTranslucencyFeatureRenderer<T extends LivingEntity> extends FeatureRenderer<T, JellyEntityModel<T>> {
     private final EntityModel<T> model;
 

@@ -11,6 +11,8 @@ import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
 import net.mrwooly357.medievalstuff.block.entity.renderer.TankBlockEntityRenderer;
 import net.mrwooly357.medievalstuff.entity.ModEntityTypes;
+import net.mrwooly357.medievalstuff.entity.mob.hostile.fallen_knight.FallenKnightEntityModel;
+import net.mrwooly357.medievalstuff.entity.mob.hostile.fallen_knight.FallenKnightEntityRenderer;
 import net.mrwooly357.medievalstuff.entity.mob.passive.jelly.JellyEntityModel;
 import net.mrwooly357.medievalstuff.entity.mob.passive.jelly.JellyEntityRenderer;
 import net.mrwooly357.medievalstuff.entity.ModEntityModelLayers;
@@ -34,6 +36,11 @@ public class MedievalStuffClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.JELLY_NORMAL, JellyEntityModel::getNormalTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.JELLY_TRANSLUCENT, JellyEntityModel::getTranslucentTexturedModelData);
         EntityRendererRegistry.register(ModEntityTypes.JELLY, JellyEntityRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.FALLEN_KNIGHT, FallenKnightEntityModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.FALLEN_KNIGHT_INNER_ARMOR, FallenKnightEntityModel::getInnerArmorTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.FALLEN_KNIGHT_OUTER_ARMOR, FallenKnightEntityModel::getOuterArmorTexturedModelData);
+        EntityRendererRegistry.register(ModEntityTypes.FALLEN_KNIGHT, FallenKnightEntityRenderer::new);
 
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.THROWN_COPPER_KHOPESH, ThrownCopperKhopeshEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntityTypes.THROWN_COPPER_KHOPESH, ThrownCopperKhopeshEntityRenderer::new);

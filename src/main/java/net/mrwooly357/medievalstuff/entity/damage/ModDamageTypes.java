@@ -7,9 +7,10 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.MedievalStuff;
 
-public interface ModDamageTypes extends DamageTypes {
+public interface ModDamageTypes {
 
     RegistryKey<DamageType> PRICKLE = of("prickle");
+    RegistryKey<DamageType> SOUL_DECAY = of("soul_decay");
 
 
     private static RegistryKey<DamageType> of(String name) {

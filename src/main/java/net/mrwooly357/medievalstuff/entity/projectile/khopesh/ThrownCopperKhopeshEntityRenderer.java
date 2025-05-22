@@ -15,7 +15,7 @@ import net.mrwooly357.medievalstuff.entity.ModEntityModelLayers;
 
 public class ThrownCopperKhopeshEntityRenderer extends EntityRenderer<ThrownCopperKhopeshEntity> {
 
-    private static final Identifier TEXTURE = Identifier.of(MedievalStuff.MOD_ID, "textures/entity/projectile/thrown_copper_khopesh.png");
+    private static final Identifier TEXTURE = Identifier.of(MedievalStuff.MOD_ID, "textures/entity/thrown_khopesh/copper.png");
     protected ThrownCopperKhopeshEntityModel model;
 
     public ThrownCopperKhopeshEntityRenderer(EntityRendererFactory.Context ctx) {

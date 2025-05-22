@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "medievalstuff:item/sacred_alloy_ingot"
-  }
-}

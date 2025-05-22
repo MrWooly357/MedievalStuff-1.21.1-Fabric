@@ -16,6 +16,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         super(output, completableFuture);
     }
 
+
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         /* Mod */

@@ -1,6 +1,7 @@
 package net.mrwooly357.medievalstuff.util;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -34,6 +35,17 @@ public class ModTags {
 
         private static TagKey<Block> createBlockTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(MedievalStuff.MOD_ID, name));
+        }
+    }
+
+    public static class EntityTypes {
+
+        public static final TagKey<EntityType<?>> SOULFUL = create("soulful");
+        public static final TagKey<EntityType<?>> SOULLESS = create("soulless");
+
+
+        private static TagKey<EntityType<?>> create(String name) {
+            return TagKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(MedievalStuff.MOD_ID, name));
         }
     }
 

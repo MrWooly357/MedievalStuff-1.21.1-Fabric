@@ -8,6 +8,7 @@ import net.mrwooly357.medievalstuff.block.ModBlocks;
 import net.mrwooly357.medievalstuff.block.entity.ModBlockEntities;
 import net.mrwooly357.medievalstuff.entity.effect.ModStatusEffects;
 import net.mrwooly357.medievalstuff.entity.ModEntityTypes;
+import net.mrwooly357.medievalstuff.entity.mob.hostile.fallen_knight.FallenKnightEntity;
 import net.mrwooly357.medievalstuff.entity.mob.passive.jelly.JellyEntity;
 import net.mrwooly357.medievalstuff.item.ModItemGroups;
 import net.mrwooly357.medievalstuff.item.ModItems;
@@ -52,7 +53,7 @@ public class MedievalStuff implements ModInitializer {
 		registerFlammableBlocks();
 
 		//Status effects
-		ModStatusEffects.registerEffects();
+		ModStatusEffects.init();
 
 		//Screen handlers
 		ModScreenHandlerTypes.init();
@@ -69,7 +70,7 @@ public class MedievalStuff implements ModInitializer {
 
 		//Entities
 		FabricDefaultAttributeRegistry.register(ModEntityTypes.JELLY, JellyEntity.createJellyAttributes());
-
+		FabricDefaultAttributeRegistry.register(ModEntityTypes.FALLEN_KNIGHT, FallenKnightEntity.createAttributes());
 		ModEntityTypes.init();
 		ModEntitySpawns.addSpawns();
 
