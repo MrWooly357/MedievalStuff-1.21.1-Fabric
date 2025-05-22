@@ -1,4 +1,4 @@
-// 1.21.1	2025-05-22T16:59:32.0666166	Medieval Stuff/Model Definitions
+// 1.21.1	2025-05-22T21:58:39.2451277	Medieval Stuff/Model Definitions
 4f26b41cabfd1ad756eb85dcceae617ffc08070d assets\medievalstuff\models\item\piece_of_jelly.json
 db1b026aaac5be6bb70216e1923c5f54a5f71561 assets\medievalstuff\models\item\silver_hoe.json
 50d2b2fe21e3b358348ec44e6657cc0e180f0ce2 assets\medievalstuff\models\item\silver_axe.json
@@ -22,6 +22,7 @@ a26bcba4edff409530d5ff972c70cb2927df78d1 assets\medievalstuff\models\item\raw_si
 af37cc0759a3301ba1b3b9e49f39c62f2e18df1f assets\medievalstuff\models\item\silver_chestplate.json
 d231e60c8e3918007bc01f8642d18809debed0f6 assets\medievalstuff\models\item\silver_dagger.json
 99eabb9f67c473575a6fd1d35bbf815851f22f74 assets\medievalstuff\models\item\silver_helmet.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\medievalstuff\models\item\fallen_knight_spawn_egg.json
 1390e718fa90b9883493afeb1e8214a860342b1f assets\medievalstuff\blockstates\deepslate_silver_ore.json
 e4563bbc711595aecb1a4cb4f5dcd054ce16a4e5 assets\medievalstuff\models\item\silver_sword.json
 3aee4020ae8ca7ec962b82c01bf2bb4d491cb3e7 assets\medievalstuff\models\block\silver_ore.json
@@ -29,8 +30,8 @@ e346ad4c1a1d79172065b3f6f8a3dd077e7880ac assets\medievalstuff\models\item\silver
 52465e28eed7f684d58d2dbfe146266e73a07f40 assets\medievalstuff\models\block\copperstone_bricks.json
 3d792a316411f746df1d5947e53047c5a910ec9f assets\medievalstuff\models\item\raw_silver_block.json
 268383c420565c7fa85f4d7faf9c31efdd49b010 assets\medievalstuff\models\item\jar.json
-15dc74f818d14d1eef22f1ce2ac3369aa5f5eead assets\medievalstuff\blockstates\silver_ore.json
 dd72f9f92a8b22c3179364a1a51e9b9fcb7600d9 assets\medievalstuff\models\block\deepslate_silver_ore.json
+15dc74f818d14d1eef22f1ce2ac3369aa5f5eead assets\medievalstuff\blockstates\silver_ore.json
 7f5a189aa41b801874e09b19b7070caad56adb3d assets\medievalstuff\blockstates\raw_silver_block.json
 186e749c2302eec55d5a60d1e50feb7046d546f3 assets\medievalstuff\models\item\jar_of_jelly.json
 6ae833834ccf308647cf55f9fd641774d75092ce assets\medievalstuff\models\item\silver_nugget.json

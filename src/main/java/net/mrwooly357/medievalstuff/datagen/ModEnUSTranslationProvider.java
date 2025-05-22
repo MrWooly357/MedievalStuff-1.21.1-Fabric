@@ -8,6 +8,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import net.mrwooly357.medievalstuff.MedievalStuff;
 import net.mrwooly357.medievalstuff.block.ModBlocks;
+import net.mrwooly357.medievalstuff.entity.ModEntityTypes;
 import net.mrwooly357.medievalstuff.entity.effect.ModStatusEffects;
 import net.mrwooly357.medievalstuff.item.ModItems;
 import net.mrwooly357.medievalstuff.item.custom.weapons.hybrid.HybridWeaponClass;
@@ -54,6 +55,7 @@ public class ModEnUSTranslationProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.SILVER_BOOTS, "Silver Boots");
 
         translationBuilder.add(ModItems.JELLY_SPAWN_EGG, "Jelly Spawn Egg");
+        translationBuilder.add(ModItems.FALLEN_KNIGHT_SPAWN_EGG, "Fallen Knight Spawn Egg");
 
 
         //Item groups
@@ -75,6 +77,12 @@ public class ModEnUSTranslationProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.COPPERSTONE_HEATER, "Copperstone Heater");
         translationBuilder.add(ModBlocks.COPPER_TANK, "Copper Tank");
         translationBuilder.add(ModBlocks.COPPERSTONE_FORGE_CONTROLLER, "Copperstone Forge Controller");
+
+
+        //Entities
+        translationBuilder.add(ModEntityTypes.JELLY, "Jelly");
+        translationBuilder.add(ModEntityTypes.THROWN_COPPER_KHOPESH, "Copper Khopesh");
+        translationBuilder.add(ModEntityTypes.FALLEN_KNIGHT, "Fallen Knight");
 
 
         //Effects

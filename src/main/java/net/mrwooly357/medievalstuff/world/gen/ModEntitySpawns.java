@@ -23,7 +23,7 @@ public class ModEntitySpawns {
         );
 
         BiomeModifications.addSpawn(BiomeSelectors.tag(ModTags.Biomes.FALLEN_KNIGHT_SPAWNABLE),
-                SpawnGroup.MONSTER, ModEntityTypes.FALLEN_KNIGHT, 10,  1, 2
+                SpawnGroup.MONSTER, ModEntityTypes.FALLEN_KNIGHT, 50,  1, 2
         );
         SpawnRestriction.register(ModEntityTypes.FALLEN_KNIGHT, SpawnLocationTypes.ON_GROUND,
                 Heightmap.Type.WORLD_SURFACE, FallenKnightEntity::canSpawnInDark

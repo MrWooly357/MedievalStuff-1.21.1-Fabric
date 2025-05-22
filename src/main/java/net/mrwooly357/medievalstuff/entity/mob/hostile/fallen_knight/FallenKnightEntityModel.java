@@ -7,6 +7,7 @@ import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.util.Arm;
 
 public class FallenKnightEntityModel<T extends HostileEntity> extends BipedEntityModel<T> {
 
@@ -95,7 +96,24 @@ public class FallenKnightEntityModel<T extends HostileEntity> extends BipedEntit
     }
 
     public void renderTranslucent(MatrixStack matrices, VertexConsumer vertices, int light, int overlay) {
-        soulOuter.render(matrices, vertices, light, overlay);
+        soulInner.yaw = head.yaw;
+        soulInner.pitch = head.pitch;
+        soulInner.roll = head.roll;
         soulInner.render(matrices, vertices, light, overlay);
+        soulOuter.yaw = head.yaw;
+        soulOuter.pitch = head.pitch;
+        soulOuter.roll = head.roll;
+        soulOuter.render(matrices, vertices, light, overlay);
+    }
+
+    @Override
+    public void setArmAngle(Arm arm, MatrixStack matrices) {
+        float f = arm == Arm.RIGHT ? 1.0F : -1.0F;
+        ModelPart modelPart = getArm(arm);
+        modelPart.pivotX += f;
+
+        modelPart.rotate(matrices);
+
+        modelPart.pivotX -= f;
     }
 }

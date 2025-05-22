@@ -1,7 +1,7 @@
-// 1.21.1	2025-05-22T16:59:32.063615	Medieval Stuff/World Gen
+// 1.21.1	2025-05-22T21:58:39.2421272	Medieval Stuff/World Gen
 b3a7b0f61937895a31e70626276d2cb0f9dacb09 data\medievalstuff\worldgen\placed_feature\big_silver_ore_placed.json
-d470c6934d1ff44a49e02a45aeaf3e44f8a0efcd data\medievalstuff\worldgen\configured_feature\medium_silver_ore.json
 f6407902a2c79ca334d1ca1986eaf627d04000ea data\medievalstuff\worldgen\configured_feature\small_silver_ore.json
+d470c6934d1ff44a49e02a45aeaf3e44f8a0efcd data\medievalstuff\worldgen\configured_feature\medium_silver_ore.json
 0ef3caebe85869141fec9c9f4425c08ec2d56157 data\medievalstuff\worldgen\placed_feature\medium_silver_ore_placed.json
 0b2348762192bd2435f995590da2d1f3a45afa59 data\medievalstuff\worldgen\placed_feature\small_silver_ore_placed.json
 94dc2b53a218d84361cdd080693b695b06323b75 data\medievalstuff\worldgen\configured_feature\big_silver_ore.json

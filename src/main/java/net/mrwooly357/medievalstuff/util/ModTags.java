@@ -51,7 +51,7 @@ public class ModTags {
 
     public static class Biomes {
 
-        public static final TagKey<Biome> FALLEN_KNIGHT_SPAWNABLE = of("fallen_knight_spawns");
+        public static final TagKey<Biome> FALLEN_KNIGHT_SPAWNABLE = of("fallen_knight_spawnable");
 
 
         private static TagKey<Biome> of(String name) {

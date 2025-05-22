@@ -49,8 +49,16 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SILVER_BOOTS, Models.GENERATED);
 
         //Spawn items
-        itemModelGenerator.register(ModItems.JELLY_SPAWN_EGG,
-                new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
+        itemModelGenerator.register(
+                ModItems.JELLY_SPAWN_EGG, new Model(
+                        Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()
+                )
+        );
+        itemModelGenerator.register(
+                ModItems.FALLEN_KNIGHT_SPAWN_EGG, new Model(
+                        Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()
+                )
+        );
     }
 
     @Override

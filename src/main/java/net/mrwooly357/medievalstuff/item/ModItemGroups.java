@@ -113,14 +113,15 @@ public class ModItemGroups {
                         entries.add(ModBlocks.COPPERSTONE_FORGE_CONTROLLER);
                     }).build());
 
-    public static final ItemGroup MEDIEVALSTUFF_SPAWN_ITEMS = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(MedievalStuff.MOD_ID, "medievalstuff_spawn_items"),
-            FabricItemGroup.builder()
+    public static final ItemGroup MEDIEVALSTUFF_SPAWN_ITEMS = Registry.register(
+            Registries.ITEM_GROUP, Identifier.of(MedievalStuff.MOD_ID, "medievalstuff_spawn_items"), FabricItemGroup.builder()
                     .displayName(Text.translatable("itemgroup.medievalstuff.spawn_items"))
                     .icon(() -> new ItemStack(ModItems.JELLY_SPAWN_EGG))
                     .entries((displayContext, entries) -> {
                         entries.add(ModItems.JELLY_SPAWN_EGG);
-                    }).build());
+                        entries.add(ModItems.FALLEN_KNIGHT_SPAWN_EGG);
+                    }).build()
+    );
 
 
     public static void registerItemGroups() {
