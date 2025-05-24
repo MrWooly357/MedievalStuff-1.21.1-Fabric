@@ -62,10 +62,6 @@ public class FallenKnightEntityRenderer<T extends HostileEntity> extends BipedEn
     public void render(T entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         if (entity instanceof FallenKnightEntity fallenKnightEntity) {
 
-            if (!fallenKnightEntity.getDataTracker().get(FallenKnightEntity.CHARGING)) {
-                super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
-            }
-
             if (entity.isAlive()) {
                 matrices.push();
                 matrices.scale(1.0F, -1.0F, 1.0F);
@@ -75,13 +71,16 @@ public class FallenKnightEntityRenderer<T extends HostileEntity> extends BipedEn
                 RenderSystem.defaultBlendFunc();
                 model.renderSoul(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
 
-                if (fallenKnightEntity.getDataTracker().get(FallenKnightEntity.CHARGING)) {
-                    getModel().copyBipedStateTo(model);
+                if (fallenKnightEntity.isCharging()) {
                     model.renderBodyWithTranslucency(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
                 }
 
                 RenderSystem.disableBlend();
                 matrices.pop();
+            }
+
+            if (!fallenKnightEntity.isCharging()) {
+                super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
             }
         }
     }

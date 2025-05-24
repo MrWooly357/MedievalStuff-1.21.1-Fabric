@@ -62,7 +62,7 @@ public class ModUtil {
         return MathHelper.sqrt((float) (xDistance * xDistance + yDistance * yDistance + zDistance * zDistance));
     }
 
-    public static int rgbToPackedInteger(int red, int green, int blue) {
+    public static int rgbToPackedInt(int red, int green, int blue) {
         red = red & 0xFF;
         green = green & 0xFF;
         blue = blue & 0xFF;

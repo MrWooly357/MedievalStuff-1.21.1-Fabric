@@ -126,9 +126,4 @@ public class FallenKnightEntityModel<T extends HostileEntity> extends BipedEntit
 
         modelPart.pivotX -= f;
     }
-
-    @Override
-    public void copyBipedStateTo(BipedEntityModel<T> model) {
-        super.copyBipedStateTo(model);
-    }
 }

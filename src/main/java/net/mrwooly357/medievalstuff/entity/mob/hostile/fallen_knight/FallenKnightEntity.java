@@ -51,7 +51,7 @@ public class FallenKnightEntity extends HostileEntity implements GhostEntity {
     public static DefaultAttributeContainer createAttributes() {
         return HostileEntity.createHostileAttributes()
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 48)
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 30)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 40)
                 .add(EntityAttributes.GENERIC_ARMOR, 3)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 0.5)
@@ -278,7 +278,7 @@ public class FallenKnightEntity extends HostileEntity implements GhostEntity {
     public boolean canCharge() {
         LivingEntity target = getTarget();
 
-        return chargeCooldownTimer == 0 && target != null && target.isAlive() && ModUtil.getDistanceBetween(target.getX(), target.getY(), target.getZ(), getX(), getY(), getZ()) > 7.5 && !isShaking() && isDifficultySufficientForCharge(getWorld().getDifficulty()) && !isCharging;
+        return chargeCooldownTimer == 0 && target != null && target.isAlive() && ModUtil.getDistanceBetween(target.getX(), target.getY(), target.getZ(), getX(), getY(), getZ()) > 10.0 && !isShaking() && isDifficultySufficientForCharge(getWorld().getDifficulty()) && !isCharging;
     }
 
     public boolean isCharging() {
@@ -287,8 +287,6 @@ public class FallenKnightEntity extends HostileEntity implements GhostEntity {
 
     public void setCharging(boolean isCharging) {
         this.isCharging = isCharging;
-
-        dataTracker.set(CHARGING, isCharging);
     }
 
     public void setCharged(boolean charged) {
@@ -351,8 +349,8 @@ public class FallenKnightEntity extends HostileEntity implements GhostEntity {
 
             setCharging(false);
             setChargeCooldownTimer(100);
-            setCharged(true);
             setNoGravity(false);
+            dataTracker.set(CHARGING, false);
         }
 
         @Override
@@ -383,11 +381,13 @@ public class FallenKnightEntity extends HostileEntity implements GhostEntity {
                    Vec3d movement = direction.multiply(1.5);
 
                    setVelocity(movement);
+                   dataTracker.set(CHARGING, true);
 
                    velocityDirty = true;
                    velocityModified = true;
                    noClip = true;
                    setNoGravity(true);
+                   setCharged(true);
 
                    if (getBoundingBox().intersects(target.getBoundingBox())) {
                        target.damage(getDamageSources().mobAttack(attacker), getChargeDamage());

@@ -208,7 +208,7 @@ public class ModItems {
     );
     public static final Item FALLEN_KNIGHT_SPAWN_EGG = register(
             "fallen_knight_spawn_egg", new SpawnEggItem(
-                    ModEntityTypes.FALLEN_KNIGHT, ModUtil.rgbToPackedInteger(151, 151, 151), ModUtil.rgbToPackedInteger(27, 121, 193), new Item.Settings()
+                    ModEntityTypes.FALLEN_KNIGHT, ModUtil.rgbToPackedInt(151, 151, 151), ModUtil.rgbToPackedInt(27, 121, 193), new Item.Settings()
             )
     );
 
