@@ -35,6 +35,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.FIRE_CHARGE)
                 .add(Items.FLINT_AND_STEEL);
 
+        getOrCreateTagBuilder(ModTags.Items.DOOR_BREAKING)
+                .addTag(ItemTags.AXES)
+                .add(ModItems.SILVER_AXE);
+
         /* Vanilla */
         getOrCreateTagBuilder(ItemTags.PICKAXES)
                 .add(ModItems.SILVER_PICKAXE);

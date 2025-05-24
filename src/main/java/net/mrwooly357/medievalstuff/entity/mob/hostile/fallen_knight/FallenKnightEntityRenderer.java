@@ -5,8 +5,6 @@ import net.minecraft.client.render.*;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRenderer;
-import net.minecraft.client.render.entity.feature.HeldItemFeatureRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.mob.HostileEntity;
@@ -62,19 +60,29 @@ public class FallenKnightEntityRenderer<T extends HostileEntity> extends BipedEn
 
     @Override
     public void render(T entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
-        super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
+        if (entity instanceof FallenKnightEntity fallenKnightEntity) {
 
-        if (entity.isAlive()) {
-            matrices.push();
-            matrices.scale(1.0F, -1.0F, 1.0F);
-            matrices.translate(0.0F, -1.5F, 0.0F);
-            VertexConsumer vertexConsumer = vertexConsumers.getBuffer(EMISSIVE_TRANSLUCENT);
+            if (!fallenKnightEntity.getDataTracker().get(FallenKnightEntity.CHARGING)) {
+                super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
+            }
 
-            RenderSystem.enableBlend();
-            RenderSystem.defaultBlendFunc();
-            model.renderTranslucent(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
-            RenderSystem.disableBlend();
-            matrices.pop();
+            if (entity.isAlive()) {
+                matrices.push();
+                matrices.scale(1.0F, -1.0F, 1.0F);
+                matrices.translate(0.0F, -1.5F, 0.0F);
+                VertexConsumer vertexConsumer = vertexConsumers.getBuffer(EMISSIVE_TRANSLUCENT);
+                RenderSystem.enableBlend();
+                RenderSystem.defaultBlendFunc();
+                model.renderSoul(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
+
+                if (fallenKnightEntity.getDataTracker().get(FallenKnightEntity.CHARGING)) {
+                    getModel().copyBipedStateTo(model);
+                    model.renderBodyWithTranslucency(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
+                }
+
+                RenderSystem.disableBlend();
+                matrices.pop();
+            }
         }
     }
 }

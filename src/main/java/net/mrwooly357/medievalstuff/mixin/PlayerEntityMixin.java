@@ -45,9 +45,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     }
 
 
-    @Inject(method = "attack", at = @At(value = "HEAD"))
+    @Inject(method = "attack", at = @At(value = "HEAD"), cancellable = true)
     public void attack(Entity target, CallbackInfo callbackInfo) {
-        boolean shouldContinue = true;
         ItemStack stackInHand = getStackInHand(Hand.MAIN_HAND);
         Item itemInHand = stackInHand.getItem();
 
@@ -237,8 +236,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                 }
             }
 
-            shouldContinue = false;
-
         } else  {
             if (target.isAttackable()) {
 
@@ -425,13 +422,10 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                     }
                 }
 
-                shouldContinue = false;
             }
         }
 
-        if (!shouldContinue) {
-            return;
-        }
+        callbackInfo.cancel();
     }
 
     public float getDamageAgainst(Entity target, float baseDamage, DamageSource damageSource) {

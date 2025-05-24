@@ -1,10 +1,13 @@
-// 1.21.1	2025-05-22T21:58:39.2461284	Medieval Stuff/Tags for minecraft:block
-40d26d03a814785fa0373d9dec15b530b05c8f78 data\minecraft\tags\block\mineable\pickaxe.json
+// 1.21.1	2025-05-24T12:21:13.8001187	Medieval Stuff/Tags for minecraft:block
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\mineable\axe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\mineable\hoe.json
+42d0c4561a6541cb8efe8695b0232c99e20aba17 data\medievalstuff\tags\block\wooden_doors.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\mineable\shovel.json
+219d088f3483bd00abb51042afbedf1938aee294 data\minecraft\tags\block\needs_stone_tool.json
+c7f2d154bc8834866dc7add4156f17a003fe4a01 data\medievalstuff\tags\block\metal_doors.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\walls.json
+40d26d03a814785fa0373d9dec15b530b05c8f78 data\minecraft\tags\block\mineable\pickaxe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\logs_that_burn.json
 19210d34b59e3d794d0b65354ed58542c159fc04 data\minecraft\tags\block\needs_iron_tool.json
-219d088f3483bd00abb51042afbedf1938aee294 data\minecraft\tags\block\needs_stone_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\medievalstuff\tags\block\needs_silver_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\needs_diamond_tool.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\walls.json

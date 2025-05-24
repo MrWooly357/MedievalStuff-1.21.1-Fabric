@@ -1,4 +1,4 @@
-// 1.21.1	2025-05-22T21:58:39.2451277	Medieval Stuff/Model Definitions
+// 1.21.1	2025-05-24T12:21:13.7981179	Medieval Stuff/Model Definitions
 4f26b41cabfd1ad756eb85dcceae617ffc08070d assets\medievalstuff\models\item\piece_of_jelly.json
 db1b026aaac5be6bb70216e1923c5f54a5f71561 assets\medievalstuff\models\item\silver_hoe.json
 50d2b2fe21e3b358348ec44e6657cc0e180f0ce2 assets\medievalstuff\models\item\silver_axe.json
@@ -21,8 +21,8 @@ a26bcba4edff409530d5ff972c70cb2927df78d1 assets\medievalstuff\models\item\raw_si
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\medievalstuff\models\item\jelly_spawn_egg.json
 af37cc0759a3301ba1b3b9e49f39c62f2e18df1f assets\medievalstuff\models\item\silver_chestplate.json
 d231e60c8e3918007bc01f8642d18809debed0f6 assets\medievalstuff\models\item\silver_dagger.json
-99eabb9f67c473575a6fd1d35bbf815851f22f74 assets\medievalstuff\models\item\silver_helmet.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\medievalstuff\models\item\fallen_knight_spawn_egg.json
+99eabb9f67c473575a6fd1d35bbf815851f22f74 assets\medievalstuff\models\item\silver_helmet.json
 1390e718fa90b9883493afeb1e8214a860342b1f assets\medievalstuff\blockstates\deepslate_silver_ore.json
 e4563bbc711595aecb1a4cb4f5dcd054ce16a4e5 assets\medievalstuff\models\item\silver_sword.json
 3aee4020ae8ca7ec962b82c01bf2bb4d491cb3e7 assets\medievalstuff\models\block\silver_ore.json

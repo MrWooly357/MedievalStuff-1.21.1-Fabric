@@ -18,6 +18,7 @@ public class ModTags {
         public static final TagKey<Item> HEATER_FUEL_EXCEPTIONS = createItemTag("heater_fuel_exceptions");
         public static final TagKey<Item> HEATER_ARSONISTS = createItemTag("heater_arsonists");
         public static final TagKey<Item> HEATER_CRAFTING_RECIPE_FUEL = createItemTag("heater_crafting_recipe_fuel");
+        public static final TagKey<Item> DOOR_BREAKING = createItemTag("door_breaking");
 
 
         private static TagKey<Item> createItemTag(String name) {
@@ -29,9 +30,9 @@ public class ModTags {
 
         public static final TagKey<Block> NEEDS_SILVER_TOOL = createBlockTag("needs_silver_tool");
         public static final TagKey<Block> INCORRECT_FOR_SILVER_TOOL = createBlockTag("incorrect_for_silver_tool");
-        public static final TagKey<Block> NEEDS_SACRED_TOOL = createBlockTag("needs_sacred_tool");
-        public static final TagKey<Block> INCORRECT_FOR_SACRED_TOOL = createBlockTag("incorrect_for_sacred_tool");
         public static final TagKey<Block> FLUIDS = createBlockTag("fluids");
+        public static final TagKey<Block> WOODEN_DOORS = createBlockTag("wooden_doors");
+        public static final TagKey<Block> METAL_DOORS = createBlockTag("metal_doors");
 
         private static TagKey<Block> createBlockTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(MedievalStuff.MOD_ID, name));

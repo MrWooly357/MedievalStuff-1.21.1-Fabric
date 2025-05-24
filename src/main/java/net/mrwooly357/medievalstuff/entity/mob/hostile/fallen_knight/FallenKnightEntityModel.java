@@ -95,7 +95,7 @@ public class FallenKnightEntityModel<T extends HostileEntity> extends BipedEntit
         super.render(matrices, vertices, light, overlay, color);
     }
 
-    public void renderTranslucent(MatrixStack matrices, VertexConsumer vertices, int light, int overlay) {
+    public void renderSoul(MatrixStack matrices, VertexConsumer vertices, int light, int overlay) {
         soulInner.yaw = head.yaw;
         soulInner.pitch = head.pitch;
         soulInner.roll = head.roll;
@@ -104,6 +104,16 @@ public class FallenKnightEntityModel<T extends HostileEntity> extends BipedEntit
         soulOuter.pitch = head.pitch;
         soulOuter.roll = head.roll;
         soulOuter.render(matrices, vertices, light, overlay);
+    }
+
+    public void renderBodyWithTranslucency(MatrixStack matrices, VertexConsumer vertices, int light, int overlay) {
+        head.render(matrices, vertices, light, overlay);
+        hat.render(matrices, vertices, light, overlay);
+        body.render(matrices, vertices, light, overlay);
+        rightArm.render(matrices, vertices, light, overlay);
+        leftArm.render(matrices, vertices, light, overlay);
+        rightLeg.render(matrices, vertices, light, overlay);
+        leftLeg.render(matrices, vertices, light, overlay);
     }
 
     @Override
@@ -115,5 +125,10 @@ public class FallenKnightEntityModel<T extends HostileEntity> extends BipedEntit
         modelPart.rotate(matrices);
 
         modelPart.pivotX -= f;
+    }
+
+    @Override
+    public void copyBipedStateTo(BipedEntityModel<T> model) {
+        super.copyBipedStateTo(model);
     }
 }

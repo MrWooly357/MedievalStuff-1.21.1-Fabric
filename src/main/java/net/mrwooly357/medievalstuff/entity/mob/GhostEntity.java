@@ -9,8 +9,8 @@ import net.mrwooly357.medievalstuff.entity.effect.ModStatusEffects;
  */
 public interface GhostEntity {
 
-    default boolean isAffectedBySun() {
-        return true;
+    default boolean isAffectedBySun(Entity entity) {
+        return entity.getWorld().isDay() && !entity.getWorld().isRaining() && !entity.getWorld().isThundering() && entity.getWorld().isSkyVisible(entity.getBlockPos());
     }
 
     int defaultSunburnTime();
@@ -21,10 +21,6 @@ public interface GhostEntity {
 
     default boolean isAffectedBySoulDecay() {
         return true;
-    }
-
-    default boolean canPhase() {
-        return false;
     }
 
     boolean isShaking();

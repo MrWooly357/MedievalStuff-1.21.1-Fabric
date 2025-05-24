@@ -11,6 +11,7 @@ public interface ModDamageTypes {
 
     RegistryKey<DamageType> PRICKLE = of("prickle");
     RegistryKey<DamageType> SOUL_DECAY = of("soul_decay");
+    RegistryKey<DamageType> FALLEN_KNIGHT_CHARGE = of("fallen_knight_charge");
 
 
     private static RegistryKey<DamageType> of(String name) {
